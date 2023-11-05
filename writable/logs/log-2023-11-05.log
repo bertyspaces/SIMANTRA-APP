@@ -1,0 +1,229 @@
+INFO - 2023-11-05 16:04:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 16:04:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 16:04:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 16:04:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 16:04:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 16:04:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 16:04:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 16:04:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 16:06:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 16:06:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 16:06:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 16:06:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 16:06:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 16:07:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 16:07:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 16:08:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 16:08:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 16:08:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-11-05 17:13:24 --> mysqli_sql_exception: Unknown table 'simantra.mitra' in C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('DROP TABLE `mit...', 0)
+#1 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DROP TABLE `mit...')
+#2 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DROP TABLE `mit...')
+#3 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\Forge.php(637): CodeIgniter\Database\BaseConnection->query('DROP TABLE `mit...')
+#4 C:\xampp\htdocs\simantra-app\app\Database\Migrations\2023-11-05-170207_AddMitra.php(48): CodeIgniter\Database\Forge->dropTable('mitra')
+#5 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\AddMitra->down()
+#6 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(295): CodeIgniter\Database\MigrationRunner->migrate('down', Object(stdClass))
+#7 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\MigrateRollback.php(86): CodeIgniter\Database\MigrationRunner->regress(0)
+#8 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\MigrateRollback->run(Array)
+#9 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\BaseCommand.php(115): CodeIgniter\CLI\Commands->run('migrate:rollbac...', Array)
+#10 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\MigrateRefresh.php(84): CodeIgniter\CLI\BaseCommand->call('migrate:rollbac...', Array)
+#11 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 C:\xampp\htdocs\simantra-app\spark(102): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-11-05 17:19:26 --> mysqli_sql_exception: Unknown table 'simantra.mitra' in C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('DROP TABLE `mit...', 0)
+#1 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DROP TABLE `mit...')
+#2 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DROP TABLE `mit...')
+#3 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\Forge.php(637): CodeIgniter\Database\BaseConnection->query('DROP TABLE `mit...')
+#4 C:\xampp\htdocs\simantra-app\app\Database\Migrations\2023-11-05-170207_AddMitra.php(48): CodeIgniter\Database\Forge->dropTable('mitra')
+#5 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\AddMitra->down()
+#6 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(295): CodeIgniter\Database\MigrationRunner->migrate('down', Object(stdClass))
+#7 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\MigrateRollback.php(86): CodeIgniter\Database\MigrationRunner->regress(0)
+#8 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\MigrateRollback->run(Array)
+#9 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\BaseCommand.php(115): CodeIgniter\CLI\Commands->run('migrate:rollbac...', Array)
+#10 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\MigrateRefresh.php(84): CodeIgniter\CLI\BaseCommand->call('migrate:rollbac...', Array)
+#11 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 C:\xampp\htdocs\simantra-app\spark(102): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-11-05 17:21:49 --> mysqli_sql_exception: Table 'mitra' already exists in C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `m...', 0)
+#1 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `m...')
+#2 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `m...')
+#3 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `m...')
+#4 C:\xampp\htdocs\simantra-app\app\Database\Migrations\2023-11-05-170207_AddMitra.php(44): CodeIgniter\Database\Forge->createTable('mitra')
+#5 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\AddMitra->up()
+#6 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\BaseCommand.php(115): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 C:\xampp\htdocs\simantra-app\spark(102): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-11-05 17:29:07 --> mysqli_sql_exception: Table 'mitra' already exists in C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `m...', 0)
+#1 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `m...')
+#2 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `m...')
+#3 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `m...')
+#4 C:\xampp\htdocs\simantra-app\app\Database\Migrations\2023-11-05-170207_AddMitra.php(44): CodeIgniter\Database\Forge->createTable('mitra')
+#5 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\AddMitra->up()
+#6 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\simantra-app\spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-11-05 17:29:46 --> mysqli_sql_exception: Table 'mitra' already exists in C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `m...', 0)
+#1 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `m...')
+#2 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `m...')
+#3 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `m...')
+#4 C:\xampp\htdocs\simantra-app\app\Database\Migrations\2023-11-05-170207_AddMitra.php(44): CodeIgniter\Database\Forge->createTable('mitra')
+#5 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\AddMitra->up()
+#6 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\simantra-app\spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-11-05 17:29:55 --> mysqli_sql_exception: Table 'mitra' already exists in C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `m...', 0)
+#1 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `m...')
+#2 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `m...')
+#3 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `m...')
+#4 C:\xampp\htdocs\simantra-app\app\Database\Migrations\2023-11-05-170207_AddMitra.php(44): CodeIgniter\Database\Forge->createTable('mitra')
+#5 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\AddMitra->up()
+#6 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\BaseCommand.php(115): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 C:\xampp\htdocs\simantra-app\spark(102): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-11-05 17:31:26 --> mysqli_sql_exception: Table 'mitra' already exists in C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `m...', 0)
+#1 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `m...')
+#2 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `m...')
+#3 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `m...')
+#4 C:\xampp\htdocs\simantra-app\app\Database\Migrations\2023-11-05-170207_AddMitra.php(44): CodeIgniter\Database\Forge->createTable('mitra')
+#5 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\AddMitra->up()
+#6 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\simantra-app\spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-11-05 17:31:48 --> mysqli_sql_exception: Table 'mitra' already exists in C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `m...', 0)
+#1 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `m...')
+#2 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `m...')
+#3 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `m...')
+#4 C:\xampp\htdocs\simantra-app\app\Database\Migrations\2023-11-05-170207_AddMitra.php(44): CodeIgniter\Database\Forge->createTable('mitra')
+#5 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\AddMitra->up()
+#6 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\BaseCommand.php(115): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 C:\xampp\htdocs\simantra-app\spark(102): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-11-05 17:34:00 --> mysqli_sql_exception: Table 'mitra' already exists in C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `m...', 0)
+#1 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `m...')
+#2 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `m...')
+#3 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `m...')
+#4 C:\xampp\htdocs\simantra-app\app\Database\Migrations\2023-11-05-170207_AddMitra.php(44): CodeIgniter\Database\Forge->createTable('mitra')
+#5 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\AddMitra->up()
+#6 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\simantra-app\spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-11-05 17:34:26 --> mysqli_sql_exception: Table 'mitra' already exists in C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `m...', 0)
+#1 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `m...')
+#2 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `m...')
+#3 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `m...')
+#4 C:\xampp\htdocs\simantra-app\app\Database\Migrations\2023-11-05-170207_AddMitra.php(44): CodeIgniter\Database\Forge->createTable('mitra')
+#5 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\AddMitra->up()
+#6 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\simantra-app\spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-11-05 17:34:31 --> mysqli_sql_exception: Table 'mitra' already exists in C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `m...', 0)
+#1 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `m...')
+#2 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `m...')
+#3 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `m...')
+#4 C:\xampp\htdocs\simantra-app\app\Database\Migrations\2023-11-05-170207_AddMitra.php(44): CodeIgniter\Database\Forge->createTable('mitra')
+#5 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\AddMitra->up()
+#6 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\BaseCommand.php(115): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 C:\xampp\htdocs\simantra-app\spark(102): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-11-05 17:37:58 --> mysqli_sql_exception: Table 'kegiatan' already exists in C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `k...', 0)
+#1 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `k...')
+#2 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `k...')
+#3 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `k...')
+#4 C:\xampp\htdocs\simantra-app\app\Database\Migrations\2023-11-05-172336_AddKegiatan.php(36): CodeIgniter\Database\Forge->createTable('kegiatan')
+#5 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\AddKegiatan->up()
+#6 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\BaseCommand.php(115): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 C:\xampp\htdocs\simantra-app\spark(102): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-11-05 17:43:10 --> mysqli_sql_exception: Table 'kegiatan' already exists in C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `k...', 0)
+#1 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `k...')
+#2 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `k...')
+#3 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `k...')
+#4 C:\xampp\htdocs\simantra-app\app\Database\Migrations\2023-11-05-170207_AddMitra.php(69): CodeIgniter\Database\Forge->createTable('kegiatan')
+#5 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(873): App\Database\Migrations\AddMitra->up()
+#6 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\simantra-app\vendor\codeigniter4\framework\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\simantra-app\spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+INFO - 2023-11-05 18:21:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 18:21:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 18:21:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 18:21:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 21:16:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 21:16:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 21:44:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-11-05 21:44:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
