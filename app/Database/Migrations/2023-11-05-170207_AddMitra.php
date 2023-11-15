@@ -38,10 +38,15 @@ class AddMitra extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '50',
             ],
+            'kategori' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '20',
+            ],
 
         ]);
         $this->forge->addKey('nik', true);
         $this->forge->createTable('mitra');
+
         $this->forge->addField([
             'id_kegiatan' => [
                 'type'           => 'int',
@@ -51,11 +56,7 @@ class AddMitra extends Migration
                 'type'       => 'varchar',
                 'constraint' => '50',
             ],
-            'jenis_kelamin' => [
-                'type'       => 'char',
-                'constraint' => '100',
-            ],
-            'devisi' => [
+            'divisi' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '20',
             ],

@@ -7,7 +7,7 @@
     <title>SIMANTRA-BPS</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="shortcut icon" type="image/png" href="/img/logo_simantra.png">
+    <link rel="shortcut icon" type="image/png" href="/img/logo-favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?= base_url() ?>/plugins/fontawesome-free/css/all.min.css">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-color:#74c2e1; ">
     <?= $this->renderSection('content') ?>
     <!-- /.login-box -->
 

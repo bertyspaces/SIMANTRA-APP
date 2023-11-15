@@ -11,8 +11,9 @@
         <!-- Navbar Search -->
 
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="/logout" class="nav-link btn btn-primary">Logout</a>
+            <a href="/logout"> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-primary">
+                    logout
+                </button></a>
         </li>
-
     </ul>
 </nav>

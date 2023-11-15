@@ -1,14 +1,11 @@
 <?= $this->extend('auth/templates/index'); ?>
 
 <?= $this->section('content'); ?>
-<div class="login-box">
+<div class="login-box" style="width: responsive; ">
 
     <!-- /.login-logo -->
-    <div class="card">
-        <center><img src="/img/logo_simantra.png" width="30%"></center>
-        <div class="login-logo">
-            <a href="../../index2.html"><b>SIMANTRA-BPS</b></a>
-        </div>
+    <div class="card " style="color: aqua;">
+        <center><img src="/img/logo2.png" width="70%" style="padding-top: 10%;"></center>
         <div class="card-body login-card-body">
 
             <?= view('Myth\Auth\Views\_message_block') ?>
@@ -17,6 +14,7 @@
 
                 <?php if ($config->validFields === ['email']) : ?>
                     <div class="form-group">
+
                         <label for="login"><?= lang('Auth.email') ?></label>
                         <input type="email" class="form-control <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" name="login" placeholder="<?= lang('Auth.email') ?>">
                         <div class="invalid-feedback">

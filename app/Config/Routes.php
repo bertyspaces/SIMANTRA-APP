@@ -21,3 +21,5 @@ $routes->group('', ['filter' => 'login'], function ($routes) {
         $routes->get('/', 'User::index',);
     });
 });
+$routes->get('/kegiatan/edit/(:num)', 'Kegiatan::edit/$1');
+$routes->post('/kegiatan/update', 'Kegiatan::update');

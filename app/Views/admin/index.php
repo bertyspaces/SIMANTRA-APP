@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div>
-                <h1 class="m-0">Sistem Manajemen Mitra BPS Kota Pekalongan</h1>
+                <h1 class="m-0">Sistem Manajemen Penilaian Mitra BPS Kota Pekalongan</h1>
                 <p>Halaman Admin</p>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -78,13 +78,11 @@
             </div>
             <!-- ./col -->
         </div>
-        <!-- /.row -->
-        <!-- Main row -->
-        <div class="row">
-            <!-- Left col -->
 
-        </div>
-        <!-- /.row (main row) -->
+
+
+    </div>
+    <!-- /.row (main row) -->
     </div><!-- /.container-fluid -->
 </section>
 <?= $this->endSection() ?>
