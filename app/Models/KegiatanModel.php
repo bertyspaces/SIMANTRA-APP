@@ -11,7 +11,7 @@ class KegiatanModel extends Model
     protected $useAutoIncrement = true;
     protected $allowedFields    = ['nama_kegiatan', 'divisi', 'periode'];
 
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
     protected $createdField  = 'id_kegiatan';
     protected $updatedField  = ['nama_kegiatan', 'divisi', 'periode'];
 }

@@ -52,11 +52,11 @@
                                         <td><?= $k['nama_kegiatan'] ?>
                                         </td>
                                         <td><?= $k['divisi'] ?></td>
-                                        <td> <?= $k['nama_kegiatan'] ?></td>
+                                        <td> <?= $k['periode'] ?></td>
                                         <td>
 
                                             <a href="<?= base_url() ?>kegiatan/edit/<?= $k['id_kegiatan'] ?>" class="btn btn-warning">Edit</a>
-                                            <a href="<?= base_url() ?>kegiatan/hapus/<?= $k['id_kegiatan'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus kegiatan ini?')">Hapus</a>
+                                            <a href="<?= base_url() ?>kegiatan/delete/<?= $k['id_kegiatan'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus kegiatan ini?')">Hapus</a>
                                         </td>
                                     </tr>
                                 <?php } ?>

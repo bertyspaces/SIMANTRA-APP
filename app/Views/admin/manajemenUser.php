@@ -24,7 +24,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                       
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -75,7 +75,7 @@
 
 
 
-<form action="<?= base_url(); ?>/User/changeGroup" method="post">
+<form action="<?= base_url(); ?>admin/changeGroup" method="post">
     <div class="modal fade" id="changeGroupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Data Mitra Lapangan BPS Kota Pekalongan</h1>
+                <h1>Data Mitra BPS Kota Pekalongan</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -47,13 +47,12 @@
                                     <th>Umur</th>
                                     <th>Pendidikan</th>
                                     <th>Email</th>
-                                    <th>Kategori</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1; ?>
-                                <?php foreach ($mitra_lapangan as $ml) { ?>
+                                <?php foreach ($data_mitra as $ml) { ?>
                                     <tr>
                                         <td><?= $i++ ?></td>
                                         <td><?= $ml['nik'] ?>
@@ -64,7 +63,7 @@
                                         <td> <?= $ml['umur'] ?></td>
                                         <td> <?= $ml['pendidikan'] ?></td>
                                         <td> <?= $ml['email'] ?></td>
-                                        <td> <?= $ml['kategori'] ?></td>
+                                
                                         <td>
 
                                             <a href="<?= base_url() ?>mitra_lapangan/edit/<?= $ml['nik'] ?>" class="btn btn-warning">Edit</a>

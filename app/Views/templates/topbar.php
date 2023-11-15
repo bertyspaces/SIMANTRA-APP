@@ -9,11 +9,22 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+                <i class="nav-icon fas fa-user-circle mx-2"></i> <?= user()->username ?>
+            </a>
 
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="/logout"> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-primary">
-                    logout
-                </button></a>
+
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
+                <span class="dropdown-item dropdown-header"><?= user()->roles['2'] ?></span>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                    <i class="fas fa-user mr-2"></i> Profile
+                    <!-- <span class="float-right text-muted text-sm">3 mins</span> -->
+                </a>
+               
+                <a href="/logout" class="dropdown-item dropdown-footer bg-danger">logout</a>
+            </div>
         </li>
     </ul>
 </nav>

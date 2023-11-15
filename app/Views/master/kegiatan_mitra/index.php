@@ -30,25 +30,27 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Kegiatan</th>
-                                    <th>Periode</th>
-                                    <th>Penanggung Jawab</th>
-                                    <th>Aksi</th>
+                                    <th>divisi</th>
+                                    <th>periode</th>
+                                 
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 4.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td> 4</td>
-                                    <td>
-                                        <a href="" class="btn btn-success">Tambah</a>
-                                        <a href="" class="btn btn-warning">Edit</a>
-                                        <a href="" class="btn btn-danger">Hapus</a>
-                                    </td>
-                                </tr>
+                            
+                                    <?php $i = 1 ?>
+                                    <?php foreach ($kegiatan_mitra as $k) { ?>
+                                        <tr>
+                                        <td><?= $i++ ?></td>
+                                        <td><a href="<?=base_url('kegiatan_mitra/detail/')?><?=$k['id_kegiatan']?>"><?= $k['nama_kegiatan'] ?></a></td>
+                                        <td><?= $k['divisi'] ?>
+                                        </td>
+
+                                        <td><?= $k['periode']?> </td>
+                                        </tr>
+                                    <?php  } ?>
+
+
+                              
                             </tbody>
                         </table>
                     </div>

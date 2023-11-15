@@ -2,11 +2,33 @@
 
 namespace App\Controllers;
 
+use App\Models\KegiatanMitraModel;
+use App\Models\KegiatanModel;
+
 class Kegiatan_Mitra extends BaseController
 {
     public function index()
     {
+        $model = new KegiatanModel();
+        $kegiatan_mitra = $model->findAll();
+       
+        return view('/master/kegiatan_mitra/index', [
+            'kegiatan_mitra' => $kegiatan_mitra
+        ]);
+    }
+    public function detail($id){
+        $model = new KegiatanMitraModel();
 
-        return view('/master/kegiatan_mitra');
+       
+        $lapangan= $model->getKegitanMitra('lapangan',$id);
+        $pengolahan= $model->getKegitanMitra('pengolahan',$id);
+        $model = new KegiatanModel();
+        $nama_kegiatan = $model->find($id);
+      
+        return view('/master/kegiatan_mitra/detail',[
+            'lapangan' => $lapangan,
+            'pengolahan'=>$pengolahan,
+            'kegiatan'=>$nama_kegiatan
+        ]);
     }
 }

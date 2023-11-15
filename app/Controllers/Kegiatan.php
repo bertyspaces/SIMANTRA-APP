@@ -10,6 +10,7 @@ class Kegiatan extends BaseController
 
     public function index()
     {
+        
         $model = new KegiatanModel();
         $kegiatan = $model->findAll();
         return view('/master/kegiatan/index', [
@@ -50,7 +51,7 @@ class Kegiatan extends BaseController
         $KegiatanModel = new KegiatanModel();
         $data['kegiatan'] = $KegiatanModel->find($id_kegiatan);
 
-        return view('kegiatan/edit', $data);
+        return view('master/kegiatan/edit', $data);
     }
     public function update()
     {
@@ -76,7 +77,6 @@ class Kegiatan extends BaseController
         // Proses penghapusan data kegiatan berdasarkan ID
         $kegiatanModel = new KegiatanModel();
         $kegiatanModel->delete($id_kegiatan);
-
-        return redirect()->to('/kegiatan/hapus');
+        return redirect()->to('/kegiatan');
     }
 }

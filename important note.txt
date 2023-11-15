@@ -1,0 +1,20 @@
+kekurangan:
+[admin]
+1.profile ,menampilkan role user yang login
+2. tampilan dashboard
+3. 
+4.data mitra : CRUD
+5. data bobot dan kriteria :CRUD
+6. kegiatan mitra ->tombol edit dan hapus di daftar mitra
+7. data pengguna :register user, change passowrd
+8.nilai kegiatan mitra:CRUD
+9. nilai ranking :CRID
+10. rekap nilai mitra :CRUD
+
+
+[pml]
+1. penilaian : CRUD
+
+
+nb:ORA DADI NEK ORA DIKERJAKE !!!!
+

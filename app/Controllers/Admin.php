@@ -43,6 +43,6 @@ class Admin extends BaseController
 
         $groupModel->addUserToGroup(intval($userId), intval($groupId));
 
-        return redirect()->to(base_url('admin/index'));
+        return redirect()->to(base_url('admin/manajemenUser'));
     }
 }

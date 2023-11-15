@@ -10,7 +10,7 @@
                 <h3 class="card-title">Edit Kegiatan</h3>
             </div>
 
-            <form id="quickForm" action="<?= base_url() ?>kegiatan/edit" method="post">
+            <form id="quickForm" action="<?= base_url() ?>kegiatan/update" method="post">
                 <div class="card-body">
                     <!-- Tambahkan input hidden untuk menyimpan ID kegiatan -->
                     <input type="hidden" name="id_kegiatan" value="<?= $kegiatan['id_kegiatan']; ?>">

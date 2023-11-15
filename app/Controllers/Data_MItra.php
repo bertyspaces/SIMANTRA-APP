@@ -2,17 +2,18 @@
 
 namespace App\Controllers;
 
+use App\Models\DataMitraModel;
 use App\Models\MitraLapanganModel;
 
-class Mitra_Lapangan extends BaseController
+class Data_Mitra extends BaseController
 {
     public function index()
     {
 
-        $model = new MitraLapanganModel();
-        $mitra_lapangan = $model->where('kategori', 'mitra lapangan')->findAll();
-        return view('/master/mitra_lapangan/index', [
-            'mitra_lapangan' => $mitra_lapangan
+        $model = new DataMitraModel();
+        $data_mitra = $model->findAll();
+        return view('/master/data_mitra/index', [
+            'data_mitra' => $data_mitra
         ]);
     }
     public function tambah()
@@ -25,12 +26,12 @@ class Mitra_Lapangan extends BaseController
 
 
         ];
-        return view('/master/mitra_lapangan/tambah', $data);
+        return view('/master/data_mitra/tambah', $data);
     }
     public function simpan()
     {
 
-        $model = new MitraLapanganModel();
+        $model = new DataMitraModel();
 
         $data = [
             'nik' => $this->request->getVar('nik'),
@@ -40,11 +41,10 @@ class Mitra_Lapangan extends BaseController
             'umur' => $this->request->getVar('umur'),
             'pendidikan' => $this->request->getVar('pendidikan'),
             'email' => $this->request->getVar('email'),
-            'kategori' => 'mitra lapangan',
         ];
 
         $model->insert($data);
-        session()->setFlashdata('pesan_tambah', 'Data Mitra Lapangan berhasil ditambah');
-        return redirect()->to('mitra_lapangan');
+        session()->setFlashdata('pesan_tambah', 'Data Mitra berhasil ditambah');
+        return redirect()->to('data_mitra');
     }
 }
