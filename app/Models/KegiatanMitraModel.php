@@ -9,11 +9,11 @@ class KegiatanMitraModel extends Model
     protected $table            = 'kegiatan_mitra';
     protected $primaryKey       = 'id_kegiatan_mitra';
     protected $useAutoIncrement = true;
-    protected $allowedFields    = ['nama_kegiatan', 'divisi', 'periode'];
+    protected $allowedFields    = ['nik', 'kategori', 'id_kegiatan'];
 
     protected $useTimestamps = false;
     protected $createdField  = 'id_kegiatan';
-    protected $updatedField  = ['nama_kegiatan', 'divisi', 'periode'];
+    protected $updatedField  = ['nik', 'kategori', 'id_kegiatan'];
 
     public function getKegitanMitra($kategoriMitra = null , $idKegitan=null)
     {

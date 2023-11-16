@@ -57,8 +57,8 @@
                                         <td>
 
                                             <a href="<?= base_url() ?>bobot_kriteria/edit/<?= $bk['kode'] ?>" class="btn btn-warning">Edit</a>
-                                            <a href="<?= base_url() ?>bobot__kriteria/hapus/<?= $bk['kode'] ?>" class="btn btn-danger">Hapus</a>
-                                        </td>
+                                            <a href="<?= base_url() ?>bobot_kriteria/hapus/<?= $bk['kode'] ?>" class="btn btn-danger">Hapus</a>
+                                        </td
                                     </tr>
                                 <?php } ?>
 

@@ -16,7 +16,7 @@
 
 
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
-                <span class="dropdown-item dropdown-header"><?= user()->roles['2'] ?></span>
+                <span class="dropdown-item dropdown-header">xxx</span>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
                     <i class="fas fa-user mr-2"></i> Profile

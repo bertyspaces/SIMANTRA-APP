@@ -66,7 +66,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url() ?>bobot_kriteria/index" class="nav-link">
                                 <i class="nav-icon fas fa-tasks"></i>
                                 <p>Data Bobot & kriteria</p>
                             </a>
@@ -124,7 +124,7 @@
                 <?php if (in_groups('pml')) { ?>
                 <li class="nav-header">MAIN</li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="pilih_kegiatan" class="nav-link">
                         <i class="fas fa-clipboard-list nav-icon"></i>
                         <p>Penilaian</p>
                     </a>

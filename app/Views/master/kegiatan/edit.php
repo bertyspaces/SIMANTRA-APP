@@ -24,11 +24,11 @@
                         <label>Divisi</label>
                         <select class="form-control" name="divisi" required>
                             <option disabled>--Pilih Devisi Kegiatan--</option>
-                            <option value="Statisi Produksi" <?= ($kegiatan['divisi'] == 'Statisi Produksi') ? 'selected' : ''; ?>>Statisi Produksi</option>
-                            <option value="Statisi Distribusi" <?= ($kegiatan['divisi'] == 'Statisi Distribusi') ? 'selected' : ''; ?>>Statisi Distribusi</option>
-                            <option value="Statisi Sosial" <?= ($kegiatan['divisi'] == 'Statisi Sosial') ? 'selected' : ''; ?>>Statisi Sosial</option>
-                            <option value="Nerwilis" <?= ($kegiatan['divisi'] == 'Nerwilis') ? 'selected' : ''; ?>>Nerwilis</option>
-                            <option value="IPDS" <?= ($kegiatan['divisi'] == 'IPDS') ? 'selected' : ''; ?>>IPDS</option>
+                            <option value="Statisi Produksi <?= ($kegiatan['divisi'] == 'Statisi Produksi') ? 'selected' : ''; ?>">Statisi Produksi</option>
+                            <option value="Statisi Distribusi <?= ($kegiatan['divisi'] == 'Statisi Distribusi') ? 'selected' : ''; ?>">Statisi Distribusi</option>
+                            <option value="Statisi Sosial <?= ($kegiatan['divisi'] == 'Statisi Sosial') ? 'selected' : ''; ?>">Statisi Sosial</option>
+                            <option value="Nerwilis <?= ($kegiatan['divisi'] == 'Nerwilis') ? 'selected' : ''; ?>">Nerwilis</option>
+                            <option value="IPDS  <?= ($kegiatan['divisi'] == 'IPDS') ? 'selected' : ''; ?>">IPDS</option>
                         </select>
                     </div>
 

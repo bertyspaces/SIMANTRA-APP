@@ -41,4 +41,38 @@ class Bobot_Kriteria extends BaseController
         session()->setFlashdata('pesan_tambah', 'Data Bobot Kriteria berhasil ditambah');
         return redirect()->to('bobot_kriteria');
     }
+    public function edit($kode)
+    {
+        // Tampilkan formulir untuk mengedit kegiatan berdasarkan ID
+        $BKModel = new BKModel();
+        $data['bobot_kriteria'] = $BKModel->find($kode);
+
+        return view('master/bobot_kriteria/edit', $data);
+    }
+    public function update()
+    {
+        // Proses pembaruan data kegiatan
+        if ($this->request->getMethod() === 'post') {
+            $bobot_keriteria = new BKModel();
+
+            $data = [
+                'kode' => $this->request->getPost('kode'),
+                'kriteria' => $this->request->getPost('kriteria'),
+            '   bobot' => $this->request->getPost('bobot'),
+            ];
+
+            $kode = $this->request->getPost('kode');
+
+            $bobot_keriteria->update($kode, $data);
+
+            return redirect()->to('/bobot_kriteria');
+        }
+    }
+    public function hapus($kode)
+    {
+        // Proses penghapusan data kegiatan berdasarkan ID
+        $BKModel = new BKModel();
+        $BKModel->delete($kode);
+        return redirect()->to('/bobot_kriteria');
+    }
 }

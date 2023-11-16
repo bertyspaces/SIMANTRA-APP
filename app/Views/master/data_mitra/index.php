@@ -35,7 +35,7 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                         <a href="" class="btn btn-success">Import</a>
-                        <a href="<?= base_url() ?>mitra_lapangan/tambah" class="btn btn-primary">Tambah Mitra</a>
+                        <a href="<?= base_url() ?>data_mitra/tambah" class="btn btn-primary">Tambah Mitra</a>
                         <table id="example1" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
@@ -66,8 +66,8 @@
                                 
                                         <td>
 
-                                            <a href="<?= base_url() ?>mitra_lapangan/edit/<?= $ml['nik'] ?>" class="btn btn-warning">Edit</a>
-                                            <a href="<?= base_url() ?>mitra_lapangan/edit/<?= $ml['nik'] ?>" class="btn btn-danger">Hapus</a>
+                                            <a href="<?= base_url() ?>data_mitra/edit/<?= $ml['nik'] ?>" class="btn btn-warning">Edit</a>
+                                            <a href="<?= base_url() ?>data_mitra/hapus/<?= $ml['nik'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus mitra ini?')">Hapus</a>
                                         </td>
                                     </tr>
                                 <?php } ?>

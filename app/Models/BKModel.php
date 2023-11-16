@@ -10,4 +10,7 @@ class BKModel extends Model
     protected $primaryKey       = 'kode';
     protected $useAutoIncrement = true;
     protected $allowedFields    = ['kode', 'kriteria', 'bobot'];
+    protected $useTimestamps = false;
+    protected $createdField  = 'kode';
+    protected $updatedField  = ['kode', 'kriteria', 'bobot'];
 }

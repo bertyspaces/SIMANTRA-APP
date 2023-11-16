@@ -15,6 +15,22 @@
             </div>
         </div>
     </div><!-- /.container-fluid -->
+      <?php if (session()->getFlashdata('pesan_error')) : ?>
+
+                        <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h5><i class="icon fas fa-exclamation-triangle"></i> Gagal Menambahkan</h5>
+                            <?= session()->getFlashdata('pesan_error'); ?>
+                        </div>
+                    <?php endif; ?>
+      <?php if (session()->getFlashdata('pesan_tambah')) : ?>
+
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h5><i class="icon fas fa-check"></i> Data Berhasil Ditambahkan</h5>
+                            <?= session()->getFlashdata('pesan_tambah'); ?>
+                        </div>
+                    <?php endif; ?>
 </section>
 <section class="content">
     <div class="container-fluid">
@@ -33,7 +49,6 @@
 
                             <div class="tab-pane " id="activity">
 
-                                <!-- <a href="<?= base_url() ?>mitra_lapangan/tambah" class="btn btn-primary">Tambah data</a> -->
                                 <table id="example2" class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
@@ -53,7 +68,8 @@
                                                 <td><?= $l['nama_mitra'] ?></td>
 
 
-                                                <td>*tambahin tombol edit sama hapus sendiri yaaa :></td>
+                                                <td><a href="<?= base_url() ?>kegiatan_mitra/hapus/<?= $l['nik'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus mitra ini?')">Hapus</a>
+                                        </td>
                                             </tr>
                                         <?php  } ?>
 
@@ -82,7 +98,8 @@
                                                 <td><?= $p['nama_mitra'] ?></td>
 
 
-                                                <td>*tambahin tombol edit sama hapus sendiri yaaa :></td>
+                                                <td><a href="<?= base_url() ?>kegiatan_mitra/hapus/<?= $p['nik'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus mitra ini?')">Hapus</a>
+                                        </td>
                                             </tr>
                                         <?php  } ?>
 
@@ -92,19 +109,19 @@
                             </div>
 
                             <div class="tab-pane active" id="settings">
-                                <form class="form-horizontal">
+                                <form class="form-horizontal" action="<?= base_url() ?>kegiatan_mitra/simpan/<?=$kegiatan['id_kegiatan']?>" method="post">
                                     <div class="form-group row">
                                         <label for="inputName" class="col-sm-2 col-form-label">Nik</label>
                                         <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputName" placeholder="NIk">
+                                            <input type="text"  name="nik" maxlength="16" class="form-control" id="inputName" placeholder="NIk">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputName" class="col-sm-2 col-form-label">Kategori</label>
+                                        <label for="inputName"  class="col-sm-2 col-form-label">Kategori</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control">
-                                                <option>option 1</option>
-                                                <option>option 2</option>
+                                            <select class="form-control" name="kategori">
+                                                <option value="lapangan">Mitra Lapangan</option>
+                                                <option value="pengolahan">Mitra Pengolahan</option>
                                                 
                                             </select>
                                         </div>
