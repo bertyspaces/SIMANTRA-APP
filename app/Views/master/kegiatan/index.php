@@ -33,8 +33,10 @@
                     <?php endif; ?>
                     <!-- /.card-header -->
                     <div class="card-body">
+                        <a href="" class="btn btn-secondary">Cetak</a>
+                        <a href="<?= base_url() ?>kegiatan/tambah" class="btn btn-primary">Tambah Kegiatan</a>
                         <table id="example1" class="table table-bordered table-hover">
-                            <a href="<?= base_url() ?>kegiatan/tambah" class="btn btn-primary">Tambah Kegiatan</a>
+
                             <thead>
                                 <tr>
                                     <th>No</th>

@@ -6,13 +6,13 @@ kekurangan:
 5. data bobot dan kriteria :CRUD (SUDAH)
 6. kegiatan mitra ->tombol edit dan hapus di daftar mitra (SUDAH)
 7. data pengguna :register user, change passowrd
-8.nilai kegiatan mitra:CRUD
+8.nilai kegiatan mitra:CRUD(masih tampilan)
 9. nilai ranking :CRID
-10. rekap nilai mitra :CRUD
+10. rekap nilai mitra :CRUD (masih tampilan)
 
 
 [pml]
-1. penilaian : CRUD
+1. penilaian : CRUD (masih tampilan)
 
 
 nb:ORA DADI NEK ORA DIKERJAKE !!!!

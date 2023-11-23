@@ -1,16 +1,15 @@
 <?= $this->extend('templates/index') ?>
 
 <?= $this->section('konten-utama') ?>
-
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Rekap Nilai Mitra</h1>
+                <h1>Data Nilai Kegiatan Mitra</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="rekap_nilai_mitra">Rekap Nilai Mitra</a></li>
+                    <li class="breadcrumb-item"><a href="#">Kegiatan Mitra</a></li>
                     <li class="breadcrumb-item active">DataTables</li>
                 </ol>
             </div>
@@ -31,20 +30,28 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Mitra</th>
-                                    <th>Nilai Rata-Rata</th>
-                                    <th>Jumlah Kegiatan</th>
-                                    <th>Nilai Akhir</th>
+                                    <th>Kegiatan</th>
+                                    <th>divisi</th>
+                                    <th>periode</th>
+
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Marhellina Berty</td>
-                                    <td>85</td>
-                                    <td>4</td>
-                                    <td>90</td>
-                                </tr>
+
+                                <?php $i = 1 ?>
+                                <?php foreach ($nilai_kegiatan_mitra as $nk) { ?>
+                                    <tr>
+                                        <td><?= $i++ ?></td>
+                                        <td><a href="<?= base_url('nilai_kegiatan_mitra/detail/') ?><?= $nk['id_kegiatan'] ?>"><?= $nk['nama_kegiatan'] ?></a></td>
+                                        <td><?= $nk['divisi'] ?>
+                                        </td>
+
+                                        <td><?= $nk['periode'] ?> </td>
+                                    </tr>
+                                <?php  } ?>
+
+
+
                             </tbody>
                         </table>
                     </div>
@@ -61,5 +68,4 @@
     </div>
     <!-- /.container-fluid -->
 </section>
-
 <?= $this->endSection() ?>
