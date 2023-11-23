@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2023 at 09:48 PM
+-- Generation Time: Nov 23, 2023 at 11:47 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `simantra`
 --
-CREATE DATABASE IF NOT EXISTS `simantra` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `simantra`;
 
 -- --------------------------------------------------------
 
@@ -138,7 +136,26 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (29, '::1', 'pml123@gmail.com', 3, '2023-11-14 18:59:36', 1),
 (30, '::1', 'admin123@gmail.com', 2, '2023-11-14 19:01:36', 1),
 (31, '::1', 'admin123@gmail.com', 2, '2023-11-15 03:55:59', 1),
-(32, '::1', 'admin123@gmail.com', 2, '2023-11-15 18:59:14', 1);
+(32, '::1', 'admin123@gmail.com', 2, '2023-11-15 18:59:14', 1),
+(33, '::1', 'admin', NULL, '2023-11-15 21:00:40', 0),
+(34, '::1', 'admin123@gmail.com', 2, '2023-11-15 21:00:48', 1),
+(35, '::1', 'admin123@gmail.com', 2, '2023-11-16 23:37:10', 1),
+(36, '::1', 'admin123@gmail.com', 2, '2023-11-16 23:37:13', 1),
+(37, '::1', 'admin123@gmail.com', 2, '2023-11-17 05:27:43', 1),
+(38, '::1', 'pml123@gmail.com', 3, '2023-11-17 06:21:00', 1),
+(39, '::1', 'admin123@gmail.com', 2, '2023-11-17 06:57:43', 1),
+(40, '::1', 'pml123@gmail.com', 3, '2023-11-17 18:40:06', 1),
+(41, '::1', 'admin123@gmail.com', 2, '2023-11-17 18:44:17', 1),
+(42, '::1', 'admin123@gmail.com', 2, '2023-11-18 07:25:51', 1),
+(43, '::1', 'admin123@gmail.com', 2, '2023-11-18 07:26:08', 1),
+(44, '::1', 'admin123@gmail.com', 2, '2023-11-19 05:41:32', 1),
+(45, '::1', 'admin123@gmail.com', 2, '2023-11-20 18:26:47', 1),
+(46, '::1', 'pml123@gmail.com', 3, '2023-11-20 18:34:58', 1),
+(47, '::1', 'admin123@gmail.com', 2, '2023-11-20 18:48:32', 1),
+(48, '::1', 'admin123@gmail.com', 2, '2023-11-22 19:06:26', 1),
+(49, '::1', 'pml123@gmail.com', 3, '2023-11-22 19:52:06', 1),
+(50, '::1', 'admin123@gmail.com', 2, '2023-11-22 20:31:17', 1),
+(51, '::1', 'admin123@gmail.com', 2, '2023-11-23 20:35:41', 1);
 
 -- --------------------------------------------------------
 
@@ -231,12 +248,36 @@ CREATE TABLE `kegiatan` (
 --
 
 INSERT INTO `kegiatan` (`id_kegiatan`, `nama_kegiatan`, `divisi`, `periode`) VALUES
-(1, 'sasadasd', '', 'asdsadad'),
-(2, 'sasadasd', 'Statisi Produksi', 'asdsadad'),
-(3, 'asdas', 'Statisi Produksi', 'asdasd'),
-(4, 'asdasdasdas', 'Statisi Produksi', 'asdasdasdasddasdsada'),
-(5, 'asasasddf', 'IPDS', 'asadadad'),
-(6, 'sdfsdf', 'Statisi Distribusi', 'adfadfa');
+(2, 'SAKERNAS ', 'Statisi Sosial ', 'Agustus 2022'),
+(3, 'Regsosek ', 'Statisi Sosial ', 'November 2022'),
+(4, 'Survei IMK Tahunan', 'Statisi Produksi ', 'Januari-Desember 202');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kegiatan_mitra`
+--
+
+CREATE TABLE `kegiatan_mitra` (
+  `id_kegiatan_mitra` int(11) NOT NULL,
+  `nik` char(16) NOT NULL,
+  `id_kegiatan` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `kategori` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kegiatan_mitra`
+--
+
+INSERT INTO `kegiatan_mitra` (`id_kegiatan_mitra`, `nik`, `id_kegiatan`, `id_user`, `kategori`) VALUES
+(9, '454636363', 8, 0, 'lapangan'),
+(10, '213131', 8, 0, 'pengolahan'),
+(11, '3326163620002', 9, 0, 'lapangan'),
+(12, '3326163620002', 3, 0, 'lapangan'),
+(13, '332616362900', 3, 0, 'pengolahan'),
+(14, '3326163620002', 2, 0, 'lapangan'),
+(15, '332616362900', 2, 0, 'pengolahan');
 
 -- --------------------------------------------------------
 
@@ -287,6 +328,52 @@ INSERT INTO `mitra` (`nik`, `nama_mitra`, `jenis_kelamin`, `tanggal_lahir`, `umu
 ('332616362900', 'Hakim Firman', 'Laki-Laki', '2023-11-01', '25', 'SMA/SMK', 'hakimff@gmail.com', 'mitra lapangan'),
 ('333526719', 'Berty Lina', 'Perempuan', '2023-11-18', '23', 'DI/DII/DIII', 'machel253@gmail.com', 'mitra lapangan'),
 ('454636363', 'Fatris Faradilla', 'Perempuan', '2002-02-07', '23', 'S1', 'fatris@gmail.com', 'Mitra Pengolahan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nilai_kegiatan_mitra`
+--
+
+CREATE TABLE `nilai_kegiatan_mitra` (
+  `id_nilai_kegiatan_mitra` int(11) NOT NULL,
+  `id_kegiatan_mitra` int(11) NOT NULL,
+  `id_ratting_kriteria` int(11) NOT NULL,
+  `nilai_kinerja` int(11) NOT NULL,
+  `nilai_kerja_sama` int(11) NOT NULL,
+  `nilai_kualitas_data` int(11) NOT NULL,
+  `total_nilai` int(11) NOT NULL,
+  `keterangan` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ratting_kriteria`
+--
+
+CREATE TABLE `ratting_kriteria` (
+  `id_ratting_kriteria` int(11) NOT NULL,
+  `kode` int(11) NOT NULL,
+  `bobot` int(11) NOT NULL,
+  `keterangan` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rekap_nilai_mitra`
+--
+
+CREATE TABLE `rekap_nilai_mitra` (
+  `id_rekap_nilai_mitra` int(11) NOT NULL,
+  `id_nilai_kegiatan_mitra` int(11) NOT NULL,
+  `nama_mitra` varchar(50) NOT NULL,
+  `nilai_rata` int(11) NOT NULL,
+  `jumlah_kegiatan` int(11) NOT NULL,
+  `bobot_nilai` int(11) NOT NULL,
+  `nila_akhir` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -398,6 +485,12 @@ ALTER TABLE `kegiatan`
   ADD PRIMARY KEY (`id_kegiatan`);
 
 --
+-- Indexes for table `kegiatan_mitra`
+--
+ALTER TABLE `kegiatan_mitra`
+  ADD PRIMARY KEY (`id_kegiatan_mitra`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -408,6 +501,24 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `mitra`
   ADD PRIMARY KEY (`nik`);
+
+--
+-- Indexes for table `nilai_kegiatan_mitra`
+--
+ALTER TABLE `nilai_kegiatan_mitra`
+  ADD PRIMARY KEY (`id_nilai_kegiatan_mitra`);
+
+--
+-- Indexes for table `ratting_kriteria`
+--
+ALTER TABLE `ratting_kriteria`
+  ADD PRIMARY KEY (`id_ratting_kriteria`);
+
+--
+-- Indexes for table `rekap_nilai_mitra`
+--
+ALTER TABLE `rekap_nilai_mitra`
+  ADD PRIMARY KEY (`id_rekap_nilai_mitra`);
 
 --
 -- Indexes for table `users`
@@ -437,7 +548,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
@@ -464,10 +575,22 @@ ALTER TABLE `kegiatan`
   MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `kegiatan_mitra`
+--
+ALTER TABLE `kegiatan_mitra`
+  MODIFY `id_kegiatan_mitra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `ratting_kriteria`
+--
+ALTER TABLE `ratting_kriteria`
+  MODIFY `id_ratting_kriteria` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
