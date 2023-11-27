@@ -114,16 +114,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="rekap_nilai_mitra" class="nav-link">
+                        <a href="<?= base_url() ?>rekap_nilai_mitra" class="nav-link">
                             <i class="fas fa-circle nav-icon"></i>
                             <p>Rekap Nilai Mitra</p>
-                        </a>
-                    </li>
-                    <li class="nav-header">REPORT</li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-print nav-icon"></i>
-                            <p>Laporan ABC</p>
                         </a>
                     </li>
                 <?php } ?>

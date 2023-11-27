@@ -34,8 +34,8 @@
                     <?php endif; ?>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <a href="" class="btn btn-success">Import</a>
-                        <a href="<?= base_url() ?>data_mitra/tambah" class="btn btn-primary">Tambah Mitra</a>
+                        <a href="" class="btn btn-success"><i class="fas fa-upload"></i> Import</a>
+                        <a href="<?= base_url() ?>data_mitra/tambah" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Mitra</a>
                         <table id="example1" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
@@ -63,11 +63,11 @@
                                         <td> <?= $ml['umur'] ?></td>
                                         <td> <?= $ml['pendidikan'] ?></td>
                                         <td> <?= $ml['email'] ?></td>
-                                
+
                                         <td>
 
-                                            <a href="<?= base_url() ?>data_mitra/edit/<?= $ml['nik'] ?>" class="btn btn-warning">Edit</a>
-                                            <a href="<?= base_url() ?>data_mitra/hapus/<?= $ml['nik'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus mitra ini?')">Hapus</a>
+                                            <a href="<?= base_url() ?>data_mitra/edit/<?= $ml['nik'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i> </a>
+                                            <a href="<?= base_url() ?>data_mitra/hapus/<?= $ml['nik'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus mitra ini?')"><i class="fas fa-trash"></i> </a>
                                         </td>
                                     </tr>
                                 <?php } ?>

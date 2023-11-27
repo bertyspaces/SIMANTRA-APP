@@ -34,7 +34,7 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                         <table id="example1" class="table table-bordered table-hover">
-                            <a href="<?= base_url() ?>bobot_kriteria/tambah" class="btn btn-primary">Tambah Kegiatan</a>
+                            <a href="<?= base_url() ?>bobot_kriteria/tambah" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Kegiatan</a>
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -56,9 +56,9 @@
 
                                         <td>
 
-                                            <a href="<?= base_url() ?>bobot_kriteria/edit/<?= $bk['kode'] ?>" class="btn btn-warning">Edit</a>
-                                            <a href="<?= base_url() ?>bobot_kriteria/hapus/<?= $bk['kode'] ?>" class="btn btn-danger">Hapus</a>
-                                        </td
+                                            <a href="<?= base_url() ?>bobot_kriteria/edit/<?= $bk['kode'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i>Edit</a>
+                                            <a href="<?= base_url() ?>bobot_kriteria/hapus/<?= $bk['kode'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus mitra ini?')"><i class="fas fa-trash"></i>Hapus</a>
+                                        </td>
                                     </tr>
                                 <?php } ?>
 

@@ -33,8 +33,8 @@
                     <?php endif; ?>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <a href="" class="btn btn-secondary">Cetak</a>
-                        <a href="<?= base_url() ?>kegiatan/tambah" class="btn btn-primary">Tambah Kegiatan</a>
+                        <a href="" class="btn btn-secondary "><i class="fas fa-save"></i> Cetak</a>
+                        <a href="<?= base_url() ?>kegiatan/tambah" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Kegiatan</a>
                         <table id="example1" class="table table-bordered table-hover">
 
                             <thead>
@@ -57,8 +57,9 @@
                                         <td> <?= $k['periode'] ?></td>
                                         <td>
 
-                                            <a href="<?= base_url() ?>kegiatan/edit/<?= $k['id_kegiatan'] ?>" class="btn btn-warning">Edit</a>
-                                            <a href="<?= base_url() ?>kegiatan/delete/<?= $k['id_kegiatan'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus kegiatan ini?')">Hapus</a>
+                                            <a href="<?= base_url() ?>kegiatan/edit/<?= $k['id_kegiatan'] ?>" class="btn btn-warning">
+                                                <i class="fas fa-edit"></i> Edit</a>
+                                            <a href="<?= base_url() ?>kegiatan/delete/<?= $k['id_kegiatan'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus kegiatan ini?')"><i class="fas fa-trash"></i> Hapus</a>
                                         </td>
                                     </tr>
                                 <?php } ?>

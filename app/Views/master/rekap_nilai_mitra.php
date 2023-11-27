@@ -26,7 +26,7 @@
                 <div class="card">
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <a href="<?= base_url() ?>kegiatan/tambah" class="btn btn-succes">Cetak</a>
+                        <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button"><span>Cetak</span></button>
                         <table id="example1" class="table table-bordered table-hover">
                             <thead>
                                 <tr>

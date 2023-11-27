@@ -12,10 +12,10 @@
             <!-- form start -->
             <form id="quickForm" action="<?= base_url() ?>data_mitra/update" method="post">
                 <div class="card-body">
-                <input type="hidden" name="nik" value="<?= $data_mitra['nik']; ?>">
+                    <input type="hidden" name="nik" value="<?= $data_mitra['nik']; ?>">
                     <div class="form-group">
                         <label>NIK</label>
-                        <input type="text" name="nik" id="nik" class="form-control" placeholder="NIK" value="<?= $data_mitra['nik']; ?>">
+                        <input type="text" name="nik" id="nik" class="form-control" placeholder="NIK" value="<?= $data_mitra['nik']; ?>" disabled>
                     </div>
                     <div class="form-group">
                         <label>Nama Mitra</label>

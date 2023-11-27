@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>Kode</label>
-                        <input type="text" name="kode" class="form-control " value="<?= $bobot_kriteria['kode']; ?>" placeholder="Kode">
+                        <input type="text" name="kode" class="form-control " value="<?= $bobot_kriteria['kode']; ?>" placeholder="Kode" disabled>
 
 
                     </div>
