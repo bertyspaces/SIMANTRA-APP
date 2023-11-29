@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\UserModel as ModelsUserModel;
+use Myth\Auth\Entities\User;
 use Myth\Auth\Models\UserModel;
 use Myth\Auth\Models\GroupModel;
 
@@ -27,10 +29,13 @@ class Admin extends BaseController
         }
 
 
-        $data['groups'] = $groupModel->findAll();
+        $data['groups'] = $groupModel->whereNotIn('name', ['admin'])->findAll();
 
         $data['title'] = 'Users';
         return view('admin/manajemenUser', $data);
+    }
+    public function addUser (){
+        return view('/admin/tambah');
     }
 
     public function changeGroup()
@@ -43,6 +48,18 @@ class Admin extends BaseController
 
         $groupModel->addUserToGroup(intval($userId), intval($groupId));
 
+        return redirect()->to(base_url('admin/manajemenUser'));
+    }
+    public function changePassword()
+    {
+        $userId = $this->request->getVar('user_id');
+        $password_baru = $this->request->getVar('password_baru');
+        $userModel = new ModelsUserModel();
+        $user = $userModel->find($userId);
+        // $dataUser->update($userId, ['password_hash' => password_hash($password_baru, PASSWORD_DEFAULT)]);
+        $userEntity = new User($user);
+        $userEntity->password= $password_baru;
+        $userModel->save($userEntity);
         return redirect()->to(base_url('admin/manajemenUser'));
     }
 }

@@ -122,6 +122,13 @@
       $('.id').val(id);
       $('#changeGroupModal').modal('show');
     });
+    $('.btn-ubah').on('click', function() {
+      const id = $(this).data('id');
+      const username = $(this).data('username');
+      $('#user_id').val(id);
+      $('#username').val(username);
+      $('#ubah_password').modal('show');
+    });
   </script>
 
 </body>

@@ -16,7 +16,7 @@
         </div>
     </div><!-- /.container-fluid -->
 </section>
-
+<?= view('Myth\Auth\Views\_message_block') ?>
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
@@ -24,7 +24,9 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                       
+                        <a href="/admin/addUser" class="btn btn-primary btn-circle btn-sm" data-id="<?= $row->id; ?>" title="tambah data">
+                            <i class="fas fa-plus"> Tambah</i>
+                        </a>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -105,6 +107,54 @@
                                     }
                                     ?>
                                 </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="id" class="id">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Ubah</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<form action="<?= base_url(); ?>admin/changePassword" method="post">
+    <div class="modal fade" id="ubah_password" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ubah Password</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="list-group-item p-3">
+                        <div class="row align-items-start">
+                            <div class="col-md-4 mb-8pt mb-md-0">
+                                <div class="media align-items-left">
+                                    <div class="d-flex flex-column media-body media-middle">
+                                        <span class="card-title">username</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-8pt mb-md-0">
+                                <input readonly type="text" class="form-control" id="username" name="username">
+                                <input hidden type="text" class="form-control" id="user_id" name="user_id">
+                            </div>
+                        </div>
+                        <div class="row align-items-start">
+                            <div class="col-md-4 mb-8pt mb-md-0">
+                                <div class="media align-items-left">
+                                    <div class="d-flex flex-column media-body media-middle">
+                                        <span class="card-title">Password Baru</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-8pt mb-md-0">
+                                <input type="text" class="form-control" name="password_baru">
                             </div>
                         </div>
                     </div>

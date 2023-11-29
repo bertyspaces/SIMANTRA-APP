@@ -193,7 +193,7 @@ class AuthController extends Controller
         }
 
         // Success!
-        return redirect()->route('login')->with('message', lang('Auth.registerSuccess'));
+        return redirect()->to(base_url('admin/manajemenUser'))->with('message', 'User berhasil ditambahkan');
     }
 
     //--------------------------------------------------------------------

@@ -9,11 +9,27 @@
         </a>
     </td>
     <td align="center">
-        <a href="<?= base_url(); ?>/users/changePassword/<?= $row->id; ?>" class="btn btn-warning btn-circle btn-sm" title="Ubah Password">
+        <a href="#" class="btn btn-warning btn-circle btn-sm btn-ubah" data-username="<?=$row->username?>" data-id="<?=$row->id?>"  title="Ubah Password">
             <i class="fas fa-key"></i>
         </a>
-        <a href="#" class="btn btn-success btn-circle btn-sm btn-change-group" data-id="<?= $row->id; ?>" title="Ubah Grup">
+        
+        <?php if(!empty($group) ){?>
+            <?php if($group[0]['name']=='admin' ){?>
+        <button href="#" class="btn btn-secondary btn-circle btn-sm btn-change" data-id="<?= $row->id; ?>" title="Ubah Grup">
+        <i class="fas fa-tasks"></i>
+        </button>
+      
+  
+        <?php }else{?>
+        <a  class="btn btn-success btn-circle btn-sm btn-change-group" data-id="<?= $row->id; ?>" title="Ubah Grup">
             <i class="fas fa-tasks"></i>
         </a>
+        <?php }?> 
+        <?php }else{?>
+        <a  class="btn btn-success btn-circle btn-sm btn-change-group" data-id="<?= $row->id; ?>" title="Ubah Grup">
+            <i class="fas fa-tasks"></i>
+        </a>
+  
+        <?php  }?>
     </td>
 </tr>
