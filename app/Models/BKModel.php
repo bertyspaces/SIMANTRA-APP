@@ -13,4 +13,9 @@ class BKModel extends Model
     protected $useTimestamps = false;
     protected $createdField  = 'kode';
     protected $updatedField  = ['kode', 'kriteria', 'bobot'];
+    public function ratings()
+    {
+        return $this->hasMany(RKModel::class, 'kode');
+    }
+
 }

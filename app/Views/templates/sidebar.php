@@ -72,9 +72,9 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="<?= base_url() ?>ratting_kriteria/index" class="nav-link">
+                                <a href="<?= base_url() ?>rating_kriteria/" class="nav-link">
                                     <i class="nav-icon fas fa-tasks"></i>
-                                    <p>Data Ratting Kriteria</p>
+                                    <p>Data Rating Kriteria</p>
                                 </a>
                             </li>
 
