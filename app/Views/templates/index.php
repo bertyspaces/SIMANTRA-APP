@@ -129,6 +129,31 @@
       $('#username').val(username);
       $('#ubah_password').modal('show');
     });
+    $('.btn-cari').on('click',()=>{
+      var nik=$('#nik').val()
+      console.log(nik);
+      var url='/kegiatan_mitra/cariMitra/'+nik
+      console.log(url);
+      $.ajax({
+        url: url, 
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+         
+            console.log(data);
+            if (data) {
+              $('#nama_mitra').val(data.nama_mitra)
+            }
+            else{
+              $('#nama_mitra').val('mitra belum terdaftar')
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+    })
+
   </script>
 
 </body>

@@ -67,4 +67,9 @@ class Kegiatan_Mitra extends BaseController
         $DataMitraModel->delete($nik);
         return redirect()->to('/data_mitra');
     }
+    public function cariMitra($nik){
+        $model = new DataMitraModel();
+        $data = $model->where('nik',$nik)->get()->getRow(); 
+        return $this->response->setJSON($data);
+    }
 }

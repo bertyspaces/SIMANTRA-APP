@@ -12,7 +12,7 @@ kekurangan:
 
 
 admin 
-1.TODO: bobot (edit, kode disable)
+1. bobot (edit, kode disable)
 2.TODO:rattingkriteria (belum fungsional, nyambung dengan menu bobot krriteria (kode dan kriteria))
 3.TODO:data penilaian FSAW 
 ( diambil dari input nilai mitra oleh pml/ipds)

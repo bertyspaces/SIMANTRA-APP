@@ -112,8 +112,19 @@
                                 <form class="form-horizontal" action="<?= base_url() ?>kegiatan_mitra/simpan/<?=$kegiatan['id_kegiatan']?>" method="post">
                                     <div class="form-group row">
                                         <label for="inputName" class="col-sm-2 col-form-label">Nik</label>
+                                        <div class="col-sm-9    ">
+                                            <input type="text"  name="nik" maxlength="16" class="form-control" id="nik" placeholder="NIk"> 
+                                            
+                                        </div>
+                                        <div class="col-sm-1">
+                                          
+                                            <span><a type="submit" class="btn btn-danger btn-cari"><i class="fa fa-search"></i></a></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputName" class="col-sm-2 col-form-label">Nama Mitra</label>
                                         <div class="col-sm-10">
-                                            <input type="text"  name="nik" maxlength="16" class="form-control" id="inputName" placeholder="NIk">
+                                            <input type="text"  name="nama_mitra" maxlength="16" class="form-control" id="nama_mitra" placeholder="Nama Mitra" readonly> 
                                         </div>
                                     </div>
                                     <div class="form-group row">

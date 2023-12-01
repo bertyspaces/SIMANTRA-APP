@@ -26,7 +26,7 @@
                 <div class="card">
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button"><span>Cetak</span></button>
+                        <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button"><i class="fas fa-print"></i> Cetak</button>
                         <table id="example1" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
