@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 23, 2023 at 11:47 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- Host: localhost:3306
+-- Generation Time: Dec 02, 2023 at 03:41 PM
+-- Server version: 8.0.30
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `simantra`
 --
+CREATE DATABASE IF NOT EXISTS `simantra` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `simantra`;
 
 -- --------------------------------------------------------
 
@@ -28,12 +30,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `auth_activation_attempts` (
-  `id` int(11) UNSIGNED NOT NULL,
+  `id` int UNSIGNED NOT NULL,
   `ip_address` varchar(255) NOT NULL,
   `user_agent` varchar(255) NOT NULL,
   `token` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -42,10 +44,10 @@ CREATE TABLE `auth_activation_attempts` (
 --
 
 CREATE TABLE `auth_groups` (
-  `id` int(11) UNSIGNED NOT NULL,
+  `id` int UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `auth_groups`
@@ -62,9 +64,9 @@ INSERT INTO `auth_groups` (`id`, `name`, `description`) VALUES
 --
 
 CREATE TABLE `auth_groups_permissions` (
-  `group_id` int(11) UNSIGNED NOT NULL DEFAULT 0,
-  `permission_id` int(11) UNSIGNED NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `group_id` int UNSIGNED NOT NULL DEFAULT '0',
+  `permission_id` int UNSIGNED NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -73,9 +75,9 @@ CREATE TABLE `auth_groups_permissions` (
 --
 
 CREATE TABLE `auth_groups_users` (
-  `group_id` int(11) UNSIGNED NOT NULL DEFAULT 0,
-  `user_id` int(11) UNSIGNED NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `group_id` int UNSIGNED NOT NULL DEFAULT '0',
+  `user_id` int UNSIGNED NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `auth_groups_users`
@@ -92,13 +94,13 @@ INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
 --
 
 CREATE TABLE `auth_logins` (
-  `id` int(11) UNSIGNED NOT NULL,
+  `id` int UNSIGNED NOT NULL,
   `ip_address` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `user_id` int(11) UNSIGNED DEFAULT NULL,
+  `user_id` int UNSIGNED DEFAULT NULL,
   `date` datetime NOT NULL,
   `success` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `auth_logins`
@@ -164,10 +166,10 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 --
 
 CREATE TABLE `auth_permissions` (
-  `id` int(11) UNSIGNED NOT NULL,
+  `id` int UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -176,13 +178,13 @@ CREATE TABLE `auth_permissions` (
 --
 
 CREATE TABLE `auth_reset_attempts` (
-  `id` int(11) UNSIGNED NOT NULL,
+  `id` int UNSIGNED NOT NULL,
   `email` varchar(255) NOT NULL,
   `ip_address` varchar(255) NOT NULL,
   `user_agent` varchar(255) NOT NULL,
   `token` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -191,12 +193,12 @@ CREATE TABLE `auth_reset_attempts` (
 --
 
 CREATE TABLE `auth_tokens` (
-  `id` int(11) UNSIGNED NOT NULL,
+  `id` int UNSIGNED NOT NULL,
   `selector` varchar(255) NOT NULL,
   `hashedValidator` varchar(255) NOT NULL,
-  `user_id` int(11) UNSIGNED NOT NULL,
+  `user_id` int UNSIGNED NOT NULL,
   `expires` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -205,9 +207,9 @@ CREATE TABLE `auth_tokens` (
 --
 
 CREATE TABLE `auth_users_permissions` (
-  `user_id` int(11) UNSIGNED NOT NULL DEFAULT 0,
-  `permission_id` int(11) UNSIGNED NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `user_id` int UNSIGNED NOT NULL DEFAULT '0',
+  `permission_id` int UNSIGNED NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -218,17 +220,17 @@ CREATE TABLE `auth_users_permissions` (
 CREATE TABLE `bobot_kriteria` (
   `kode` varchar(10) NOT NULL,
   `kriteria` varchar(20) NOT NULL,
-  `bobot` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `bobot` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `bobot_kriteria`
 --
 
 INSERT INTO `bobot_kriteria` (`kode`, `kriteria`, `bobot`) VALUES
-('C1', 'Nilai Kinerja', 30),
-('C2', 'Nilai Kerja Sama ', 30),
-('C3', 'Nilai Kualitas Data', 40);
+('K1', 'Nilai Kinerja', 30),
+('K2', 'Nilai Kerja Sama', 30),
+('K3', 'Nilai Kualitas Data', 40);
 
 -- --------------------------------------------------------
 
@@ -237,11 +239,11 @@ INSERT INTO `bobot_kriteria` (`kode`, `kriteria`, `bobot`) VALUES
 --
 
 CREATE TABLE `kegiatan` (
-  `id_kegiatan` int(11) NOT NULL,
+  `id_kegiatan` int NOT NULL,
   `nama_kegiatan` varchar(50) NOT NULL,
   `divisi` varchar(20) NOT NULL,
   `periode` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `kegiatan`
@@ -259,12 +261,12 @@ INSERT INTO `kegiatan` (`id_kegiatan`, `nama_kegiatan`, `divisi`, `periode`) VAL
 --
 
 CREATE TABLE `kegiatan_mitra` (
-  `id_kegiatan_mitra` int(11) NOT NULL,
+  `id_kegiatan_mitra` int NOT NULL,
   `nik` char(16) NOT NULL,
-  `id_kegiatan` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
+  `id_kegiatan` int NOT NULL,
+  `id_user` int NOT NULL,
   `kategori` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `kegiatan_mitra`
@@ -286,14 +288,14 @@ INSERT INTO `kegiatan_mitra` (`id_kegiatan_mitra`, `nik`, `id_kegiatan`, `id_use
 --
 
 CREATE TABLE `migrations` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
   `version` varchar(255) NOT NULL,
   `class` varchar(255) NOT NULL,
   `group` varchar(255) NOT NULL,
   `namespace` varchar(255) NOT NULL,
-  `time` int(11) NOT NULL,
-  `batch` int(11) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `time` int NOT NULL,
+  `batch` int UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `migrations`
@@ -317,7 +319,7 @@ CREATE TABLE `mitra` (
   `pendidikan` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
   `kategori` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `mitra`
@@ -336,28 +338,38 @@ INSERT INTO `mitra` (`nik`, `nama_mitra`, `jenis_kelamin`, `tanggal_lahir`, `umu
 --
 
 CREATE TABLE `nilai_kegiatan_mitra` (
-  `id_nilai_kegiatan_mitra` int(11) NOT NULL,
-  `id_kegiatan_mitra` int(11) NOT NULL,
-  `id_ratting_kriteria` int(11) NOT NULL,
-  `nilai_kinerja` int(11) NOT NULL,
-  `nilai_kerja_sama` int(11) NOT NULL,
-  `nilai_kualitas_data` int(11) NOT NULL,
-  `total_nilai` int(11) NOT NULL,
+  `id_nilai_kegiatan_mitra` int NOT NULL,
+  `id_kegiatan_mitra` int NOT NULL,
+  `id_ratting_kriteria` int NOT NULL,
+  `nilai_kinerja` int NOT NULL,
+  `nilai_kerja_sama` int NOT NULL,
+  `nilai_kualitas_data` int NOT NULL,
+  `total_nilai` int NOT NULL,
   `keterangan` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ratting_kriteria`
+-- Table structure for table `rating_kriteria`
 --
 
-CREATE TABLE `ratting_kriteria` (
-  `id_ratting_kriteria` int(11) NOT NULL,
-  `kode` int(11) NOT NULL,
-  `bobot` int(11) NOT NULL,
+CREATE TABLE `rating_kriteria` (
+  `id_rating_kriteria` int NOT NULL,
+  `kode` varchar(10) NOT NULL,
+  `bobot` int NOT NULL,
   `keterangan` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `rating_kriteria`
+--
+
+INSERT INTO `rating_kriteria` (`id_rating_kriteria`, `kode`, `bobot`, `keterangan`) VALUES
+(1, 'K1', 5, 'Sangat Baik'),
+(2, 'K1', 4, 'Baik'),
+(3, 'K2', 5, 'Sangat Baik'),
+(4, 'K3', 5, 'Sangat Baik');
 
 -- --------------------------------------------------------
 
@@ -366,14 +378,14 @@ CREATE TABLE `ratting_kriteria` (
 --
 
 CREATE TABLE `rekap_nilai_mitra` (
-  `id_rekap_nilai_mitra` int(11) NOT NULL,
-  `id_nilai_kegiatan_mitra` int(11) NOT NULL,
+  `id_rekap_nilai_mitra` int NOT NULL,
+  `id_nilai_kegiatan_mitra` int NOT NULL,
   `nama_mitra` varchar(50) NOT NULL,
-  `nilai_rata` int(11) NOT NULL,
-  `jumlah_kegiatan` int(11) NOT NULL,
-  `bobot_nilai` int(11) NOT NULL,
-  `nila_akhir` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `nilai_rata` int NOT NULL,
+  `jumlah_kegiatan` int NOT NULL,
+  `bobot_nilai` int NOT NULL,
+  `nila_akhir` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -382,7 +394,7 @@ CREATE TABLE `rekap_nilai_mitra` (
 --
 
 CREATE TABLE `users` (
-  `id` int(11) UNSIGNED NOT NULL,
+  `id` int UNSIGNED NOT NULL,
   `email` varchar(255) NOT NULL,
   `username` varchar(30) DEFAULT NULL,
   `password_hash` varchar(255) NOT NULL,
@@ -392,12 +404,12 @@ CREATE TABLE `users` (
   `activate_hash` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `status_message` varchar(255) DEFAULT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT 0,
-  `force_pass_reset` tinyint(1) NOT NULL DEFAULT 0,
+  `active` tinyint(1) NOT NULL DEFAULT '0',
+  `force_pass_reset` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `users`
@@ -509,10 +521,11 @@ ALTER TABLE `nilai_kegiatan_mitra`
   ADD PRIMARY KEY (`id_nilai_kegiatan_mitra`);
 
 --
--- Indexes for table `ratting_kriteria`
+-- Indexes for table `rating_kriteria`
 --
-ALTER TABLE `ratting_kriteria`
-  ADD PRIMARY KEY (`id_ratting_kriteria`);
+ALTER TABLE `rating_kriteria`
+  ADD PRIMARY KEY (`id_rating_kriteria`),
+  ADD KEY `kode` (`kode`);
 
 --
 -- Indexes for table `rekap_nilai_mitra`
@@ -536,67 +549,67 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `auth_activation_attempts`
 --
 ALTER TABLE `auth_activation_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `auth_groups`
 --
 ALTER TABLE `auth_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
 --
 ALTER TABLE `auth_permissions`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `auth_reset_attempts`
 --
 ALTER TABLE `auth_reset_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `auth_tokens`
 --
 ALTER TABLE `auth_tokens`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_kegiatan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_mitra`
 --
 ALTER TABLE `kegiatan_mitra`
-  MODIFY `id_kegiatan_mitra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_kegiatan_mitra` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `ratting_kriteria`
+-- AUTO_INCREMENT for table `rating_kriteria`
 --
-ALTER TABLE `ratting_kriteria`
-  MODIFY `id_ratting_kriteria` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `rating_kriteria`
+  MODIFY `id_rating_kriteria` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -628,6 +641,12 @@ ALTER TABLE `auth_tokens`
 ALTER TABLE `auth_users_permissions`
   ADD CONSTRAINT `auth_users_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `auth_permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `auth_users_permissions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `rating_kriteria`
+--
+ALTER TABLE `rating_kriteria`
+  ADD CONSTRAINT `rating_kriteria_ibfk_1` FOREIGN KEY (`kode`) REFERENCES `bobot_kriteria` (`kode`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
