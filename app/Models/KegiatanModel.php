@@ -14,4 +14,9 @@ class KegiatanModel extends Model
     protected $useTimestamps = false;
     protected $createdField  = 'id_kegiatan';
     protected $updatedField  = ['nama_kegiatan', 'divisi', 'periode'];
+
+    public function getAllKegiatan()
+    {
+        return $this->findAll(); // Mengambil semua data dari tabel 'kegiatan'
+    }
 }

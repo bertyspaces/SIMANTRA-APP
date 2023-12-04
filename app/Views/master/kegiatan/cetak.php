@@ -67,7 +67,7 @@
     </header>
 
     <h2>Data Kegiatan BPS Kota Pekalongan</h2>
-    <input type="button" value="Print PDF" href="<?= base_url() ?>kegiatan/cetak">
+  
 
     <br>
     <table>
