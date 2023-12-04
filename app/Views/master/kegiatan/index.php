@@ -30,10 +30,11 @@
                             <h5><i class="icon fas fa-check"></i> data berhasil ditambahkan</h5>
                             <?= session()->getFlashdata('pesan_tambah'); ?>
                         </div>
+
                     <?php endif; ?>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <a href="" class="btn btn-secondary "><i class="fas fa-save"></i> Cetak</a>
+                        <a href="<?= base_url() ?>kegiatan/cetak" class="btn btn-secondary" target="_blank"><i class="fas fa-save"></i> Cetak</a>
                         <a href="<?= base_url() ?>kegiatan/tambah" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Kegiatan</a>
                         <table id="example1" class="table table-bordered table-hover">
 

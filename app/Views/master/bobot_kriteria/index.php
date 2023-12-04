@@ -34,7 +34,7 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                         <table id="example1" class="table table-bordered table-hover">
-                            <a href="<?= base_url() ?>bobot_kriteria/tambah" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Kegiatan</a>
+                            <a href="<?= base_url() ?>bobot_kriteria/tambah" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</a>
                             <thead>
                                 <tr>
                                     <th>No</th>

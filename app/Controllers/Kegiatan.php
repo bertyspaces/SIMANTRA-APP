@@ -4,13 +4,15 @@ namespace App\Controllers;
 
 use App\Models\KegiatanModel;
 use CodeIgniter\HTTP\Request;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class Kegiatan extends BaseController
 {
 
     public function index()
     {
-        
+
         $model = new KegiatanModel();
         $kegiatan = $model->findAll();
         return view('/master/kegiatan/index', [
@@ -78,5 +80,28 @@ class Kegiatan extends BaseController
         $kegiatanModel = new KegiatanModel();
         $kegiatanModel->delete($id_kegiatan);
         return redirect()->to('/kegiatan');
+    }
+    public function cetak()
+    {
+
+        $model = new KegiatanModel();
+        $kegiatan = $model->findAll();
+        return view('/master/kegiatan/cetak', [
+            'kegiatan' => $kegiatan
+        ]);
+        $data['kegiatan'] = $this->$model('KegiatanModel')->getAllKegiatan();
+        // Buat objek dompdf
+        $dompdf = new Dompdf();
+        // Load view ke dalam dompdf
+        $html = view('cetak', $data);
+        $dompdf->loadhtml($html);
+        $dompdf->setPaper('A4', 'potrrait');
+        // Render PDF
+        $dompdf->render();
+
+        // Simpan atau kirimkan file PDF ke perangkat pengguna
+        $dompdf->stream('cetak_kegiatan.pdf', ['Attachment' => 0]);
+
+        exit();
     }
 }

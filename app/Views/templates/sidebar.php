@@ -120,7 +120,7 @@
                         </a>
                     </li>
                 <?php } ?>
-                <?php if (in_groups('pml')||in_groups('ipds')) { ?>
+                <?php if (in_groups('pml') || in_groups('ipds')) { ?>
                     <li class="nav-header">MAIN</li>
                     <li class="nav-item">
                         <a href="penilaian" class="nav-link">

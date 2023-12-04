@@ -54,9 +54,8 @@
             </form>
 
 
-            <p class="mb-0">
-                <a href="/register" class="text-center">Register a new membership</a>
-            </p>
+            <center><a class="text-center" aria-disabled="true">Marcehellina Berty - 0062</a></center>
+
         </div>
         <!-- /.login-card-body -->
     </div>
