@@ -128,7 +128,7 @@
                 <?php if (in_groups('pml') || in_groups('ipds')) { ?>
                     <li class="nav-header">MAIN</li>
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>user/penilaian_mitra/index" class="nav-link">
+                        <a href="<?= base_url() ?>penilaian/" class="nav-link">
                             <i class="fas fa-clipboard-list nav-icon"></i>
                             <p>Penilaian</p>
                         </a>
@@ -137,9 +137,9 @@
                 <?php if (in_groups('kepala_bps')) { ?>
                     <li class="nav-header">MAIN</li>
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>user/penilaian_mitra/index" class="nav-link">
+                        <a href="<?= base_url() ?>penilaian_mitra/index" class="nav-link">
                             <i class="fas fa-clipboard-list nav-icon"></i>
-                            <p>Penilaian</p>
+                            <p>xxasd</p>
                         </a>
                     </li>
                 <?php } ?>

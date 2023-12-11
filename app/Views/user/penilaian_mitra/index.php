@@ -37,10 +37,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <td>1</td>
-                                <td>SAKERNAS</td>
-                                <td>Statisi Produksi</td>
-                                <td>Agustus 2022</td>
+                            <?php $i = 1 ?>
+                                    <?php foreach ($kegiatan_mitra as $k) { ?>
+                                        <tr>
+                                        <td><?= $i++ ?></td>
+                                        <td><a href="<?=base_url('penilaian/kegiatan/')?><?=$k['id_kegiatan']?>"><?= $k['nama_kegiatan'] ?></a></td>
+                                        <td><?= $k['divisi'] ?>
+                                        </td>
+
+                                        <td><?= $k['periode']?> </td>
+                                        </tr>
+                                    <?php  } ?>
                               
 
                               
