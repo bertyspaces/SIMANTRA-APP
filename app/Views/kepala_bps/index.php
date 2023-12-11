@@ -7,7 +7,7 @@
         <div class="row mb-2">
             <div>
                 <h1 class="m-0">Sistem Manajemen Penilaian Mitra BPS Kota Pekalongan</h1>
-                <p>Selamat Datang, Tim Penilai Mitra! Berikan Nilai Untuk Mitra</p>
+                <p>Selamat Datang, Udin!</p>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->

@@ -13,6 +13,12 @@ class User extends BaseController
 
         return view('user/index');
     }
+    public function penilaian_mitra()
+    {
+
+
+        return view('user/penilaian_mitra/index');
+    }
 
     // public function changeGroup()
     // {

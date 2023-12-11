@@ -5,7 +5,8 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Data Kegiatan Mitra</h1>
+                <h1>Data Kegiatan Yang Akan Dinilai</h1>
+                <p>Silahkan pilih kegiatan, yang mitranya akan dinilai!</p>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -30,23 +31,19 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Kegiatan</th>
-                                    <th>divisi</th>
-                                    <th>periode</th>
+                                    <th>Divisi</th>
+                                    <TH>Periode</TH>
+                                   
                                 </tr>
                             </thead>
                             <tbody>
-                            
-                                    <?php $i = 1 ?>
-                                    <?php foreach ($penilaian as $pn) { ?>
-                                        <tr>
-                                        <td><?= $i++ ?></td>
-                                        <td><a href="<?=base_url('penilaian/detail/')?><?=$k['']?>"><?= $k['nama_kegiatan'] ?></a></td>
-                                        <td><?= $k['divisi'] ?>
-                                        </td>
+                                <td>1</td>
+                                <td>SAKERNAS</td>
+                                <td>Statisi Produksi</td>
+                                <td>Agustus 2022</td>
+                              
 
-                                        <td><?= $k['periode']?> </td>
-                                        </tr>
-                                    <?php  } ?>
+                              
                             </tbody>
                         </table>
                     </div>
