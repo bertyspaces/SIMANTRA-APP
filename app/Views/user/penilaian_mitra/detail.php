@@ -37,19 +37,11 @@
     <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header p-2">
-                        <ul class="nav nav-pills">
-                            <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Tambah Data</a></li>
-                            <li class="nav-item"><a class="nav-link " href="#activity" data-toggle="tab">Mitra Lapangan</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Mitra Pengolahan</a></li>
-                        </ul>
+                    <div class="card-header ">
+                    <h3 class="card-title"><?=$keterangan?></h3>
                     </div>
                     <div class="card-body">
-                        <div class="tab-content">
-
-                            <div class="tab-pane " id="activity">
-
-                                <table id="example2" class="table table-bordered table-hover">
+                    <table id="example2" class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -61,96 +53,20 @@
                                     </thead>
                                     <tbody>
                                         <?php $i = 1 ?>
-                                        <?php foreach ($lapangan as $l) { ?>
+                                        <?php foreach ($mitra as $l) { ?>
                                             <tr>
                                                 <td><?= $i++ ?></td>
                                                 <td><?= $l['nik'] ?></td>
                                                 <td><?= $l['nama_mitra'] ?></td>
 
 
-                                                <td><a href="<?= base_url() ?>kegiatan_mitra/hapus/<?= $l['nik'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus mitra ini?')">Hapus</a>
+                                                <td><a href="<?= base_url() ?>penilaian/mitra/<?= $l['nik'] ?>" class="btn btn-success" >Input Nilai</a>
                                         </td>
                                             </tr>
                                         <?php  } ?>
 
                                     </tbody>
                                 </table>
-
-                            </div>
-
-                            <div class="tab-pane" id="timeline">
-                                <table id="example1" class="table table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nik</th>
-                                            <th>Nama</th>
-
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php $i = 1 ?>
-                                        <?php foreach ($pengolahan as $p) { ?>
-                                            <tr>
-                                                <td><?= $i++ ?></td>
-                                                <td><?= $p['nik'] ?></td>
-                                                <td><?= $p['nama_mitra'] ?></td>
-
-
-                                                <td><a href="<?= base_url() ?>kegiatan_mitra/hapus/<?= $p['nik'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus mitra ini?')">Hapus</a>
-                                        </td>
-                                            </tr>
-                                        <?php  } ?>
-
-                                    </tbody>
-                                </table>
-
-                            </div>
-
-                            <div class="tab-pane active" id="settings">
-                                <form class="form-horizontal" action="<?= base_url() ?>kegiatan_mitra/simpan/<?=$kegiatan['id_kegiatan']?>" method="post">
-                                    <div class="form-group row">
-                                        <label for="inputName" class="col-sm-2 col-form-label">Nik</label>
-                                        <div class="col-sm-9    ">
-                                            <input type="text"  name="nik" maxlength="16" class="form-control" id="nik" placeholder="NIk"> 
-                                            
-                                        </div>
-                                        <div class="col-sm-1">
-                                          
-                                            <span><a type="submit" class="btn btn-danger btn-cari"><i class="fa fa-search"></i></a></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputName" class="col-sm-2 col-form-label">Nama Mitra</label>
-                                        <div class="col-sm-10">
-                                            <input type="text"  name="nama_mitra" maxlength="16" class="form-control" id="nama_mitra" placeholder="Nama Mitra" readonly> 
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputName"  class="col-sm-2 col-form-label">Kategori</label>
-                                        <div class="col-sm-10">
-                                            <select class="form-control" name="kategori">
-                                                <option value="lapangan">Mitra Lapangan</option>
-                                                <option value="pengolahan">Mitra Pengolahan</option>
-                                                
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    
-                                    <div class="form-group row">
-                                        <div class="offset-sm-2 col-sm-10">
-                                            <button type="submit" class="btn btn-danger">tambah</button>
-                                        </div>
-                                    </div>
-                                </form>
-
-                            </div>
-
-
-
-                        </div>
 
                     </div>
                 </div>

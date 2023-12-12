@@ -29,4 +29,17 @@ class RKModel extends Model
 
         return $query->getResult();
     }
+    public function getRatingBobotGroup()
+    {
+        $db = db_connect();
+
+        $query = $db->table('rating_kriteria')
+        ->select('bobot_kriteria.kode, bobot_kriteria.kriteria, GROUP_CONCAT(rating_kriteria.bobot) AS bobot_concat')
+        ->join('bobot_kriteria', 'bobot_kriteria.kode = rating_kriteria.kode', 'left')
+        ->orderBy('bobot_kriteria.kode')
+        ->groupBy('bobot_kriteria.kode')
+        ->get();
+    
+    return $query->getResult();
+    }
 }

@@ -10,6 +10,7 @@
                 <p>Selamat Datang, Tim Penilai Mitra! Berikan Nilai Untuk Mitra</p>
             </div><!-- /.col -->
         </div><!-- /.row -->
+
     </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
@@ -51,6 +52,33 @@
             <!-- ./col -->
 
         </div>
+        <!-- <div class="row">
+            
+            <section class="col-md-4">
+
+
+                <div class="card card-default">
+                    <div class="card-body">
+
+
+                        <p class="text-center">
+                            <strong>Progress Penilaian</strong>
+                        </p>
+                        <?php $i = 1 ?>
+                                    <?php foreach ($kegiatan_mitra as $k) { ?>
+                        <div class="progress-group">
+                        <?= $k->nama_kegiatan ?>
+                            <span class="float-right"><b>160</b>/200</span>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar bg-primary" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <?php  } ?>
+
+                    </div>
+                </div>
+            </section>
+        </div> -->
 
 
 
@@ -59,68 +87,6 @@
     </div><!-- /.container-fluid -->
 </section>
 
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1>Input Nilai Mitra</h1>
-            </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Nilai Mitra</a></li>
-                    <li class="breadcrumb-item active">DataTables</li>
-                </ol>
-            </div>
-        </div>
-    </div><!-- /.container-fluid -->
-</section>
-
-<!-- Main content -->
-<section class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <table id="example1" class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Kegiatan</th>
-                                    <th>Periode</th>
-                                    <th>Penanggung Jawab</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 4.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td> 4</td>
-                                    <td>
-                                        <a href="" class="btn btn-success">Tambah</a>
-                                        <a href="" class="btn btn-warning">Edit</a>
-                                        <a href="" class="btn btn-danger">Hapus</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
 
 
-                <!-- /.card -->
-            </div>
-            <!-- /.col -->
-        </div>
-        <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
-</section>
 <?= $this->endSection() ?>

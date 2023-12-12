@@ -35,7 +35,7 @@
 
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <?php if (in_groups('admin')) { ?>
+               
                     <!-- menu dashboard -->
                     <li class="nav-item">
                         <a href="<?= base_url() ?>admin" class="nav-link">
@@ -43,6 +43,7 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
+                    <?php if (in_groups('admin')) { ?>
                     <!-- menu data master -->
                     <li class="nav-item">
                         <a href="#" class="nav-link">
