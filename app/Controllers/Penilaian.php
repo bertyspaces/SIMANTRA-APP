@@ -93,9 +93,7 @@ class Penilaian extends BaseController
               
                 $nilaiModel->save($data);
             }
-     
-    
-
-        return json_encode($allInput);
+            session()->setFlashdata('pesan_tambah', 'Data Mitra berhasil ditambah');
+            return redirect()->to('penilaian/kegiatan/'.  $id_kegiatan_mitra);
     }
 }
