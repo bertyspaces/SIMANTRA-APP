@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\DataMitraModel;
 use App\Models\KegiatanMitraModel;
 use App\Models\KegiatanModel;
+use Myth\Auth\Models\GroupModel;
+use Myth\Auth\Models\UserModel;
 
 class Kegiatan_Mitra extends BaseController
 {
@@ -49,7 +51,8 @@ class Kegiatan_Mitra extends BaseController
                 $data = [
                     'nik' => $this->request->getVar('nik'),
                     'kategori' => $this->request->getVar('kategori'),
-                    'id_kegiatan' => $id
+                    'id_kegiatan' => $id,
+                    'id_user'=>$this->request->getVar('pj'),
                 ];
                 //    dd($data);
                 $model->insert($data);
@@ -60,16 +63,21 @@ class Kegiatan_Mitra extends BaseController
         session()->setFlashdata('pesan_error', ' Mitra belum Terdaftar');
         return redirect()->back();
     }
-    public function hapus($nik)
+    public function hapus($id_kegiatan_mitra,$id_kegiatan)
     {
-        // Proses penghapusan data kegiatan berdasarkan ID
-        $DataMitraModel = new DataMitraModel();
-        $DataMitraModel->delete($nik);
-        return redirect()->to('/data_mitra');
+        
+        $DataMitraModel = new KegiatanMitraModel();
+        $DataMitraModel->delete($id_kegiatan_mitra);
+        return redirect()->to('/kegiatan_mitra/detail/'.$id_kegiatan);
     }
     public function cariMitra($nik){
         $model = new DataMitraModel();
         $data = $model->where('nik',$nik)->get()->getRow(); 
+        return $this->response->setJSON($data);
+    }
+    public function cariUser($groupId){
+        $model = new GroupModel();
+        $data=$model->getUsersForGroup($groupId);
         return $this->response->setJSON($data);
     }
 }

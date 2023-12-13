@@ -13,19 +13,37 @@ kekurangan:
 
 admin 
 1. bobot (edit, kode disable)
-2.TODO:rattingkriteria (belum fungsional, nyambung dengan menu bobot krriteria (kode dan kriteria))
+2.:rattingkriteria (belum fungsional, nyambung dengan menu bobot krriteria (kode dan kriteria))
 3.TODO:data penilaian FSAW 
 ( diambil dari input nilai mitra oleh pml/ipds)
 4.TODO:nilai kegiatan mitra (dari tabel hasil perhitungan nilai FSAW)
 5.TODO:rangking
 6.TODO:rekap nilai mitra 
-7.TODO:data kegiatan mitra (menggunakan tombol cari nama), nik ada minimal dan maksimal /Revisi
+7.:data kegiatan mitra (menggunakan tombol cari nama), nik ada minimal dan maksimal /Revisi
 8.role pml (sudah ada tampilan, tapi pas login kok gak biisa yang...) dan Kepala BPS
 
 
 [pml]
-1.  TODO:penilaian : CRUD (masih tampilan)
+1.  :penilaian : CRUD 
 
 [kepala bps]
 1. TODO:tampilan dashboard
+
+
+tambahan:
+-revisi pencarian mitra dengan nik menajdi otomatis saat user menginputkan
+-tambah inputan penanggung jawab untuk filter penilaian
+-penanggung jawab berdasarkan kategori mitra
+- fix: delete kegiatan mitra
+
+
+todo:
+simpan mitra
+tampilkan data penilaian berdasrkan penanggung jawab
+tampilkan nilai
+tampilkan tabel bobot berdsasarkan database
+urutan penilaian dari 5-1
+
+pertanyaan:
+data penilaian per kegiatan/ semua kegiatan
 

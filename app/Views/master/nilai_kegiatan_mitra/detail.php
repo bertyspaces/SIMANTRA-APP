@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Nilai Kegiatan Mitra</h1>
+                <h1>Nilai Kegiatan Mitra | <?= $kegiatan['nama_kegiatan'] ?></h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -54,6 +54,77 @@
                         </table>
                     </div>
                     <!-- /.card-body -->
+                </div>
+
+                <div class="card">
+                    <div class="card-header p-2">
+                        <ul class="nav nav-pills">
+
+                            <li class="nav-item"><a class="nav-link active " href="#activity" data-toggle="tab">Mitra Lapangan</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Mitra Pengolahan</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content">
+
+                            <div class="tab-pane active " id="activity">
+
+                                <table id="example2" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Mitra</th>
+                                            <th>Nilai Kinerja</th>
+                                            <th>Nilai Kerjasama</th>
+                                            <th>Nama Kualitas Data</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $i = 1 ?>
+                                        <?php foreach ($lapangan as $l=>$value) { ?>
+                                            <tr>
+                                                <td><?= $i++ ?></td>
+                                                <td><?= $l ?></td>
+                                                <?php foreach ($value as $nilai=>$n) { ?>    
+                                                <td><?= $n['keterangan'] ?></td>
+                                                <?php  } ?>
+
+                                               
+                                            </tr>
+                                        <?php  } ?>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                            <div class="tab-pane" id="timeline">
+                                <table id="example1" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Mitra</th>
+                                            <th>Kegiatan</th>
+                                            <th>Nilai Kinerja</th>
+                                            <th>Nilai Kerjasama</th>
+                                            <th>Nama Kualitas Data</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+
+
+
+
+                        </div>
+
+                    </div>
                 </div>
                 <!-- /.card -->
 

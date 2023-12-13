@@ -59,9 +59,12 @@
                                                 <td><?= $l['nik'] ?></td>
                                                 <td><?= $l['nama_mitra'] ?></td>
 
-
+                                        <?php if($l['status']=='belum dinilai'){?>
                                                 <td><a href="<?= base_url() ?>penilaian/mitra/<?= $l['nik'] ?>" class="btn btn-success" >Input Nilai</a>
-                                        </td>
+                                        <?php }else{?>
+                                            <td><button  class="btn btn-secondary" >Input Nilai</button>
+                                        <?php }?>
+                                            </td>
                                             </tr>
                                         <?php  } ?>
 

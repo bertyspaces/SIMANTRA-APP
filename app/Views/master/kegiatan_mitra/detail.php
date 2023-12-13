@@ -68,7 +68,7 @@
                                                 <td><?= $l['nama_mitra'] ?></td>
 
 
-                                                <td><a href="<?= base_url() ?>kegiatan_mitra/hapus/<?= $l['nik'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus mitra ini?')">Hapus</a>
+                                                <td><a href="<?= base_url() ?>kegiatan_mitra/hapus/<?= $l['id_kegiatan_mitra'] ?>/ <?= $kegiatan['id_kegiatan'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus mitra ini?')">Hapus</a>
                                         </td>
                                             </tr>
                                         <?php  } ?>
@@ -98,7 +98,7 @@
                                                 <td><?= $p['nama_mitra'] ?></td>
 
 
-                                                <td><a href="<?= base_url() ?>kegiatan_mitra/hapus/<?= $p['nik'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus mitra ini?')">Hapus</a>
+                                                <td><a href="<?= base_url() ?>kegiatan_mitra/hapus/<?= $p['id_kegiatan_mitra'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus mitra ini?')">Hapus</a>
                                         </td>
                                             </tr>
                                         <?php  } ?>
@@ -112,14 +112,14 @@
                                 <form class="form-horizontal" action="<?= base_url() ?>kegiatan_mitra/simpan/<?=$kegiatan['id_kegiatan']?>" method="post">
                                     <div class="form-group row">
                                         <label for="inputName" class="col-sm-2 col-form-label">Nik</label>
-                                        <div class="col-sm-9    ">
+                                        <div class="col-sm-10    ">
                                             <input type="text"  name="nik" maxlength="16" class="form-control" id="nik" placeholder="NIk"> 
                                             
                                         </div>
-                                        <div class="col-sm-1">
+                                        <!-- <div class="col-sm-1">
                                           
                                             <span><a type="submit" class="btn btn-danger btn-cari"><i class="fa fa-search"></i></a></span>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputName" class="col-sm-2 col-form-label">Nama Mitra</label>
@@ -131,8 +131,18 @@
                                         <label for="inputName"  class="col-sm-2 col-form-label">Kategori</label>
                                         <div class="col-sm-10">
                                             <select class="form-control" name="kategori">
+                                                <option value="" hidden  selected disabled></option>
                                                 <option value="lapangan">Mitra Lapangan</option>
                                                 <option value="pengolahan">Mitra Pengolahan</option>
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputName"  class="col-sm-2 col-form-label">Penanggung Jawab</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" name="pj">
+                                               
                                                 
                                             </select>
                                         </div>

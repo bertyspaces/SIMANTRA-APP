@@ -27,15 +27,16 @@ class Penilaian extends BaseController
        foreach ($roles as $role) {
            $role ;
        }
+      $idUser=user()->id;
        if ($role=='pml') {     
-        $mitra = $model->getKegitanMitra('lapangan', $id);
+        $mitra = $model->getKegitanMitraByUser('lapangan', $id,$idUser);
         $keterangan="Mitra Lapangan";
       }else{
-          $mitra = $model->getKegitanMitra('pengolahan', $id);
+          $mitra = $model->getKegitanMitraByUser('pengolahan', $id,$idUser);
           $keterangan="Mitra Pengolahan";
       }
        
-
+      
         $model = new KegiatanModel();
         $nama_kegiatan = $model->find($id);
 
@@ -52,7 +53,7 @@ class Penilaian extends BaseController
 
         $data = $kegiatanMitraModel->select('mitra.nama_mitra , kegiatan_mitra.*,kegiatan.nama_kegiatan')->join('mitra', 'mitra.nik = kegiatan_mitra.nik')->join('kegiatan', 'kegiatan.id_kegiatan = kegiatan_mitra.id_kegiatan')->where('kegiatan_mitra.nik',$nik)->get()->getRow();
         // dd($data);
-        $query = $rk->select('bobot_kriteria.kriteria , rating_kriteria.*')->join('bobot_kriteria', 'bobot_kriteria.kode = rating_kriteria.kode')->get();
+        $query = $rk->select('bobot_kriteria.kriteria , rating_kriteria.*')->join('bobot_kriteria', 'bobot_kriteria.kode = rating_kriteria.kode')->orderBy('rating_kriteria.bobot','desc')->get();
      
         $resultArray = [];
         foreach ($query->getResult() as $row) {
@@ -63,6 +64,7 @@ class Penilaian extends BaseController
                 'keterangan' => $row->keterangan,
             ];
         }
+        // dd($resultArray);
       
      
 
@@ -78,12 +80,16 @@ class Penilaian extends BaseController
         $allInput = $this->request->getRawInput();
         $postData = $this->request->getPost();
         $nilaiModel=new NilaiKegiatanMitraModel();
+        $kegiatan_mitra = new KegiatanMitraModel();
+
       
 
         // Ambil nilai array dari input form
         $dataArray = $postData['nilai'];
         $id_kegiatan_mitra = $this->request->getVar('id_kegiatan_mitra');
-        
+        $data_kegiatan_mitra=$kegiatan_mitra->update($id_kegiatan_mitra,['status'=>'dinilai']);
+        $kegiatan=$kegiatan_mitra->find($id_kegiatan_mitra);
+
             foreach ($dataArray as $ratingId=>$value) {
                 
                 $data = [
@@ -93,7 +99,7 @@ class Penilaian extends BaseController
               
                 $nilaiModel->save($data);
             }
-            session()->setFlashdata('pesan_tambah', 'Data Mitra berhasil ditambah');
-            return redirect()->to('penilaian/kegiatan/'.  $id_kegiatan_mitra);
+            session()->setFlashdata('pesan_tambah', 'Mitra Berhasil dinilai');
+            return redirect()->to('penilaian/kegiatan/'.  $kegiatan['id_kegiatan']);
     }
 }
