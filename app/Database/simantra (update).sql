@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 11, 2023 at 11:59 AM
+-- Generation Time: Dec 14, 2023 at 07:58 PM
 -- Server version: 8.0.30
 -- PHP Version: 7.4.33
 
@@ -182,7 +182,24 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (67, '::1', 'rahyudin123@gmail.com', 7, '2023-12-07 10:49:00', 1),
 (68, '::1', 'rahyudin123@gmail.com', 7, '2023-12-07 11:15:05', 1),
 (69, '::1', 'pml', NULL, '2023-12-11 11:33:10', 0),
-(70, '::1', 'pml123@gmail.com', 3, '2023-12-11 11:33:19', 1);
+(70, '::1', 'pml123@gmail.com', 3, '2023-12-11 11:33:19', 1),
+(71, '::1', 'pml123@gmail.com', 3, '2023-12-11 17:04:40', 1),
+(72, '::1', 'admin123@gmail.com', 2, '2023-12-11 23:28:02', 1),
+(73, '::1', 'pml123@gmail.com', 3, '2023-12-12 00:10:26', 1),
+(74, '::1', 'pml123@gmail.com', 3, '2023-12-12 07:49:36', 1),
+(75, '::1', 'admin123@gmail.com', 2, '2023-12-12 08:11:21', 1),
+(76, '::1', 'pml123@gmail.com', 3, '2023-12-12 08:13:22', 1),
+(77, '::1', 'admin123@gmail.com', 2, '2023-12-12 08:37:14', 1),
+(78, '::1', 'pml123@gmail.com', 3, '2023-12-12 08:38:19', 1),
+(79, '::1', 'pml123@gmail.com', 3, '2023-12-13 04:27:51', 1),
+(80, '::1', 'pml', NULL, '2023-12-13 18:43:13', 0),
+(81, '::1', 'pml123@gmail.com', 3, '2023-12-13 18:43:35', 1),
+(82, '::1', 'admin', NULL, '2023-12-13 19:02:56', 0),
+(83, '::1', 'admin123@gmail.com', 2, '2023-12-13 19:03:10', 1),
+(84, '::1', 'pml123@gmail.com', 3, '2023-12-13 19:59:49', 1),
+(85, '::1', 'admin123@gmail.com', 2, '2023-12-14 13:44:03', 1),
+(86, '::1', 'admin123@gmail.com', 2, '2023-12-14 17:03:28', 1),
+(87, '::1', 'tresno@gmail.com', 5, '2023-12-14 19:32:34', 1);
 
 -- --------------------------------------------------------
 
@@ -290,22 +307,19 @@ CREATE TABLE `kegiatan_mitra` (
   `nik` char(16) COLLATE utf8mb4_general_ci NOT NULL,
   `id_kegiatan` int NOT NULL,
   `id_user` int NOT NULL,
-  `kategori` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
+  `kategori` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` enum('belum dinilai','dinilai') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'belum dinilai'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `kegiatan_mitra`
 --
 
-INSERT INTO `kegiatan_mitra` (`id_kegiatan_mitra`, `nik`, `id_kegiatan`, `id_user`, `kategori`) VALUES
-(9, '454636363', 8, 0, 'lapangan'),
-(10, '213131', 8, 0, 'pengolahan'),
-(11, '3326163620002', 9, 0, 'lapangan'),
-(12, '3326163620002', 3, 0, 'lapangan'),
-(13, '332616362900', 3, 0, 'pengolahan'),
-(14, '3326163620002', 2, 0, 'lapangan'),
-(15, '332616362900', 2, 0, 'pengolahan'),
-(16, '333526719', 2, 0, 'lapangan');
+INSERT INTO `kegiatan_mitra` (`id_kegiatan_mitra`, `nik`, `id_kegiatan`, `id_user`, `kategori`, `status`) VALUES
+(22, '332616362900', 2, 3, 'lapangan', 'dinilai'),
+(23, '454636363', 2, 3, 'lapangan', 'dinilai'),
+(24, '111', 2, 3, 'lapangan', 'dinilai'),
+(25, '222', 2, 5, 'pengolahan', 'dinilai');
 
 -- --------------------------------------------------------
 
@@ -352,9 +366,9 @@ CREATE TABLE `mitra` (
 --
 
 INSERT INTO `mitra` (`nik`, `nama_mitra`, `jenis_kelamin`, `tanggal_lahir`, `umur`, `pendidikan`, `email`, `kategori`) VALUES
-('3326163620002', 'Marchellina Berty', 'Perempuan', '2002-03-25', '21', 'S1', 'linaberty253@gmail.com', 'Mitra Pengolahan'),
+('111', 'lina', 'Perempuan', '2023-12-14', '21', 'SMA/SMK', 'tresno21@gmail.com', ''),
+('222', 'asdasd', 'Laki-Laki', '2023-12-31', '12', 'SMA/SMK', 'hakimff622@gmail.com', ''),
 ('332616362900', 'Hakim Firman', 'Laki-Laki', '2023-11-01', '25', 'SMA/SMK', 'hakimff@gmail.com', 'mitra lapangan'),
-('333526719', 'Berty Lina', 'Perempuan', '2023-11-18', '23', 'DI/DII/DIII', 'machel253@gmail.com', 'mitra lapangan'),
 ('454636363', 'Fatris Faradilla', 'Perempuan', '2002-02-07', '23', 'S1', 'fatris@gmail.com', 'Mitra Pengolahan');
 
 -- --------------------------------------------------------
@@ -366,13 +380,35 @@ INSERT INTO `mitra` (`nik`, `nama_mitra`, `jenis_kelamin`, `tanggal_lahir`, `umu
 CREATE TABLE `nilai_kegiatan_mitra` (
   `id_nilai_kegiatan_mitra` int NOT NULL,
   `id_kegiatan_mitra` int NOT NULL,
-  `id_ratting_kriteria` int NOT NULL,
-  `nilai_kinerja` int NOT NULL,
-  `nilai_kerja_sama` int NOT NULL,
-  `nilai_kualitas_data` int NOT NULL,
-  `total_nilai` int NOT NULL,
-  `keterangan` varchar(30) COLLATE utf8mb4_general_ci NOT NULL
+  `id_rating_kriteria` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `nilai_kegiatan_mitra`
+--
+
+INSERT INTO `nilai_kegiatan_mitra` (`id_nilai_kegiatan_mitra`, `id_kegiatan_mitra`, `id_rating_kriteria`) VALUES
+(15, 16, 15),
+(16, 16, 20),
+(17, 16, 21),
+(18, 16, 12),
+(19, 16, 19),
+(20, 16, 24),
+(21, 16, 12),
+(22, 16, 19),
+(23, 16, 24),
+(24, 23, 15),
+(25, 23, 20),
+(26, 23, 25),
+(27, 22, 15),
+(28, 22, 20),
+(29, 22, 25),
+(30, 24, 13),
+(31, 24, 19),
+(32, 24, 22),
+(33, 25, 12),
+(34, 25, 20),
+(35, 25, 21);
 
 -- --------------------------------------------------------
 
@@ -456,7 +492,7 @@ INSERT INTO `users` (`id`, `email`, `username`, `password_hash`, `reset_hash`, `
 (2, 'admin123@gmail.com', 'admin', '$2y$10$HnjJgyL2qlUdzQGcNX9J/OFdQuSOqqqmb4uGgojtgKEmlRkpYi8eW', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-11-10 16:56:10', '2023-11-10 16:56:10', NULL),
 (3, 'pml123@gmail.com', 'pml', '$2y$10$wSdKUS3xFVDM9DnkpXs4j.INsAs0uez3JhXz3WlnRYzr74mC91tuu', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-11-10 16:57:48', '2023-11-10 16:57:48', NULL),
 (4, 'lina123@gmail.com', 'lina', '$2y$10$Lnz2sSemZ.mb05Sk1K.SSOBVKm5WTIw51P9a/LvfjrEy2YeOgZRcG', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-12-04 07:45:31', '2023-12-04 07:45:31', NULL),
-(5, 'tresno@gmail.com', 'tresno', '$2y$10$m38XYP4BogcIa/xfhvnfjOrIvo/2fWIRSuZexYduEIO1lQ5bpPBAa', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-12-04 07:59:29', '2023-12-04 07:59:29', NULL),
+(5, 'tresno@gmail.com', 'tresno', '$2y$10$mH3vYZM06Iup6qChb.ZYku8ZMj81s6WnjeeD94qhKHjK.siJRQnH2', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-12-04 07:59:29', '2023-12-04 07:59:29', NULL),
 (6, 'tresno21@gmail.com', 'Tresno1', '$2y$10$.8UUWfmTNNuHEcWeeh2km.vtbvHkh09OpJ1D6UVGDfve8YJme0zoy', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-12-04 08:00:18', '2023-12-04 08:00:18', NULL),
 (7, 'rahyudin123@gmail.com', 'rahyudin', '$2y$10$ATH1rNd2afx1U5AH6izTy.UZ2.pzVKJA/WrlQbIauoiB5tS0btSly', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-12-07 10:46:42', '2023-12-07 10:46:42', NULL),
 (8, 'kepalabps123@gmail.com', 'rah', '$2y$10$cAKJc9uMltEGbGcgDixuROV7LNCpMgwR1sgwpxVXVvawqdNUOAhCu', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-12-07 10:48:14', '2023-12-07 10:48:14', NULL);
@@ -560,7 +596,8 @@ ALTER TABLE `mitra`
 -- Indexes for table `nilai_kegiatan_mitra`
 --
 ALTER TABLE `nilai_kegiatan_mitra`
-  ADD PRIMARY KEY (`id_nilai_kegiatan_mitra`);
+  ADD PRIMARY KEY (`id_nilai_kegiatan_mitra`),
+  ADD KEY `id_kegiatan_mitra` (`id_kegiatan_mitra`);
 
 --
 -- Indexes for table `rating_kriteria`
@@ -603,7 +640,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
@@ -633,13 +670,19 @@ ALTER TABLE `kegiatan`
 -- AUTO_INCREMENT for table `kegiatan_mitra`
 --
 ALTER TABLE `kegiatan_mitra`
-  MODIFY `id_kegiatan_mitra` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_kegiatan_mitra` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `nilai_kegiatan_mitra`
+--
+ALTER TABLE `nilai_kegiatan_mitra`
+  MODIFY `id_nilai_kegiatan_mitra` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `rating_kriteria`
