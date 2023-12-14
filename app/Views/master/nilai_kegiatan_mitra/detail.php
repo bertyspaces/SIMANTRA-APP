@@ -23,38 +23,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="card">
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <table id="example1" class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Nama Mitra</th>
-                                    <th>Kegiatan</th>
-                                    <th>Nilai Kinerja</th>
-                                    <th>Nilai Kerjasama</th>
-                                    <th>Nama Kualitas Data</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Marchellina Berty</td>
-                                    <td>Regsosek 2022</td>
-                                    <td>Sangat Baik</td>
-                                    <td>Baik</td>
-                                    <td>Baik</td>
-                                    <td>
-                                        <a href="" class="btn btn-danger">Input</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
+               
 
                 <div class="card">
                     <div class="card-header p-2">
@@ -104,7 +73,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Mitra</th>
-                                            <th>Kegiatan</th>
+                                           
                                             <th>Nilai Kinerja</th>
                                             <th>Nilai Kerjasama</th>
                                             <th>Nama Kualitas Data</th>
@@ -112,7 +81,18 @@
                                     </thead>
                                     <tbody>
                                     
+                                    <?php $i = 1 ?>
+                                        <?php foreach ($pengolahan as $p=>$value) { ?>
+                                            <tr>
+                                                <td><?= $i++ ?></td>
+                                                <td><?= $p ?></td>
+                                                <?php foreach ($value as $nilai=>$n) { ?>    
+                                                <td><?= $n['keterangan'] ?></td>
+                                                <?php  } ?>
 
+                                               
+                                            </tr>
+                                        <?php  } ?>
                                     </tbody>
                                 </table>
 

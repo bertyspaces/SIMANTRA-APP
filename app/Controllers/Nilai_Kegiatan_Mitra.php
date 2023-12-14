@@ -65,7 +65,7 @@ class Nilai_Kegiatan_Mitra extends BaseController
 
         return view('/master/nilai_kegiatan_mitra/detail', [
             'lapangan' => $resultMitraLapangan,
-            // 'pengolahan' => $resultMitraPengolahan,
+            'pengolahan' => $resultMitraPengolahan,
             'kegiatan' => $nama_kegiatan
         ]);
     }
