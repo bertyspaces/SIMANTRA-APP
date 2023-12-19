@@ -147,7 +147,8 @@
                                                                         <td><?= $i++ ?></td>
                                                                         <td><?= $l ?></td>
                                                                         <?php foreach ($value as $nilai => $n) { ?>
-                                                                            <td><?= $n['keterangan'] ?></td>
+                                                                            <td><?= $n['keterangan']  ?></td>
+
                                                                         <?php  } ?>
 
 
@@ -217,6 +218,59 @@
 
 
 
+                                                                    <?php  } ?>
+
+                                                                    </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="content-header">
+                                    <div class="container-fluid">
+                                        <div class="row mb-2">
+                                            <div class="col-sm-6">
+                                                <h1>Ranking Kinterja Mitra</h1>
+                                            </div>
+                                        </div>
+                                    </div><!-- /.container-fluid -->
+                                </section>
+
+                                <section class="content">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="card">
+                                                    <!-- /.card-header -->
+                                                    <div class="card-body">
+                                                        <table id="" class="table table-bordered table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>No</th>
+                                                                    <th>Nama Mitra</th>
+
+                                                                    <th>score</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+
+
+                                                                <?php if (empty($ranking_lapangan)) { ?>
+
+                                                                    <tr>
+                                                                        <td colspan="6" class="text-center">Data Masih Kosong</td>
+                                                                    </tr>
+                                                                <?php  } ?>
+                                                                <?php $i = 1 ?>
+                                                                <?php foreach ($ranking_lapangan as $nama => $score) { ?>
+                                                                    <?php $total = 0; ?>
+                                                                    <tr>
+                                                                        <td><?= $i++ ?></td>
+                                                                        <td><?= $nama ?></td>
+                                                                        <td><?= $score ?></td>
                                                                     <?php  } ?>
 
                                                                     </tr>
@@ -408,6 +462,59 @@
 
 
 
+                                                                    <?php  } ?>
+
+                                                                    </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="content-header">
+                                    <div class="container-fluid">
+                                        <div class="row mb-2">
+                                            <div class="col-sm-6">
+                                                <h1>Ranking Kinterja Mitra</h1>
+                                            </div>
+                                        </div>
+                                    </div><!-- /.container-fluid -->
+                                </section>
+
+                                <section class="content">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="card">
+                                                    <!-- /.card-header -->
+                                                    <div class="card-body">
+                                                        <table id="" class="table table-bordered table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>No</th>
+                                                                    <th>Nama Mitra</th>
+
+                                                                    <th>score</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+
+
+                                                                <?php if (empty($ranking_pengolahan)) { ?>
+
+                                                                    <tr>
+                                                                        <td colspan="6" class="text-center">Data Masih Kosong</td>
+                                                                    </tr>
+                                                                <?php  } ?>
+                                                                <?php $i = 1 ?>
+                                                                <?php foreach ($ranking_pengolahan as $nama => $score) { ?>
+                                                                    <?php $total = 0; ?>
+                                                                    <tr>
+                                                                        <td><?= $i++ ?></td>
+                                                                        <td><?= $nama ?></td>
+                                                                        <td><?= $score ?></td>
                                                                     <?php  } ?>
 
                                                                     </tr>
