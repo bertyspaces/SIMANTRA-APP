@@ -11,7 +11,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="/data_fsaw">Penilaian Fsaw
-</a></li>
+                        </a></li>
                     <li class="breadcrumb-item active">DataTables</li>
                 </ol>
             </div>
@@ -198,17 +198,19 @@
 
                                                                 <?php $i = 1 ?>
                                                                 <?php if (empty($hasil_penilaian_lapangan)) { ?>
+
                                                                     <tr>
                                                                         <td colspan="6" class="text-center">Data Masih Kosong</td>
                                                                     </tr>
                                                                 <?php  } ?>
                                                                 <?php foreach ($hasil_penilaian_lapangan as $l => $value) { ?>
+                                                                    <?php $total = 0; ?>
                                                                     <tr>
                                                                         <td><?= $i++ ?></td>
                                                                         <td><?= $l ?></td>
                                                                         <?php foreach ($value as $nilai => $n) { ?>
                                                                             <td><?= $n['keterangan'] ?></td>
-                                                                            <?php $total = $n['total'] ?>
+                                                                            <?php $total += $n['keterangan'] ?>
                                                                         <?php  } ?>
 
                                                                         <td><?= $total ?></td>

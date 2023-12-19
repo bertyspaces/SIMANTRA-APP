@@ -48,11 +48,11 @@ class Data_FSAW extends BaseController
             ];
             // lapangan:hasil fuzzy
             $nilai = number_format(($row->bobot / $jumlah) * $row->bobot_kriteria, 2, '.', '');
-            $total += $nilai;
-            $hasilMitraLapangan[$row->nama_mitra][] = [             
-                    'kode' => $row->kode,
-                    'keterangan' => $nilai,
-                    'total'=>$total
+            $hasilMitraLapangan[$row->nama_mitra][] = [
+                'kode' => $row->kode,
+                'keterangan' => $nilai,
+
+
             ];
         }
         // dd($hasilMitraLapangan);
@@ -66,20 +66,19 @@ class Data_FSAW extends BaseController
                 'kode' => $row->kode,
                 'keterangan' => $row->bobot,
             ];
-             // pengolahan : normalisasi
-             $normalisasiMitraPengolahan[$row->nama_mitra][] = [
+            // pengolahan : normalisasi
+            $normalisasiMitraPengolahan[$row->nama_mitra][] = [
                 'kode' => $row->kode,
                 'keterangan' => number_format($row->bobot / $jumlah, 2, '.', ''),
             ];
-             // pengolahan:hasil fuzzy
-             $nilai = number_format(($row->bobot / $jumlah) * $row->bobot_kriteria, 2, '.', '');
-             $total += $nilai;
-             $hasilMitraPengolahan[$row->nama_mitra][] = [
-                     'kode' => $row->kode,
-                     'keterangan' => $nilai,
-                     'total'=>$total
-             ];
-             
+            // pengolahan:hasil fuzzy
+            $nilai = number_format(($row->bobot / $jumlah) * $row->bobot_kriteria, 2, '.', '');
+            $total += $nilai;
+            $hasilMitraPengolahan[$row->nama_mitra][] = [
+                'kode' => $row->kode,
+                'keterangan' => $nilai,
+                'total' => $total
+            ];
         };
         // dd($resultMitraLapangan);
 
