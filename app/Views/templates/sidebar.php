@@ -35,15 +35,15 @@
 
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-               
-                    <!-- menu dashboard -->
-                    <li class="nav-item">
-                        <a href="<?= base_url() ?>admin" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <?php if (in_groups('admin')) { ?>
+
+                <!-- menu dashboard -->
+                <li class="nav-item">
+                    <a href="<?= base_url() ?>admin" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <?php if (in_groups('admin')) { ?>
                     <!-- menu data master -->
                     <li class="nav-item">
                         <a href="#" class="nav-link">
@@ -102,22 +102,16 @@
                         </a>
                     </li>
                     <li class="nav-header">ADMINISTRATOR</li>
-                    
+
                     <?php if (in_groups('admin') || in_groups('kepala_bps')) { ?>
-                    <li class="nav-item">
-                        <a href="<?= base_url() ?>nilai_kegiatan_mitra/index" class="nav-link">
-                            <i class="fas fa-circle nav-icon"></i>
-                            <p>Nilai Kegiatan Mitra</p>
-                        </a>
-                    </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url() ?>nilai_kegiatan_mitra/index" class="nav-link">
+                                <i class="fas fa-circle nav-icon"></i>
+                                <p>Nilai Kegiatan Mitra</p>
+                            </a>
+                        </li>
                     <?php } ?>
-                    
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-circle nav-icon"></i>
-                            <p>Ranking</p>
-                        </a>
-                    </li>
+
                     <li class="nav-item">
                         <a href="<?= base_url() ?>rekap_nilai_mitra" class="nav-link">
                             <i class="fas fa-circle nav-icon"></i>
@@ -140,7 +134,7 @@
                     <li class="nav-item">
                         <a href="<?= base_url() ?>penilaian_mitra/index" class="nav-link">
                             <i class="fas fa-clipboard-list nav-icon"></i>
-                            <p>xxasd</p>
+                            <p>Laporan</p>
                         </a>
                     </li>
                 <?php } ?>

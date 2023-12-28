@@ -26,15 +26,31 @@
                 <div class="card">
                     <?php if (session()->getFlashdata('pesan_tambah')) : ?>
 
-                        <div class="alert alert-success alert-dismissible">
+                        <div class="alert alert-primary alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                             <h5><i class="icon fas fa-check"></i> data berhasil ditambahkan</h5>
                             <?= session()->getFlashdata('pesan_tambah'); ?>
                         </div>
                     <?php endif; ?>
+                    <?php if (session()->getFlashdata('pesan_edit')) : ?>
+
+                        <div class="alert alert-warning alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h5><i class="icon fas fa-check"></i>Data mitra berhasil diubah</h5>
+                            <?= session()->getFlashdata('pesan_edit'); ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (session()->getFlashdata('pesan_hapus')) : ?>
+
+                        <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h5><i class="icon fas fa-check"></i>Data mitra berhasil dihapus </h5>
+                            <?= session()->getFlashdata('pesan_hapus'); ?>
+                        </div>
+                    <?php endif; ?>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <a href="" class="btn btn-success"><i class="fas fa-upload"></i> Import</a>
+                        <a href="<?= base_url() ?>data_mitra/tampil_upload" class="btn btn-success"><i class="fas fa-upload"></i> Import</a>
                         <a href="<?= base_url() ?>data_mitra/tambah" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Mitra</a>
                         <table id="example1" class="table table-bordered table-hover">
                             <thead>

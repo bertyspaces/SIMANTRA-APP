@@ -25,12 +25,27 @@
                 <div class="card mb-1">
                     <?php if (session()->getFlashdata('pesan_tambah')) : ?>
 
-                        <div class="alert alert-success alert-dismissible">
+                        <div class="alert alert-primary alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                            <h5><i class="icon fas fa-check"></i> data berhasil ditambahkan</h5>
+                            <h5><i class="icon fas fa-check"></i> Data Kegiatan berhasil ditambahkan</h5>
                             <?= session()->getFlashdata('pesan_tambah'); ?>
                         </div>
+                    <?php endif; ?>
+                    <?php if (session()->getFlashdata('pesan_edit')) : ?>
 
+                        <div class="alert alert-warning alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h5><i class="icon fas fa-check"></i>Data Kegiatan berhasil diubah</h5>
+                            <?= session()->getFlashdata('pesan_edit'); ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (session()->getFlashdata('pesan_hapus')) : ?>
+
+                        <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h5><i class="icon fas fa-check"></i>Data Kegiatan berhasil dihapus </h5>
+                            <?= session()->getFlashdata('pesan_hapus'); ?>
+                        </div>
                     <?php endif; ?>
                     <!-- /.card-header -->
                     <div class="card-body">

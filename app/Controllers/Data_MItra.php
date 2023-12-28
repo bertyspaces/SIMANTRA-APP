@@ -71,10 +71,11 @@ class Data_Mitra extends BaseController
                 'email' => $this->request->getPost('email'),
             ];
 
+
             $nik = $this->request->getPost('nik');
 
             $data_mitra->update($nik, $data);
-
+            session()->setFlashdata('pesan_edit', 'Data Mitra berhasil diubah');
             return redirect()->to('/data_mitra');
         }
     }
@@ -83,6 +84,45 @@ class Data_Mitra extends BaseController
         // Proses penghapusan data kegiatan berdasarkan ID
         $DataMitraModel = new DataMitraModel();
         $DataMitraModel->delete($nik);
+        session()->setFlashdata('pesan_hapus', 'Data Mitra berhasil dihapus');
         return redirect()->to('/data_mitra');
+    }
+
+    public function tampil_upload()
+    {
+        return view('master/data_mitra/upload');
+    }
+
+    public function upload()
+    {
+        $file = $this->request->getFile('excel_file');
+        // dd($file);
+        if ($file->isValid() && $file->getExtension() == 'xlsx') {
+            // Menggunakan library PhpSpreadsheet untuk membaca file Excel
+            $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($file->getPathname());
+            $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+
+            // Menggunakan DataMitraModel untuk menyimpan data ke database
+            $dataMitraModel = new DataMitraModel();
+            // dd($sheetData);
+            foreach ($sheetData as $row) {
+                $data = [
+                    'nik' => $row['A'], // Kolom A
+                    'nama_mitra' => $row['B'], // Kolom B
+                    'jenis_kelamin' => $row['C'], // Kolom C
+                    'tanggal_lahir' => $row['D'], // Kolom D
+                    'umur' => $row['E'], // Kolom E
+                    'pendidikan' => $row['F'], // Kolom F
+                    'email' => $row['G'], // Kolom G
+                ];
+                // dd($data);
+                $dataMitraModel->insert($data);
+            }
+
+
+            return "File uploaded and data saved successfully!";
+        } else {
+            return "Invalid file. Please upload a valid Excel file (xlsx).";
+        }
     }
 }

@@ -1,0 +1,15 @@
+admin (yang masih kurang)
+1. Dashboard (jumlah mitra, jumlah kegiatan, jumlah pengguna)
+2. data kegiatan (cetak kegiatan, filter kegiatan untuk cetak berdasarkan periode pertahun)
+3.  data penilaian fsaw (jika diklik di kegiatan selain sakernas masih error)
+4. data pengguna (status aktif/tidak aktif)
+5. rekap nilai mitra (masih data statis)
+
+pml/ipds 
+1.  Dashboard (jumlah mitra, jumlah kegiatan, jumlah pengguna)
+2. edit nilai (belum ada)
+
+kepala bps
+1. data kegiatan (cetak)
+2. data penilaian (Cetak)
+3. data rekap nilai mitra (cetak)

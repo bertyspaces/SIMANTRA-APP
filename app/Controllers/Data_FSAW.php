@@ -10,6 +10,7 @@ class Data_FSAW extends BaseController
 {
     public function index()
     {
+        //menampilkan kegiatan 
         $model = new KegiatanModel();
         $kegiatan_mitra = $model->findAll();
         return view('/master/data_fsaw/index', [
@@ -19,6 +20,7 @@ class Data_FSAW extends BaseController
 
     public function detail($id)
     {
+        //memilih kegiatan
         $model = new KegiatanMitraModel();
 
 
@@ -28,32 +30,60 @@ class Data_FSAW extends BaseController
         $model = new KegiatanModel();
         $nama_kegiatan = $model->find($id);
         $model = new NilaiKegiatanMitraModel();
-        // MITRA LAPANGAN
+        // data MITRA LAPANGAN per kegiatan 
         $resultMitraLapangan = [];
         $normalisasiMitraLapangan = [];
         $hasilMitraLapangan = [];
-       
-        $jumlah = count($model->getNilaiMitra('lapangan', $id)->getResult());
+
         $total = 0;
         $maxValues = [];
-       
-         // LAPANGAN:NILAI TERTINGGI
-        foreach ($model->getNilaiMitra('lapangan', $id)->getResultArray() as $data) {
-            $kode = $data['kode'];
-            $nilai = $data['bobot'];
+        $sumValues = [];
+        // menentukan nilai teertinggii per kolom LAPANGAN:NILAI TERTINGGI
+        // foreach ($model->getNilaiMitra('lapangan', $id)->getResultArray() as $data) {
+        //     $kode = $data['kode'];
+        //     $nilai = $data['bobot'];
 
+        //     // Jika kode belum ada dalam array $maxValues atau nilai lebih tinggi, update nilai tertinggi
+        //     if (!isset($maxValues[$kode]) || $nilai > $maxValues[$kode]['bobot']) {
+        //         $maxValues[$kode] = ['kode' => $kode, 'bobot' => $nilai];
+        //     }
+        // }
+
+
+        // menentukan LAPANGAN:RANKING
+        // foreach ($model->getNilaiMitra('lapangan', $id)->getResultArray() as $data) {
+        //     $namaMitra = $data['nama_mitra'];
+        //     $nilai_Teringgi = $maxValues[$data['kode']];
+        //     $nilai = ($data['bobot'] / $nilai_Teringgi['bobot']) * $data['bobot_kriteria'];
+
+        //     // Jika id_kegiatan_mitra belum ada dalam array $sumValues, inisialisasi dengan nilai
+        //     if (!isset($sumValues[$namaMitra])) {
+        //         $sumValues[$namaMitra] = $nilai;
+        //     } else {
+        //         // Jika sudah ada, akumulasikan nilai
+        //         $sumValues[$namaMitra] += $nilai;
+        //     }
+        // }
+        // uasort($sumValues, function ($a, $b) {
+        //     return $b - $a;
+        // });
+
+        foreach ($model->getNilaiMitra('lapangan', $id)->getResult() as $row) {
+
+
+
+            // menentukan nilai tertinggii per kolom LAPANGAN:NILAI TERTINGGI
+            $kode = $row->kode;
+            $nilai = $row->bobot;
             // Jika kode belum ada dalam array $maxValues atau nilai lebih tinggi, update nilai tertinggi
             if (!isset($maxValues[$kode]) || $nilai > $maxValues[$kode]['bobot']) {
                 $maxValues[$kode] = ['kode' => $kode, 'bobot' => $nilai];
             }
-        }
-        $sumValues = [];
 
-         // LAPANGAN:RANKING
-        foreach ($model->getNilaiMitra('lapangan', $id)->getResultArray() as $data) {
-            $namaMitra = $data['nama_mitra'];
-            $nilai_Teringgi = $maxValues[$data['kode']];
-            $nilai = ($data['bobot'] / $nilai_Teringgi['bobot']) * $data['bobot_kriteria'];
+            // menentukan ranking nilai mitra lapangan
+            $namaMitra = $row->nama_mitra;
+            $nilai_Teringgi = $maxValues[$row->kode];
+            $nilai = ($row->bobot / $nilai_Teringgi['bobot']) * $row->bobot_kriteria;
 
             // Jika id_kegiatan_mitra belum ada dalam array $sumValues, inisialisasi dengan nilai
             if (!isset($sumValues[$namaMitra])) {
@@ -62,24 +92,27 @@ class Data_FSAW extends BaseController
                 // Jika sudah ada, akumulasikan nilai
                 $sumValues[$namaMitra] += $nilai;
             }
-        }
-        uasort($sumValues, function ($a, $b) {
-            return $b - $a;
-        });
-        $rankingLapangan=$sumValues;
-        foreach ($model->getNilaiMitra('lapangan', $id)->getResult() as $row) {
+            $rankingLapangan = $sumValues;
+
+            //menampilkan data nilai mitra
             $resultMitraLapangan[$row->nama_mitra][] = [
                 'kode' => $row->kode,
                 'keterangan' => $row->bobot,
             ];
+
+            uasort($sumValues, function ($a, $b) {
+                return $b - $a;
+            });
+
+
+
             // lapangan : normalisasi
             $nilai_Teringgi = $maxValues[$row->kode];
-
-
             $normalisasiMitraLapangan[$row->nama_mitra][] = [
                 'kode' => $row->kode,
                 'keterangan' => number_format($row->bobot / $nilai_Teringgi['bobot'], 2, '.', ''),
             ];
+
             // lapangan:hasil fuzzy
             $nilai = number_format(($row->bobot / $nilai_Teringgi['bobot']) * $row->bobot_kriteria, 2, '.', '');
             $hasilMitraLapangan[$row->nama_mitra][] = [
@@ -126,7 +159,7 @@ class Data_FSAW extends BaseController
         uasort($sumPengolahan, function ($a, $b) {
             return $b - $a;
         });
-        $rankingPengolahan=$sumPengolahan;
+        $rankingPengolahan = $sumPengolahan;
         foreach ($model->getNilaiMitra('pengolahan', $id)->getResult() as $row) {
             $resultMitraPengolahan[$row->nama_mitra][] = [
                 'kode' => $row->kode,
@@ -157,8 +190,8 @@ class Data_FSAW extends BaseController
             'normalisasi_pengolahan' => $normalisasiMitraPengolahan,
             'hasil_penilaian_pengolahan' => $hasilMitraPengolahan,
             'kegiatan' => $nama_kegiatan,
-            'ranking_lapangan'=>$rankingLapangan,
-            'ranking_pengolahan'=>$rankingPengolahan
+            'ranking_lapangan' => $rankingLapangan,
+            'ranking_pengolahan' => $rankingPengolahan
 
         ]);
     }

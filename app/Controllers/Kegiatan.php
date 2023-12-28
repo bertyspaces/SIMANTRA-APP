@@ -70,7 +70,7 @@ class Kegiatan extends BaseController
             $id_kegiatan = $this->request->getPost('id_kegiatan');
 
             $kegiatan->update($id_kegiatan, $data);
-
+            session()->setFlashdata('pesan_edit', 'Data Kegiatan berhasil diubah');
             return redirect()->to('/kegiatan');
         }
     }
@@ -79,12 +79,13 @@ class Kegiatan extends BaseController
         // Proses penghapusan data kegiatan berdasarkan ID
         $kegiatanModel = new KegiatanModel();
         $kegiatanModel->delete($id_kegiatan);
+        session()->setFlashdata('pesan_edit', 'Data Kegiatan berhasil dihapus');
         return redirect()->to('/kegiatan');
     }
     public function cetak()
     {
 
-       
+
         // $kegiatan = $model->findAll();
 
         // return view('/master/kegiatan/cetak', [
@@ -105,28 +106,25 @@ class Kegiatan extends BaseController
 
         $kegiatanModel = new \App\Models\KegiatanModel();
         $data['kegiatan'] = $kegiatanModel->getAllKegiatan();
-        
+
         $dompdf = new \Dompdf\Dompdf();
         $options = new \Dompdf\Options();
         $options->setIsRemoteEnabled(true);
-        
+
         // Load the HTML content
         // $html = view('/master/kegiatan/cetak', $data);
         // $dompdf->loadHtml($html);
-        
+
 
         $dompdf->setOptions($options);
         $dompdf->output();
         $dompdf->loadHtml(view('/master/kegiatan/cetak', $data));
         $dompdf->setPaper('A4', 'portrait');
-        
+
         // Render PDF
         $dompdf->render();
-        
+
         // Output the PDF content
         $dompdf->stream('cetak_kegiatan.pdf', array("attachment" => false));
-        
-
-
     }
 }

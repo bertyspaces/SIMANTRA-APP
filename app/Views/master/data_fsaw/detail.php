@@ -233,7 +233,7 @@
                                     <div class="container-fluid">
                                         <div class="row mb-2">
                                             <div class="col-sm-6">
-                                                <h1>Ranking Kinterja Mitra</h1>
+                                                <h1>Ranking Kinerja Mitra</h1>
                                             </div>
                                         </div>
                                     </div><!-- /.container-fluid -->
@@ -450,12 +450,13 @@
                                                                     </tr>
                                                                 <?php  } ?>
                                                                 <?php foreach ($hasil_penilaian_pengolahan as $l => $value) { ?>
+                                                                    <?php $total = 0; ?>
                                                                     <tr>
                                                                         <td><?= $i++ ?></td>
                                                                         <td><?= $l ?></td>
                                                                         <?php foreach ($value as $nilai => $n) { ?>
                                                                             <td><?= $n['keterangan'] ?></td>
-                                                                            <?php $total = $n['total'] ?>
+                                                                            <?php $total += $n['keterangan'] ?>
                                                                         <?php  } ?>
 
                                                                         <td><?= $total ?></td>
@@ -477,7 +478,7 @@
                                     <div class="container-fluid">
                                         <div class="row mb-2">
                                             <div class="col-sm-6">
-                                                <h1>Ranking Kinterja Mitra</h1>
+                                                <h1>Ranking Kinerja Mitra</h1>
                                             </div>
                                         </div>
                                     </div><!-- /.container-fluid -->

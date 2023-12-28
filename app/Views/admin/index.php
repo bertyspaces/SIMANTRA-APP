@@ -36,9 +36,9 @@
                 <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner">
-                        <h3>53<sup style="font-size: 20px">%</sup></h3>
+                        <h3>120</h3>
 
-                        <p>Peringkat Mitra</p>
+                        <p>Jumlah Mitra</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
@@ -51,9 +51,9 @@
                 <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner">
-                        <h3>44</h3>
+                        <h3>50</h3>
 
-                        <p>Jumlah Mitra</p>
+                        <p>Jumlah Pengguna</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
