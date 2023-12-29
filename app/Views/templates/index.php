@@ -49,6 +49,7 @@
     <div class="content-wrapper">
       <!-- konten utama -->
       <?= $this->renderSection('konten-utama') ?>
+      <?= $this->renderSection('div-section') ?>
     </div>
     <!-- /.content-wrapper -->
 
@@ -158,6 +159,17 @@
 
 
     $(document).ready(function() {
+      $('.btn-active-users').on('click',function(){
+            // get data from button edit
+            const id = $(this).data('id');
+            const active = $(this).data('active');
+             
+            // Set data to Form Edit
+            $('.id').val(id);
+            $('.active').val(active);
+            // Call Modal Edit
+            $('#activateModal').modal('show');
+        });
 
       $('select[name="kategori"]').on('change', function() {
 

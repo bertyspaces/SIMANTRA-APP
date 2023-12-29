@@ -40,15 +40,15 @@ class Data_FSAW extends BaseController
         $sumValues = [];
         $rankingLapangan = [];
         // menentukan nilai teertinggii per kolom LAPANGAN:NILAI TERTINGGI
-        // foreach ($model->getNilaiMitra('lapangan', $id)->getResultArray() as $data) {
-        //     $kode = $data['kode'];
-        //     $nilai = $data['bobot'];
+        foreach ($model->getNilaiMitra('lapangan', $id)->getResultArray() as $data) {
+            $kode = $data['kode'];
+            $nilai = $data['bobot'];
 
-        //     // Jika kode belum ada dalam array $maxValues atau nilai lebih tinggi, update nilai tertinggi
-        //     if (!isset($maxValues[$kode]) || $nilai > $maxValues[$kode]['bobot']) {
-        //         $maxValues[$kode] = ['kode' => $kode, 'bobot' => $nilai];
-        //     }
-        // }
+            // Jika kode belum ada dalam array $maxValues atau nilai lebih tinggi, update nilai tertinggi
+            if (!isset($maxValues[$kode]) || $nilai > $maxValues[$kode]['bobot']) {
+                $maxValues[$kode] = ['kode' => $kode, 'bobot' => $nilai];
+            }
+        }
 
 
         // menentukan LAPANGAN:RANKING
@@ -74,12 +74,12 @@ class Data_FSAW extends BaseController
 
 
             // menentukan nilai tertinggii per kolom LAPANGAN:NILAI TERTINGGI
-            $kode = $row->kode;
-            $nilai = $row->bobot;
-            // Jika kode belum ada dalam array $maxValues atau nilai lebih tinggi, update nilai tertinggi
-            if (!isset($maxValues[$kode]) || $nilai > $maxValues[$kode]['bobot']) {
-                $maxValues[$kode] = ['kode' => $kode, 'bobot' => $nilai];
-            }
+            // $kode = $row->kode;
+            // $nilai = $row->bobot;
+            // // Jika kode belum ada dalam array $maxValues atau nilai lebih tinggi, update nilai tertinggi
+            // if (!isset($maxValues[$kode]) || $nilai > $maxValues[$kode]['bobot']) {
+            //     $maxValues[$kode] = ['kode' => $kode, 'bobot' => $nilai];
+            // }
 
             // menentukan ranking nilai mitra lapangan
             $namaMitra = $row->nama_mitra;

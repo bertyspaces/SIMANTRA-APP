@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\DataMitraModel;
+use App\Models\KegiatanModel;
 use App\Models\UserModel as ModelsUserModel;
 use Myth\Auth\Entities\User;
 use Myth\Auth\Models\UserModel;
@@ -11,9 +13,29 @@ class Admin extends BaseController
 {
     public function index()
     {
-
-        return view('/admin/index');
+        $modelKegiatan = new  KegiatanModel();
+        $modelMitra = new  DataMitraModel();
+        $modelUser = new UserModel();
+        $counUser = count($modelUser->findAll());
+        $counKegiatan = count($modelKegiatan->findAll());
+        $counMitra = count($modelMitra->findAll());
+        return view('/admin/index', [
+            'countKegiatan' => $counKegiatan,
+            'countMitra' => $counMitra,
+            'countUser' => $counUser,
+        ]);
     }
+    public function activate()
+    {
+        $userModel = new UserModel();
+        $data = [
+            'activate_hash' => null,
+            'active' => $this->request->getVar('active') == '0' || '' ? '1' : '0',
+        ];
+        $userModel->update($this->request->getVar('id'), $data);
+        return redirect()->to(base_url('admin/manajemenUser'));
+    }
+
     public function manajemenUser()
     {
 
@@ -34,7 +56,8 @@ class Admin extends BaseController
         $data['title'] = 'Users';
         return view('admin/manajemenUser', $data);
     }
-    public function addUser (){
+    public function addUser()
+    {
         return view('/admin/tambah');
     }
 
@@ -58,7 +81,7 @@ class Admin extends BaseController
         $user = $userModel->find($userId);
         // $dataUser->update($userId, ['password_hash' => password_hash($password_baru, PASSWORD_DEFAULT)]);
         $userEntity = new User($user);
-        $userEntity->password= $password_baru;
+        $userEntity->password = $password_baru;
         $userModel->save($userEntity);
         return redirect()->to(base_url('admin/manajemenUser'));
     }

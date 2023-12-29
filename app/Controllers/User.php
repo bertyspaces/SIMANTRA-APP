@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\DataMitraModel;
 use App\Models\KegiatanMitraModel;
 use App\Models\KegiatanModel;
+use App\Models\NilaiKegiatanMitraModel;
 use Myth\Auth\Models\GroupModel;
 use Myth\Auth\Models\UserModel;
 
@@ -21,9 +22,16 @@ class User extends BaseController
             ->groupBy('kegiatan.id_kegiatan')
             ->get()
             ->getResult();
-      
+         
+        $modelPenilaian = new KegiatanMitraModel();
+        $dinilai = count($modelPenilaian->where('status','dinilai')->where('id_user',user()->id)->get()->getResult());
+        $belum = count($modelPenilaian->where('status','belum dinilai')->where('id_user',user()->id)->get()->getResult());
+        // dd($dinilai);
+        // dd(user()->id);
         return view('user/index', [
-            'kegiatan_mitra' => $result
+            'kegiatan_mitra' => $result,
+            'dinilai'=>$dinilai,
+            'belum'=>$belum
         ]);
     }
     public function penilaian_mitra()

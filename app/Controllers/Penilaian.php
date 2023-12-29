@@ -13,7 +13,14 @@ class Penilaian extends BaseController
     public function index(): string
     {
         $model = new KegiatanModel();
-        $kegiatan_mitra = $model->findAll();
+        $kegiatanMitra = new KegiatanMitraModel();
+
+        $data=$kegiatanMitra->where('id_user',user()->id)->get()->getResultArray();
+        $id_kegiatan = array_column($data, 'id_kegiatan');
+        // dd($id_kegiatan);
+        $kegiatan_mitra = $model->whereIn('id_kegiatan',$id_kegiatan)->get()->getResultArray();
+        // dd($kegiatan_mitra);
+
 
         return view(
             'user/penilaian_mitra/index',

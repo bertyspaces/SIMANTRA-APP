@@ -6,7 +6,7 @@ kekurangan:
 5.data bobot dan kriteria :CRUD (SUDAH)
 6.kegiatan mitra ->tombol edit dan hapus di daftar mitra [✔]
 7.data pengguna :register user , change passowrd [✔]
-8.TODO:nilai kegiatan mitra:CRUD(masih tampilan)
+8.nilai kegiatan mitra:CRUD(masih tampilan)
 9.TODO:nilai ranking :CRID
 10.TODO:rekap nilai mitra :CRUD (masih tampilan)
 
@@ -14,9 +14,9 @@ kekurangan:
 admin 
 1. bobot (edit, kode disable)
 2.:rattingkriteria (belum fungsional, nyambung dengan menu bobot krriteria (kode dan kriteria))
-3.TODO:data penilaian FSAW 
+3.data penilaian FSAW 
 ( diambil dari input nilai mitra oleh pml/ipds)
-4.TODO:nilai kegiatan mitra (dari tabel hasil perhitungan nilai FSAW)
+4.nilai kegiatan mitra (dari tabel hasil perhitungan nilai FSAW)
 5.TODO:rangking
 6.TODO:rekap nilai mitra 
 7.:data kegiatan mitra (menggunakan tombol cari nama), nik ada minimal dan maksimal /Revisi
