@@ -38,6 +38,7 @@ class Data_FSAW extends BaseController
         $total = 0;
         $maxValues = [];
         $sumValues = [];
+        $rankingLapangan = [];
         // menentukan nilai teertinggii per kolom LAPANGAN:NILAI TERTINGGI
         // foreach ($model->getNilaiMitra('lapangan', $id)->getResultArray() as $data) {
         //     $kode = $data['kode'];

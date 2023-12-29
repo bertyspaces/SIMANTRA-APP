@@ -7,6 +7,7 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
 use CodeIgniter\Validation\StrictRules\FileRules;
 use CodeIgniter\Validation\StrictRules\FormatRules;
 use CodeIgniter\Validation\StrictRules\Rules;
+use App\Validation\ArrayNilaiValidation;
 
 class Validation extends BaseConfig
 {
@@ -26,6 +27,8 @@ class Validation extends BaseConfig
         FileRules::class,
         CreditCardRules::class,
         \Myth\Auth\Authentication\Passwords\ValidationRules::class,
+        ArrayNilaiValidation::class
+
     ];
 
     /**
@@ -40,6 +43,10 @@ class Validation extends BaseConfig
 
     ];
 
+    public $rules = [
+        'nama_field' => 'required|is_array|exact_length[5]',
+        // Tambahkan aturan validasi lainnya sesuai kebutuhan
+    ];
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------

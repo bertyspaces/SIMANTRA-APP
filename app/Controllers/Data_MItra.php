@@ -118,8 +118,6 @@ class Data_Mitra extends BaseController
                 // dd($data);
                 $dataMitraModel->insert($data);
             }
-
-
             return "File uploaded and data saved successfully!";
         } else {
             return "Invalid file. Please upload a valid Excel file (xlsx).";
