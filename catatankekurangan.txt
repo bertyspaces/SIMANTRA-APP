@@ -1,9 +1,9 @@
 admin (yang masih kurang)
 1. Dashboard (jumlah mitra, jumlah kegiatan, jumlah pengguna) [✔]
-2. TODO:data kegiatan (cetak kegiatan, filter kegiatan untuk cetak berdasarkan periode pertahun)
+2. TODO:data kegiatan (cetak kegiatan, filter kegiatan untuk cetak berdasarkan periode pertahun) [✖]
 3.  data penilaian fsaw (jika diklik di kegiatan selain sakernas masih error)
 4. data pengguna (status aktif/tidak aktif) [✔]
-5.TODO: rekap nilai mitra (masih data statis) x
+5.TODO: rekap nilai mitra (masih data statis) [✖]
 
 pml/ipds 
 1. TODO: Dashboard (jumlah mitra, jumlah kegiatan, jumlah pengguna)
