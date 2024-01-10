@@ -93,6 +93,10 @@ class Data_FSAW extends BaseController
                 // Jika sudah ada, akumulasikan nilai
                 $sumValues[$namaMitra] += $nilai;
             }
+            uasort($sumValues, function ($a, $b) {
+                return $b - $a;
+            });
+
             $rankingLapangan = $sumValues;
 
             //menampilkan data nilai mitra
@@ -101,9 +105,6 @@ class Data_FSAW extends BaseController
                 'keterangan' => $row->bobot,
             ];
 
-            uasort($sumValues, function ($a, $b) {
-                return $b - $a;
-            });
 
 
 

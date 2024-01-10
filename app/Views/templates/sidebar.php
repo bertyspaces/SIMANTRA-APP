@@ -89,39 +89,40 @@
                             <p>Data Kegiatan Mitra</p>
                         </a>
                     </li>
+                <?php } ?>
+                <?php if (in_groups('admin') || in_groups('pml') || in_groups('ipds')) { ?>
+                    <?php if (in_groups('pml') || in_groups('ipds')) { ?>
+                        <li class="nav-header">MAIN</li>
+                    <?php } ?>
                     <li class="nav-item">
                         <a href="<?= base_url() ?>data_fsaw/index" class="nav-link">
                             <i class="nav-icon fas fa-user-check"></i>
-                            <p>Data Penilaian FSAW</p>
+                            <p>Data Penilaian Mitra</p>
                         </a>
                     </li>
+                <?php } ?>
+                <?php if (in_groups('admin')) { ?>
                     <li class="nav-item">
                         <a href="<?= base_url() ?>admin/manajemenUser" class="nav-link">
                             <i class="nav-icon fas fa-users-cog"></i>
                             <p>Data Pengguna</p>
                         </a>
                     </li>
-                    <li class="nav-header">ADMINISTRATOR</li>
                 <?php } ?>
-                <?php if (in_groups('admin') ) { ?>
+
+
+                <?php if (in_groups('admin')) { ?>
+                    <li class="nav-header">ADMINISTRATOR</li>
                     <li class="nav-item">
                         <a href="<?= base_url() ?>nilai_kegiatan_mitra/index" class="nav-link">
                             <i class="fas fa-circle nav-icon"></i>
-                            <p>Nilai Kegiatan Mitra</p>
+                            <p>Rekap Nilai Mitra</p>
                         </a>
                     </li>
                 <?php } ?>
-                <!-- 
-                    <li class="nav-item">
-                        <a href="rekap_nilai_mitra" class="nav-link">
-                            <i class="fas fa-circle nav-icon"></i>
-                            <p>Rekap Nilai Mitra</p>
-                        </a>
-                    </li> -->
 
 
                 <?php if (in_groups('pml') || in_groups('ipds')) { ?>
-                    <li class="nav-header">MAIN</li>
                     <li class="nav-item">
                         <a href="<?= base_url() ?>penilaian/" class="nav-link">
                             <i class="fas fa-clipboard-list nav-icon"></i>
@@ -130,20 +131,20 @@
                     </li>
                 <?php } ?>
 
-           
-             
-                <?php if (in_groups('kepala_bps')) { ?>
+
+
+                <?php if (in_groups('kepala')) { ?>
                     <li class="nav-header">LAPORAN</li>
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>penilaian_mitra/index" class="nav-link">
+                        <a href="<?= base_url() ?>kegiatan_mitra/index" class="nav-link">
                             <i class="fas fa-clipboard-list nav-icon"></i>
-                            <p>Data Kegiatan</p>
+                            <p>Data Kegiatan Mitra</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>penilaian_mitra/index" class="nav-link">
+                        <a href="<?= base_url() ?>nilai_kegiatan_mitra/index" class="nav-link">
                             <i class="fas fa-clipboard-list nav-icon"></i>
-                            <p>Penilaian Mitra</p>
+                            <p>Rekap Penilaian Mitra</p>
                         </a>
                     </li>
                 <?php } ?>

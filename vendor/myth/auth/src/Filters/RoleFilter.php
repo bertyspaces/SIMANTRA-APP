@@ -45,7 +45,7 @@ class RoleFilter extends BaseFilter implements FilterInterface
                 return redirect()->to('/admin')->with('error', lang('Auth.notEnoughPrivilege'));
             } else if (in_groups('pml') || in_groups('ipds')) {
                 return redirect()->to('/')->with('error', lang('Auth.notEnoughPrivilege'));
-            } else  if (in_groups('kepala_bps')) {
+            } else  if (in_groups('kepala')) {
                 return redirect()->to('/kepala_bps')->with('error', lang('Auth.notEnoughPrivilege'));
             }
         }

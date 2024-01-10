@@ -83,4 +83,58 @@ class Kegiatan_Mitra extends BaseController
         $data = $model->getUsersForGroup($groupId);
         return $this->response->setJSON($data);
     }
+    public function cetak_mitra_lapangan($id)
+    {
+
+
+        $kegiatanmitraModel = new \App\Models\KegiatanMitraModel();
+        // $data['kegiatan_mitra'] = $kegiatanmitraModel->getKegitanMitra('lapangan', $id);
+        $model = new KegiatanModel();
+        $nama_kegiatan = $model->find($id);
+        // dd($nama_kegiatan);
+        // $data['kegiatan_mitra'] = $kegiatanmitraModel->getKegitanMitra('pengolahan', $id);
+        $data = [
+            'kegiatan_mitra' => $kegiatanmitraModel->getKegitanMitra('lapangan', $id),
+            'kegiatan' => $nama_kegiatan
+        ];
+        $dompdf = new \Dompdf\Dompdf();
+        $options = new \Dompdf\Options();
+        $options->setIsRemoteEnabled(true);
+
+
+        // $dompdf->output();
+        $dompdf->loadHtml(view('/master/kegiatan_mitra/cetak_mitra_lapangan', $data));
+        $dompdf->setPaper('A4', 'portrait');
+        // Render PDF
+        $dompdf->render();
+        // Output the PDF content
+        $dompdf->stream('laporan data mitra kegiatan lapangan.pdf', array("Attachment" => false));
+    }
+    public function cetak_mitra_pengolahan($id)
+    {
+
+
+        $kegiatanmitraModel = new \App\Models\KegiatanMitraModel();
+        $model = new KegiatanModel();
+        $nama_kegiatan = $model->find($id);
+        // $data['kegiatan_mitra'] = $kegiatanmitraModel->getKegitanMitra('pengolahan', $id);
+        $data = [
+            'kegiatan_mitra' => $kegiatanmitraModel->getKegitanMitra('pengolahan'),
+            'kegiatan' => $nama_kegiatan
+        ];
+
+
+        $dompdf = new \Dompdf\Dompdf();
+        $options = new \Dompdf\Options();
+        $options->setIsRemoteEnabled(true);
+
+
+        // $dompdf->output();
+        $dompdf->loadHtml(view('/master/kegiatan_mitra/cetak_mitra_pengolahan', $data));
+        $dompdf->setPaper('A4', 'portrait');
+        // Render PDF
+        $dompdf->render();
+        // Output the PDF content
+        $dompdf->stream('laporan data mitra kegiatan pengolahan.pdf', array("Attachment" => false));
+    }
 }

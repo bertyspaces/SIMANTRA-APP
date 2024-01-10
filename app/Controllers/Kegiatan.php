@@ -79,52 +79,7 @@ class Kegiatan extends BaseController
         // Proses penghapusan data kegiatan berdasarkan ID
         $kegiatanModel = new KegiatanModel();
         $kegiatanModel->delete($id_kegiatan);
-        session()->setFlashdata('pesan_edit', 'Data Kegiatan berhasil dihapus');
+        session()->setFlashdata('pesan_hapus', 'Data Kegiatan berhasil dihapus');
         return redirect()->to('/kegiatan');
-    }
-    public function cetak()
-    {
-
-
-        // $kegiatan = $model->findAll();
-
-        // return view('/master/kegiatan/cetak', [
-        //     'kegiatan' => $kegiatan
-        // ]);
-        // $data['kegiatan'] = $this->$model('KegiatanModel')->getAllKegiatan();
-        // // Buat objek dompdf
-        // $dompdf = new Dompdf();
-        // // Load view ke dalam dompdf
-        // $html = view('cetak', $data);
-        // $dompdf->loadhtml($html);
-        // $dompdf->setPaper('A4', 'potrrait');
-        // // Render PDF
-        // $dompdf->render();
-
-        // // Simpan atau kirimkan file PDF ke perangkat pengguna
-        // $dompdf->stream('cetak_kegiatan.pdf', ['Attachment' => 0]);
-
-        $kegiatanModel = new \App\Models\KegiatanModel();
-        $data['kegiatan'] = $kegiatanModel->getAllKegiatan();
-
-        $dompdf = new \Dompdf\Dompdf();
-        $options = new \Dompdf\Options();
-        $options->setIsRemoteEnabled(true);
-
-        // Load the HTML content
-        // $html = view('/master/kegiatan/cetak', $data);
-        // $dompdf->loadHtml($html);
-
-
-        $dompdf->setOptions($options);
-        $dompdf->output();
-        $dompdf->loadHtml(view('/master/kegiatan/cetak', $data));
-        $dompdf->setPaper('A4', 'portrait');
-
-        // Render PDF
-        $dompdf->render();
-
-        // Output the PDF content
-        $dompdf->stream('cetak_kegiatan.pdf', array("attachment" => false));
     }
 }

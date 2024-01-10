@@ -22,7 +22,28 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="card">
+                <div class="card mb-1">
+                    <?php if (session()->getFlashdata('pesan_user')) : ?>
+                        <div class="alert alert-primary alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h5><i class="icon fas fa-check"></i> Status Pengguna Berhasil Diubah</h5>
+                            <?= session()->getFlashdata('pesan_user'); ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (session()->getFlashdata('pesan_ubah_password')) : ?>
+                        <div class="alert alert-primary alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h5><i class="icon fas fa-check"></i> Ubah Password Berhasil</h5>
+                            <?= session()->getFlashdata('pesan_ubah_password'); ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (session()->getFlashdata('pesan_ubah_group')) : ?>
+                        <div class="alert alert-primary alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h5><i class="icon fas fa-check"></i> Ubah Group Berhasil</h5>
+                            <?= session()->getFlashdata('pesan_ubah_group'); ?>
+                        </div>
+                    <?php endif; ?>
                     <div class="card-header">
                         <a href="/admin/addUser" class="btn btn-primary btn-circle btn-sm" data-id="<?= $row->id; ?>" title="tambah data">
                             <i class="fas fa-plus"> Tambah</i>
@@ -38,7 +59,7 @@
                                     <th>Grup</th>
                                     <th>Email</th>
                                     <th style="width: 60px;">Aktif</th>
-                                    <th style="width: 90px;"></th>
+                                    <th style="width: 90px;">Aksi</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -48,11 +69,11 @@
                                     <th>Grup</th>
                                     <th>Email</th>
                                     <th>Aktif</th>
-                                    <th></th>
+                                    <th>Aksi</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                          
+
                                 <?php
                                 foreach ($users as $rw) {
                                     $row = "row" . $rw->id;
@@ -170,17 +191,16 @@
     </div>
 </form>
 <form action="<?= base_url(); ?>admin/activate" method="post">
-    <div class="modal fade" id="activateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="activateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Update User</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Update Status Pengguna</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Pilih "Ya" untuk mengupdate User</div>
+                <div class="modal-body">Pilih "Ya" untuk Update Status Pengguna</div>
                 <div class="modal-footer">
                     <input type="hidden" name="id" class="id">
                     <input type="hidden" name="active" class="active">
@@ -190,5 +210,5 @@
             </div>
         </div>
     </div>
-    </form>
+</form>
 <?= $this->endSection() ?>

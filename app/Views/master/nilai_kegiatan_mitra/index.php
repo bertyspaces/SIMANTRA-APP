@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Data Nilai Kegiatan Mitra</h1>
+                <h1>Data Kegiatan Mitra</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -23,7 +23,6 @@
                 <div class="card">
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <a href="<?= base_url() ?>kegiatan/tambah" class="btn btn-succes">Cetak</a>
                         <table id="example1" class="table table-bordered table-hover">
                             <thead>
                                 <tr>

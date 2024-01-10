@@ -35,11 +35,11 @@
                             <tr data-widget="expandable-table" aria-expanded="false">
                                 <th width="40%">Nama Mitra</th>
                                 <td><?= $data_mitra->nama_mitra ?></td>
-                                <input type="text" value="<?= $data_mitra->id_kegiatan_mitra ?>" class="form-control" id="exampleInputEmail1" name="id_kegiatan_mitra">
+                                <input type="text" hidden value="<?= $data_mitra->id_kegiatan_mitra ?>" class="form-control" id="exampleInputEmail1" name="id_kegiatan_mitra">
                             </tr>
                             <tr data-widget="expandable-table" aria-expanded="false">
                                 <th width="40%">Kegiatan</th>
-                                <td> <?= $kegiatan['nama_kegiatan'] ?></td>
+                                <td><?= $data_mitra->nama_kegiatan ?></td>
                             </tr>
                             <tr data-widget="expandable-table" aria-expanded="false">
                                 <th width="40%">Penilai</th>

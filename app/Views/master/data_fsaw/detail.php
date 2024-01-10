@@ -6,11 +6,11 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Data Penilaian FSAW | <?= $kegiatan['nama_kegiatan'] ?></h1>
+                <h1>Data Penilaian Mitra | <?= $kegiatan['nama_kegiatan'] ?></h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="/data_fsaw">Penilaian Fsaw
+                    <li class="breadcrumb-item"><a href="/data_fsaw">Penilaian Mitra
                         </a></li>
                     <li class="breadcrumb-item active">DataTables</li>
                 </ol>
@@ -34,28 +34,22 @@
                             <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Mitra Pengolahan</a></li>
                         </ul>
                     </div>
+
+                    <!-- DATA PENILAIAN FSAW MITRA LAPANGAN -->
                     <div class="card-body">
                         <div class="tab-content">
-
                             <div class="tab-pane active " id="activity">
 
-                                <!-- Penilaian Dengan Bobot Kriteria -->
+                                <!-- Penilaian Dengan Bobot Kriteria MITRA LAPANGAN -->
                                 <section class="content-header">
                                     <div class="container-fluid">
                                         <div class="row mb-2">
                                             <div class="col-sm-6">
                                                 <h1>Penilaian Dengan Bobot Kriteria</h1>
                                             </div>
-                                            <div class="col-sm-6">
-                                                <ol class="breadcrumb float-sm-right">
-                                                    <li class="breadcrumb-item"><a href="#">Fuzzy SAW</a></li>
-                                                    <li class="breadcrumb-item active">DataTables</li>
-                                                </ol>
-                                            </div>
                                         </div>
-                                    </div><!-- /.container-fluid -->
+                                    </div>
                                 </section>
-
                                 <section class="content">
                                     <div class="container-fluid">
                                         <div class="row">
@@ -68,14 +62,12 @@
                                                                 <tr>
                                                                     <th>No</th>
                                                                     <th>Nama Mitra</th>
-                                                                    <th>K1</th>
-                                                                    <th>K2</th>
-                                                                    <th>K3</th>
+                                                                    <th>Nilai Kinerja</th>
+                                                                    <th>Nilai Kerja Sama</th>
+                                                                    <th>Nilai Kualitas Data</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-
-
                                                                 <?php $i = 1 ?>
                                                                 <?php if (empty($lapangan)) { ?>
                                                                     <tr>
@@ -89,23 +81,18 @@
                                                                         <?php foreach ($value as $nilai => $n) { ?>
                                                                             <td><?= $n['keterangan'] ?></td>
                                                                         <?php  } ?>
-
-
                                                                     </tr>
                                                                 <?php  } ?>
-
-
                                                             </tbody>
                                                         </table>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </section>
 
-                                <!-- Hasil Normalisasi Nilai -->
+                                <!-- Hasil Normalisasi Nilai MITRA LAPANGAN -->
                                 <section class="content-header">
                                     <div class="container-fluid">
                                         <div class="row mb-2">
@@ -113,29 +100,25 @@
                                                 <h1>Hasil Normalisasi Nilai</h1>
                                             </div>
                                         </div>
-                                    </div><!-- /.container-fluid -->
+                                    </div>
                                 </section>
-
                                 <section class="content">
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="card">
-                                                    <!-- /.card-header -->
                                                     <div class="card-body">
                                                         <table id="" class="table table-bordered table-hover">
                                                             <thead>
                                                                 <tr>
                                                                     <th>No</th>
                                                                     <th>Nama Mitra</th>
-                                                                    <th>K1</th>
-                                                                    <th>K2</th>
-                                                                    <th>K3</th>
+                                                                    <th>Nilai Kinerja</th>
+                                                                    <th>Nilai Kerja Sama</th>
+                                                                    <th>Nilai Kualitas Data</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-
-
                                                                 <?php $i = 1 ?>
                                                                 <?php if (empty($normalisasi_lapangan)) { ?>
                                                                     <tr>
@@ -148,14 +131,9 @@
                                                                         <td><?= $l ?></td>
                                                                         <?php foreach ($value as $nilai => $n) { ?>
                                                                             <td><?= $n['keterangan']  ?></td>
-
                                                                         <?php  } ?>
-
-
                                                                     </tr>
                                                                 <?php  } ?>
-
-
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -165,17 +143,16 @@
                                     </div>
                                 </section>
 
-                                <!-- Hasil Perhitungan Fuzzy SAW -->
+                                <!-- Hasil Perhitungan Fuzzy SAW MITRA LAPANGAN -->
                                 <section class="content-header">
                                     <div class="container-fluid">
                                         <div class="row mb-2">
                                             <div class="col-sm-6">
-                                                <h1>Hasil Perhitungan Nilai Dengan Fuzzy SAW</h1>
+                                                <h1>Hasil Perhitungan Nilai Kinerja Mitra</h1>
                                             </div>
                                         </div>
-                                    </div><!-- /.container-fluid -->
+                                    </div>
                                 </section>
-
                                 <section class="content">
                                     <div class="container-fluid">
                                         <div class="row">
@@ -188,18 +165,15 @@
                                                                 <tr>
                                                                     <th>No</th>
                                                                     <th>Nama Mitra</th>
-                                                                    <th>K1</th>
-                                                                    <th>K2</th>
-                                                                    <th>K3</th>
+                                                                    <th>Nilai Kinerja</th>
+                                                                    <th>Nilai Kerja Sama</th>
+                                                                    <th>Nilai Kualitas Data</th>
                                                                     <th>Total</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-
-
                                                                 <?php $i = 1 ?>
                                                                 <?php if (empty($hasil_penilaian_lapangan)) { ?>
-
                                                                     <tr>
                                                                         <td colspan="6" class="text-center">Data Masih Kosong</td>
                                                                     </tr>
@@ -213,13 +187,8 @@
                                                                             <td><?= $n['keterangan'] ?></td>
                                                                             <?php $total += $n['keterangan'] ?>
                                                                         <?php  } ?>
-
                                                                         <td><?= $total ?></td>
-
-
-
                                                                     <?php  } ?>
-
                                                                     </tr>
                                                             </tbody>
                                                         </table>
@@ -229,6 +198,7 @@
                                         </div>
                                     </div>
                                 </section>
+                                <!-- RANGKING KINERJA  MITRA LAPANGAN -->
                                 <section class="content-header">
                                     <div class="container-fluid">
                                         <div class="row mb-2">
@@ -285,8 +255,10 @@
 
                             </div>
 
+
+                            <!-- DATA PENILAIAN FSAW MITRA PENGOLAHAN -->
                             <div class="tab-pane" id="timeline">
-                                <!-- Penilaian Dengan Bobot Kriteria -->
+                                <!-- Penilaian Dengan Bobot Kriteria MITRA PENGOLAHAN -->
                                 <section class="content-header">
                                     <div class="container-fluid">
                                         <div class="row mb-2">
@@ -352,7 +324,7 @@
                                     </div>
                                 </section>
 
-                                <!-- Hasil Normalisasi Nilai -->
+                                <!-- Hasil Normalisasi Nilai MITRA PENGOLAHAN-->
                                 <section class="content-header">
                                     <div class="container-fluid">
                                         <div class="row mb-2">
@@ -411,7 +383,7 @@
                                     </div>
                                 </section>
 
-                                <!-- Hasil Perhitungan Fuzzy SAW -->
+                                <!-- Hasil Perhitungan Fuzzy SAW  MITRA LAPANGAN-->
                                 <section class="content-header">
                                     <div class="container-fluid">
                                         <div class="row mb-2">
@@ -474,6 +446,8 @@
                                         </div>
                                     </div>
                                 </section>
+
+                                <!-- RANGKING KINERJA MITRA PENGOLAHAN-->
                                 <section class="content-header">
                                     <div class="container-fluid">
                                         <div class="row mb-2">
@@ -496,13 +470,10 @@
                                                                 <tr>
                                                                     <th>No</th>
                                                                     <th>Nama Mitra</th>
-
                                                                     <th>score</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-
-
                                                                 <?php if (empty($ranking_pengolahan)) { ?>
 
                                                                     <tr>
@@ -517,7 +488,6 @@
                                                                         <td><?= $nama ?></td>
                                                                         <td><?= $score ?></td>
                                                                     <?php  } ?>
-
                                                                     </tr>
                                                             </tbody>
                                                         </table>
@@ -538,16 +508,10 @@
 
                     </div>
                 </div>
-                <!-- /.card -->
-
-
-                <!-- /.card -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
+
     </div>
-    <!-- /.container-fluid -->
 </section>
 
 <?= $this->endSection() ?>

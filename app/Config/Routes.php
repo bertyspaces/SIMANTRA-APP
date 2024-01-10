@@ -20,7 +20,7 @@ $routes->group('', ['filter' => 'login'], function ($routes) {
     $routes->group('', ['filter' => 'role:ipds,pml'], function ($routes) {
         $routes->get('/', 'User::index',);
     });
-    $routes->group('', ['filter' => 'role:kepala_bps'], function ($routes) {
+    $routes->group('', ['filter' => 'role:kepala'], function ($routes) {
         $routes->get('/kepala_bps', 'Kepala_BPS::index',);
     });
 });

@@ -33,6 +33,7 @@ class Admin extends BaseController
             'active' => $this->request->getVar('active') == '0' || '' ? '1' : '0',
         ];
         $userModel->update($this->request->getVar('id'), $data);
+        session()->setFlashdata('pesan_user', 'Update Status Pengguna Berhasil');
         return redirect()->to(base_url('admin/manajemenUser'));
     }
 
@@ -49,10 +50,7 @@ class Admin extends BaseController
             $dataRow['row'] = $row;
             $data['row' . $row->id] = view('admin/row', $dataRow);
         }
-
-
         $data['groups'] = $groupModel->whereNotIn('name', ['admin'])->findAll();
-
         $data['title'] = 'Users';
         return view('admin/manajemenUser', $data);
     }
@@ -70,7 +68,7 @@ class Admin extends BaseController
         $groupModel->removeUserFromAllGroups(intval($userId));
 
         $groupModel->addUserToGroup(intval($userId), intval($groupId));
-
+        session()->setFlashdata('pesan_ubah_group', 'Group Berhasil Diubah');
         return redirect()->to(base_url('admin/manajemenUser'));
     }
     public function changePassword()
@@ -83,6 +81,7 @@ class Admin extends BaseController
         $userEntity = new User($user);
         $userEntity->password = $password_baru;
         $userModel->save($userEntity);
+        session()->setFlashdata('pesan_ubah_password', 'Password Berhasil Diubah');
         return redirect()->to(base_url('admin/manajemenUser'));
     }
 }

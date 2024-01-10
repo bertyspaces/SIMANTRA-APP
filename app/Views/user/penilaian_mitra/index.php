@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Data Kegiatan Yang Akan Dinilai</h1>
+                <h1>Data Mitra Kegiatan Yang Akan Dinilai</h1>
                 <p>Silahkan pilih kegiatan, yang mitranya akan dinilai!</p>
             </div>
             <div class="col-sm-6">
@@ -33,24 +33,24 @@
                                     <th>Kegiatan</th>
                                     <th>Divisi</th>
                                     <TH>Periode</TH>
-                                   
+
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php $i = 1 ?>
-                                    <?php foreach ($kegiatan_mitra as $k) { ?>
-                                        <tr>
+                                <?php $i = 1 ?>
+                                <?php foreach ($kegiatan_mitra as $k) { ?>
+                                    <tr>
                                         <td><?= $i++ ?></td>
-                                        <td><a href="<?=base_url('penilaian/kegiatan/')?><?=$k['id_kegiatan']?>"><?= $k['nama_kegiatan'] ?></a></td>
+                                        <td><a href="<?= base_url('penilaian/kegiatan/') ?><?= $k['id_kegiatan'] ?>"><?= $k['nama_kegiatan'] ?></a></td>
                                         <td><?= $k['divisi'] ?>
                                         </td>
 
-                                        <td><?= $k['periode']?> </td>
-                                        </tr>
-                                    <?php  } ?>
-                              
+                                        <td><?= $k['periode'] ?> </td>
+                                    </tr>
+                                <?php  } ?>
 
-                              
+
+
                             </tbody>
                         </table>
                     </div>

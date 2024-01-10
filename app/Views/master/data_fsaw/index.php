@@ -4,11 +4,11 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Data Penilaian FSAW</h1>
+                <h1>Data Penilaian Mitra</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="/data_fsaw">Penilaian Fsaw</a></li>
+                    <li class="breadcrumb-item"><a href="/data_fsaw">Penilaian Mitra/a></li>
                     <li class="breadcrumb-item active">DataTables</li>
                 </ol>
             </div>
@@ -23,7 +23,6 @@
                 <div class="card">
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <a href="<?= base_url() ?>kegiatan/tambah" class="btn btn-succes">Cetak</a>
                         <table id="example1" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
