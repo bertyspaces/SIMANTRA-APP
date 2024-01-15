@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2023 at 08:27 AM
+-- Generation Time: Jan 10, 2024 at 04:37 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -55,7 +55,7 @@ INSERT INTO `auth_groups` (`id`, `name`, `description`) VALUES
 (2, 'admin', ''),
 (3, 'pml', ''),
 (4, 'ipds', ''),
-(5, 'kepala_bps\r\n', '');
+(6, 'kepala', 'menerima laporan');
 
 -- --------------------------------------------------------
 
@@ -89,7 +89,8 @@ INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
 (3, 10),
 (3, 11),
 (4, 12),
-(5, 13);
+(4, 16),
+(6, 15);
 
 -- --------------------------------------------------------
 
@@ -268,7 +269,118 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (155, '::1', 'ayulaila213@gmail.com', 12, '2023-12-28 07:01:52', 1),
 (156, '::1', 'admin123@gmail.com', 2, '2023-12-28 07:05:07', 1),
 (157, '::1', 'deviayu253@gmail.com', 9, '2023-12-28 07:08:09', 1),
-(158, '::1', 'admin123@gmail.com', 2, '2023-12-28 07:08:57', 1);
+(158, '::1', 'admin123@gmail.com', 2, '2023-12-28 07:08:57', 1),
+(159, '::1', 'deviayu', NULL, '2023-12-29 00:08:34', 0),
+(160, '::1', 'deviayu', NULL, '2023-12-29 00:08:44', 0),
+(161, '::1', 'deviayu253@gmail.com', 9, '2023-12-29 00:08:51', 1),
+(162, '::1', 'admin123@gmail.com', 2, '2023-12-29 00:09:34', 1),
+(163, '::1', 'ayulaila213@gmail.com', 12, '2023-12-29 00:10:12', 1),
+(164, '::1', 'admin123@gmail.com', 2, '2023-12-29 00:10:49', 1),
+(165, '::1', 'sitibarokah123@gmail.com', 10, '2023-12-29 03:38:29', 1),
+(166, '::1', 'admin123@gmail.com', 2, '2023-12-29 19:08:40', 1),
+(167, '::1', 'deviayu253@gmail.com', 9, '2023-12-29 19:10:02', 1),
+(168, '::1', 'ayulaila213@gmail.com', 12, '2023-12-29 19:11:09', 1),
+(169, '::1', 'rahyudin23456@gmail.com', 13, '2023-12-29 19:11:52', 1),
+(170, '::1', 'sitibarokah123@gmail.com', 10, '2023-12-29 19:45:00', 1),
+(171, '::1', 'admin', NULL, '2023-12-29 19:47:17', 0),
+(172, '::1', 'admin123@gmail.com', 2, '2023-12-29 19:47:31', 1),
+(173, '::1', 'ayulaila213@gmail.com', 12, '2024-01-01 21:36:52', 1),
+(174, '::1', 'admin123@gmail.com', 2, '2024-01-01 21:38:18', 1),
+(175, '::1', 'pml', NULL, '2024-01-01 22:34:27', 0),
+(176, '::1', 'sitibarokah123@gmail.com', 10, '2024-01-01 22:34:39', 1),
+(177, '::1', 'admin123@gmail.com', 2, '2024-01-01 22:40:15', 1),
+(178, '::1', 'deviayu253@gmail.com', 9, '2024-01-01 22:40:41', 1),
+(179, '::1', 'ayulaila', NULL, '2024-01-01 22:47:12', 0),
+(180, '::1', 'ayulaila213@gmail.com', 12, '2024-01-01 22:47:19', 1),
+(181, '::1', 'admin123@gmail.com', 2, '2024-01-01 22:55:59', 1),
+(182, '::1', 'rahyudin23456@gmail.com', 13, '2024-01-01 23:06:57', 1),
+(183, '::1', 'admin123@gmail.com', 2, '2024-01-01 23:09:04', 1),
+(184, '::1', 'rahyudin', NULL, '2024-01-01 23:09:35', 0),
+(185, '::1', 'rahyudin23456@gmail.com', 13, '2024-01-01 23:09:48', 1),
+(186, '::1', 'admin123@gmail.com', 2, '2024-01-01 23:12:54', 1),
+(187, '::1', 'udin@gmail.com', 14, '2024-01-01 23:13:38', 1),
+(188, '::1', 'ayulaila213@gmail.com', 12, '2024-01-01 23:16:23', 1),
+(189, '::1', 'udin@gmail.com', 14, '2024-01-01 23:16:56', 1),
+(190, '::1', 'admin123@gmail.com', 2, '2024-01-01 23:17:38', 1),
+(191, '::1', 'udin@gmail.com', 14, '2024-01-01 23:19:29', 1),
+(192, '::1', 'admin', NULL, '2024-01-01 23:20:53', 0),
+(193, '::1', 'admin123@gmail.com', 2, '2024-01-01 23:21:00', 1),
+(194, '::1', 'udin@gmail.com', 14, '2024-01-01 23:21:40', 1),
+(195, '::1', 'deviayu253@gmail.com', 9, '2024-01-01 23:23:21', 1),
+(196, '::1', 'rahyudin23456@gmail.com', 13, '2024-01-01 23:23:38', 1),
+(197, '::1', 'rahyudin23456@gmail.com', 13, '2024-01-01 23:27:46', 1),
+(198, '::1', 'admin123@gmail.com', 2, '2024-01-01 23:28:16', 1),
+(199, '::1', 'udin@gmail.com', 14, '2024-01-01 23:30:14', 1),
+(200, '::1', 'rahyudin@gmail.com', 15, '2024-01-01 23:32:10', 1),
+(201, '::1', 'admin123@gmail.com', 2, '2024-01-01 23:34:34', 1),
+(202, '::1', 'rahyudin@gmail.com', 15, '2024-01-01 23:35:45', 1),
+(203, '::1', 'admin123@gmail.com', 2, '2024-01-01 23:53:36', 1),
+(204, '::1', 'rahyudin@gmail.com', 15, '2024-01-01 23:58:20', 1),
+(205, '::1', 'admin123@gmail.com', 2, '2024-01-02 02:19:42', 1),
+(206, '::1', 'admin123@gmail.com', 2, '2024-01-02 05:01:02', 1),
+(207, '::1', 'deviayu', NULL, '2024-01-02 05:47:39', 0),
+(208, '::1', 'deviayu253@gmail.com', 9, '2024-01-02 05:47:51', 1),
+(209, '::1', 'ayulaila213@gmail.com', 12, '2024-01-02 05:51:12', 1),
+(210, '::1', 'rahyudin@gmail.com', 15, '2024-01-02 06:00:03', 1),
+(211, '::1', 'rahyudin@gmail.com', 15, '2024-01-02 07:26:41', 1),
+(212, '::1', 'admin123@gmail.com', 2, '2024-01-02 07:31:48', 1),
+(213, '::1', 'deviayu253@gmail.com', 9, '2024-01-02 07:32:08', 1),
+(214, '::1', 'admin123@gmail.com', 2, '2024-01-02 07:33:03', 1),
+(215, '::1', 'rahyudin@gmail.com', 15, '2024-01-02 07:34:47', 1),
+(216, '::1', 'admin123@gmail.com', 2, '2024-01-02 17:39:25', 1),
+(217, '::1', 'noviyanti456@gmail.com', 11, '2024-01-02 17:50:23', 1),
+(218, '::1', 'sitibarkah', NULL, '2024-01-02 17:52:31', 0),
+(219, '::1', 'sitibarkah', NULL, '2024-01-02 17:52:38', 0),
+(220, '::1', 'sitibarokah123@gmail.com', 10, '2024-01-02 17:52:50', 1),
+(221, '::1', 'noviyanti456@gmail.com', 11, '2024-01-02 17:55:30', 1),
+(222, '::1', 'admin123@gmail.com', 2, '2024-01-02 17:56:16', 1),
+(223, '::1', 'deviayu', NULL, '2024-01-02 18:15:19', 0),
+(224, '::1', 'deviayu253@gmail.com', 9, '2024-01-02 18:15:26', 1),
+(225, '::1', 'sitibarokah123@gmail.com', 10, '2024-01-02 18:17:36', 1),
+(226, '::1', 'noviyanti', NULL, '2024-01-02 18:18:39', 0),
+(227, '::1', 'noviyanti456@gmail.com', 11, '2024-01-02 18:18:54', 1),
+(228, '::1', 'admin123@gmail.com', 2, '2024-01-02 19:12:04', 1),
+(229, '::1', 'deviayu253@gmail.com', 9, '2024-01-02 19:13:21', 1),
+(230, '::1', 'admin123@gmail.com', 2, '2024-01-02 19:31:56', 1),
+(231, '::1', 'deviayu253@gmail.com', 9, '2024-01-02 19:36:33', 1),
+(232, '::1', 'sitibarokah', NULL, '2024-01-02 19:38:35', 0),
+(233, '::1', 'sitibarokah123@gmail.com', 10, '2024-01-02 19:38:42', 1),
+(234, '::1', 'noviyanti456@gmail.com', 11, '2024-01-02 19:40:16', 1),
+(235, '::1', 'rahyudin@gmail.com', 15, '2024-01-02 19:44:12', 1),
+(236, '::1', 'admin123@gmail.com', 2, '2024-01-02 20:46:06', 1),
+(237, '::1', 'sitibarokah123@gmail.com', 10, '2024-01-02 22:23:11', 1),
+(238, '::1', 'admin123@gmail.com', 2, '2024-01-03 18:40:25', 1),
+(239, '::1', 'deviayu', NULL, '2024-01-03 18:46:51', 0),
+(240, '::1', 'deviayu253@gmail.com', 9, '2024-01-03 18:46:57', 1),
+(241, '::1', 'rahyudin@gmail.com', 15, '2024-01-03 18:52:18', 1),
+(242, '::1', 'admin123@gmail.com', 2, '2024-01-03 18:59:15', 1),
+(243, '::1', 'rahyudin@gmail.com', 15, '2024-01-03 19:44:57', 1),
+(244, '::1', 'admin123@gmail.com', 2, '2024-01-03 19:49:05', 1),
+(245, '::1', 'admin', NULL, '2024-01-04 11:26:08', 0),
+(246, '::1', 'admin123@gmail.com', 2, '2024-01-04 11:27:28', 1),
+(247, '::1', 'admin123@gmail.com', 2, '2024-01-04 22:09:03', 1),
+(248, '::1', 'deviayu253@gmail.com', 9, '2024-01-04 22:10:09', 1),
+(249, '::1', 'sitibarokah123@gmail.com', 10, '2024-01-04 22:12:07', 1),
+(250, '::1', 'noviyanti456@gmail.com', 11, '2024-01-04 22:13:49', 1),
+(251, '::1', 'admin123@gmail.com', 2, '2024-01-04 22:15:20', 1),
+(252, '::1', 'admin123@gmail.com', 2, '2024-01-05 01:23:53', 1),
+(253, '::1', 'admin', NULL, '2024-01-05 17:23:54', 0),
+(254, '::1', 'admin123@gmail.com', 2, '2024-01-05 17:24:02', 1),
+(255, '::1', 'admin123@gmail.com', 2, '2024-01-06 19:30:28', 1),
+(256, '::1', 'admin123@gmail.com', 2, '2024-01-07 09:23:44', 1),
+(257, '::1', 'deviayu253@gmail.com', 9, '2024-01-07 10:29:19', 1),
+(258, '::1', 'ayulaila', NULL, '2024-01-07 11:02:49', 0),
+(259, '::1', 'ayulaila213@gmail.com', 12, '2024-01-07 11:03:04', 1),
+(260, '::1', 'rahyudin@gmail.com', 15, '2024-01-07 13:08:03', 1),
+(261, '::1', 'admin123@gmail.com', 2, '2024-01-07 13:24:11', 1),
+(262, '::1', 'rahyudin@gmail.com', 15, '2024-01-07 13:24:52', 1),
+(263, '::1', 'admin123@gmail.com', 2, '2024-01-08 05:37:45', 1),
+(264, '::1', 'ayulaila', NULL, '2024-01-08 05:38:18', 0),
+(265, '::1', 'ayulaila213@gmail.com', 12, '2024-01-08 05:38:28', 1),
+(266, '::1', 'rahyudin@gmail.com', 15, '2024-01-08 06:38:42', 1),
+(267, '::1', 'ayulaila213@gmail.com', 12, '2024-01-09 22:38:33', 1),
+(268, '::1', 'ayulaila213@gmail.com', 12, '2024-01-10 03:24:42', 1),
+(269, '::1', 'ayulaila213@gmail.com', 12, '2024-01-10 03:24:44', 1);
 
 -- --------------------------------------------------------
 
@@ -361,10 +473,11 @@ CREATE TABLE `kegiatan` (
 --
 
 INSERT INTO `kegiatan` (`id_kegiatan`, `nama_kegiatan`, `divisi`, `periode`) VALUES
-(2, 'SAKERNAS ', 'Statisi Produksi ', 'Agustus 2022'),
-(3, 'Regsosek ', 'Statisi Sosial ', 'November 2022'),
+(3, 'SAKERNAS ', 'Statisi Sosial ', 'Agustus 2022'),
 (4, 'Survei IMK Tahunan', 'Statisi Produksi ', 'Januari 2022'),
-(7, 'Survei Pertanian', 'Statisi Produksi sel', 'September 2023');
+(9, 'Regsosek ', 'Statisi Produksi ', 'November 2022'),
+(10, 'SUSENAS', 'Statisi Sosial', 'Maret 2022'),
+(11, 'Pengolahan Updating Sakernas Agustus', 'Nerwilis', 'Agustus 2023');
 
 -- --------------------------------------------------------
 
@@ -390,28 +503,43 @@ INSERT INTO `kegiatan_mitra` (`id_kegiatan_mitra`, `nik`, `id_kegiatan`, `id_use
 (23, '454636363', 2, 3, 'lapangan', 'dinilai'),
 (24, '111', 2, 3, 'lapangan', 'dinilai'),
 (33, '3326163620004', 2, 3, 'lapangan', 'belum dinilai'),
-(34, '3301222910980005', 2, 9, 'lapangan', 'dinilai'),
-(35, '3375016905790002', 2, 9, 'lapangan', 'dinilai'),
-(36, '3375017011800004', 2, 9, 'lapangan', 'belum dinilai'),
-(37, '3375015405950001', 2, 10, 'lapangan', 'belum dinilai'),
-(39, '3375035510960005', 2, 10, 'lapangan', 'belum dinilai'),
-(40, '3375045005770008', 2, 10, 'lapangan', 'belum dinilai'),
-(41, '3375047004990010', 2, 10, 'lapangan', 'belum dinilai'),
-(42, '3375025311890005', 2, 11, 'lapangan', 'belum dinilai'),
-(43, '3375012005740004', 2, 11, 'lapangan', 'belum dinilai'),
-(44, '3375046411940003', 2, 11, 'lapangan', 'belum dinilai'),
-(45, '3375046607940004', 2, 11, 'lapangan', 'belum dinilai'),
 (57, '3326160401980021', 3, 12, 'pengolahan', 'dinilai'),
 (58, '3375020708010003', 3, 12, 'pengolahan', 'dinilai'),
-(59, '3375042906000006', 3, 12, 'pengolahan', 'belum dinilai'),
+(59, '3375042906000006', 3, 12, 'pengolahan', 'dinilai'),
 (60, '3375024305980003', 3, 12, 'pengolahan', 'belum dinilai'),
 (61, '3325116304960001', 3, 12, 'pengolahan', 'belum dinilai'),
 (62, '3375046706860007', 3, 12, 'pengolahan', 'belum dinilai'),
-(63, '3375010804990005', 3, 12, 'pengolahan', 'belum dinilai'),
+(63, '3375010804990005', 3, 12, 'pengolahan', 'dinilai'),
 (64, '3327082004940086', 3, 12, 'pengolahan', 'belum dinilai'),
 (65, '3375015506970012', 3, 12, 'pengolahan', 'belum dinilai'),
 (66, '3375015805010005', 3, 12, 'pengolahan', 'belum dinilai'),
-(67, '3375016908020008', 3, 12, 'pengolahan', 'belum dinilai');
+(67, '3375016908020008', 3, 12, 'pengolahan', 'belum dinilai'),
+(93, '3375017011800004', 3, 9, 'lapangan', 'dinilai'),
+(94, '3301222910980005', 2, 9, 'lapangan', 'dinilai'),
+(95, '3375017011800004', 2, 9, 'lapangan', 'dinilai'),
+(96, '3375016905790002', 2, 9, 'lapangan', 'dinilai'),
+(97, '3375015405950001', 2, 9, 'lapangan', 'dinilai'),
+(98, '3375022203750004', 2, 10, 'lapangan', 'dinilai'),
+(99, '3375035510960005', 2, 10, 'lapangan', 'dinilai'),
+(100, '3375045005770008', 2, 10, 'lapangan', 'dinilai'),
+(101, '3375047004990010', 2, 10, 'lapangan', 'dinilai'),
+(102, '3375025311890005', 2, 11, 'lapangan', 'dinilai'),
+(103, '3375012005740004', 2, 11, 'lapangan', 'dinilai'),
+(104, '3375046411940003', 2, 11, 'lapangan', 'dinilai'),
+(105, '3375046607940004', 2, 11, 'lapangan', 'dinilai'),
+(106, '3301222910980005', 9, 9, 'lapangan', 'dinilai'),
+(107, '3375017011800004', 9, 9, 'lapangan', 'dinilai'),
+(108, '3375016905790002', 9, 9, 'lapangan', 'dinilai'),
+(109, '3375015405950001', 9, 9, 'lapangan', 'dinilai'),
+(110, '3375022203750004', 9, 10, 'lapangan', 'dinilai'),
+(111, '3375035510960005', 9, 10, 'lapangan', 'dinilai'),
+(112, '3375045005770008', 9, 10, 'lapangan', 'dinilai'),
+(113, '3375047004990010', 9, 10, 'lapangan', 'dinilai'),
+(114, '3375025311890005', 9, 10, 'lapangan', 'dinilai'),
+(115, '3375012005740004', 9, 11, 'lapangan', 'dinilai'),
+(116, '3375046411940003', 9, 11, 'lapangan', 'dinilai'),
+(117, '3375046607940004', 9, 11, 'lapangan', 'dinilai'),
+(118, '3375015405950001', 3, 12, 'pengolahan', 'belum dinilai');
 
 -- --------------------------------------------------------
 
@@ -514,15 +642,6 @@ INSERT INTO `nilai_kegiatan_mitra` (`id_nilai_kegiatan_mitra`, `id_kegiatan_mitr
 (28, 22, 20),
 (29, 22, 25),
 (30, 24, 13),
-(31, 24, 19),
-(32, 24, 22),
-(33, 25, 12),
-(34, 25, 20),
-(35, 25, 21),
-(36, 28, 15),
-(37, 28, 19),
-(38, 28, 25),
-(39, 26, 15),
 (40, 26, 20),
 (41, 26, 25),
 (42, 27, 14),
@@ -548,7 +667,154 @@ INSERT INTO `nilai_kegiatan_mitra` (`id_nilai_kegiatan_mitra`, `id_kegiatan_mitr
 (66, 34, 25),
 (67, 35, 14),
 (68, 35, 20),
-(69, 35, 23);
+(69, 35, 23),
+(70, 36, 15),
+(71, 36, 20),
+(72, 36, 22),
+(73, 63, 15),
+(74, 63, 19),
+(75, 63, 25),
+(76, 37, 15),
+(77, 37, 19),
+(78, 37, 24),
+(79, 34, 23),
+(80, 34, 13),
+(81, 34, 19),
+(82, 34, 23),
+(83, 34, 13),
+(84, 34, 19),
+(85, 42, 25),
+(86, 42, 15),
+(87, 42, 20),
+(88, 35, 24),
+(89, 35, 14),
+(90, 35, 20),
+(91, 37, 23),
+(92, 37, 13),
+(93, 37, 18),
+(94, 39, 24),
+(95, 39, 14),
+(96, 39, 20),
+(97, 40, 14),
+(98, 40, 19),
+(99, 40, 24),
+(100, 41, 14),
+(101, 41, 19),
+(102, 41, 25),
+(103, 81, 23),
+(104, 81, 13),
+(105, 81, 19),
+(106, 82, 25),
+(107, 82, 14),
+(108, 82, 20),
+(109, 83, 24),
+(110, 83, 14),
+(111, 83, 20),
+(112, 84, 23),
+(113, 84, 13),
+(114, 84, 18),
+(115, 85, 14),
+(116, 85, 19),
+(117, 85, 25),
+(118, 86, 14),
+(119, 86, 19),
+(120, 86, 24),
+(121, 87, 14),
+(122, 87, 19),
+(123, 87, 25),
+(124, 88, 15),
+(125, 88, 19),
+(126, 88, 24),
+(127, 89, 14),
+(128, 89, 20),
+(129, 89, 24),
+(130, 90, 14),
+(131, 90, 19),
+(132, 90, 25),
+(133, 91, 14),
+(134, 91, 19),
+(135, 91, 25),
+(136, 92, 14),
+(137, 92, 19),
+(138, 92, 24),
+(139, 93, 15),
+(140, 93, 18),
+(141, 93, 25),
+(142, 94, 13),
+(143, 94, 18),
+(144, 94, 24),
+(145, 95, 15),
+(146, 95, 19),
+(147, 95, 25),
+(148, 96, 14),
+(149, 96, 19),
+(150, 96, 25),
+(151, 97, 13),
+(152, 97, 18),
+(153, 97, 23),
+(154, 98, 14),
+(155, 98, 19),
+(156, 98, 24),
+(157, 99, 14),
+(158, 99, 19),
+(159, 99, 25),
+(160, 100, 14),
+(161, 100, 19),
+(162, 100, 24),
+(163, 101, 14),
+(164, 101, 19),
+(165, 101, 25),
+(166, 102, 15),
+(167, 102, 19),
+(168, 102, 24),
+(169, 103, 14),
+(170, 103, 20),
+(171, 103, 24),
+(172, 104, 14),
+(173, 104, 19),
+(174, 104, 25),
+(175, 105, 14),
+(176, 105, 19),
+(177, 105, 25),
+(178, 106, 13),
+(179, 106, 18),
+(180, 106, 24),
+(181, 107, 15),
+(182, 107, 19),
+(183, 107, 25),
+(184, 108, 14),
+(185, 108, 19),
+(186, 108, 25),
+(187, 109, 13),
+(188, 109, 18),
+(189, 109, 23),
+(190, 110, 14),
+(191, 110, 19),
+(192, 110, 24),
+(193, 111, 14),
+(194, 111, 19),
+(195, 111, 25),
+(196, 112, 24),
+(197, 112, 14),
+(198, 112, 19),
+(199, 113, 24),
+(200, 113, 14),
+(201, 113, 20),
+(202, 114, 25),
+(203, 114, 14),
+(204, 114, 19),
+(205, 115, 24),
+(206, 115, 15),
+(207, 115, 19),
+(208, 116, 24),
+(209, 116, 14),
+(210, 116, 20),
+(211, 117, 24),
+(212, 117, 14),
+(213, 117, 20),
+(214, 59, 25),
+(215, 59, 14),
+(216, 59, 18);
 
 -- --------------------------------------------------------
 
@@ -587,28 +853,12 @@ INSERT INTO `rating_kriteria` (`id_rating_kriteria`, `kode`, `bobot`, `keteranga
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rekap_nilai_mitra`
---
-
-CREATE TABLE `rekap_nilai_mitra` (
-  `id_rekap_nilai_mitra` int(11) NOT NULL,
-  `id_nilai_kegiatan_mitra` int(11) NOT NULL,
-  `nama_mitra` varchar(50) NOT NULL,
-  `nilai_rata` int(11) NOT NULL,
-  `jumlah_kegiatan` int(11) NOT NULL,
-  `bobot_nilai` int(11) NOT NULL,
-  `nila_akhir` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `email` varchar(30) NOT NULL,
   `username` varchar(30) DEFAULT NULL,
   `password_hash` varchar(255) NOT NULL,
   `reset_hash` varchar(255) DEFAULT NULL,
@@ -634,7 +884,8 @@ INSERT INTO `users` (`id`, `email`, `username`, `password_hash`, `reset_hash`, `
 (10, 'sitibarokah123@gmail.com', 'sitibarokah', '$2y$10$z06YJRwJlEDY0eykfdWZwuTQuv21Z.oJYvKaqJdC4C2EcAjVvorqe', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-12-28 05:40:50', '2023-12-28 05:40:50', NULL),
 (11, 'noviyanti456@gmail.com', 'noviyanti', '$2y$10$RTScizKndNixF69d1Gg9hOEg2UoH9NQtxur0gLdW26YSDWugqoBT2', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-12-28 05:44:12', '2023-12-28 05:44:12', NULL),
 (12, 'ayulaila213@gmail.com', 'ayulaila', '$2y$10$Tn8pzTZ/rNJ8Y1YB1C4xm.c1bRVE6UESUVYSQMN4JrVyM7ChfgJtq', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-12-28 05:45:14', '2023-12-28 05:45:14', NULL),
-(13, 'rahyudin23456@gmail.com', 'rahyudin', '$2y$10$8dxYyHTmDw4H7tPR/YlAoeOJgySU.0UW1pD.wxTPnnXvOV6SdVvLO', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-12-28 05:47:28', '2023-12-28 05:47:28', NULL);
+(15, 'rahyudin@gmail.com', 'rahyudin', '$2y$10$.es5K9MtiXuEgNL5nFFkJOLiXyAWNyOE.UebJH.vnLRM4aUvop1bS', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2024-01-01 23:31:49', '2024-01-01 23:31:49', NULL),
+(16, 'tresno@gmail.com', 'tresno', '$2y$10$RKorlsQZYr4WFbzuU1qIRuohc1sKLkWHxTExijJCPz/3WlxqFkiNa', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2024-01-03 21:11:52', '2024-01-04 22:45:57', NULL);
 
 --
 -- Indexes for dumped tables
@@ -746,12 +997,6 @@ ALTER TABLE `rating_kriteria`
   ADD KEY `kode` (`kode`);
 
 --
--- Indexes for table `rekap_nilai_mitra`
---
-ALTER TABLE `rekap_nilai_mitra`
-  ADD PRIMARY KEY (`id_rekap_nilai_mitra`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -773,13 +1018,13 @@ ALTER TABLE `auth_activation_attempts`
 -- AUTO_INCREMENT for table `auth_groups`
 --
 ALTER TABLE `auth_groups`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=270;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
@@ -803,13 +1048,13 @@ ALTER TABLE `auth_tokens`
 -- AUTO_INCREMENT for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_mitra`
 --
 ALTER TABLE `kegiatan_mitra`
-  MODIFY `id_kegiatan_mitra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id_kegiatan_mitra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -821,7 +1066,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `nilai_kegiatan_mitra`
 --
 ALTER TABLE `nilai_kegiatan_mitra`
-  MODIFY `id_nilai_kegiatan_mitra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id_nilai_kegiatan_mitra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=217;
 
 --
 -- AUTO_INCREMENT for table `rating_kriteria`
@@ -833,7 +1078,7 @@ ALTER TABLE `rating_kriteria`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
