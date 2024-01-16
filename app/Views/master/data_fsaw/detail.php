@@ -287,9 +287,9 @@
                                                                 <tr>
                                                                     <th>No</th>
                                                                     <th>Nama Mitra</th>
-                                                                    <th>K1</th>
-                                                                    <th>K2</th>
-                                                                    <th>K3</th>
+                                                                    <th>Nilai Kinerja</th>
+                                                                    <th>Nilai Kerjasama</th>
+                                                                    <th>Nilai Kualitas Data</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -347,9 +347,9 @@
                                                                 <tr>
                                                                     <th>No</th>
                                                                     <th>Nama Mitra</th>
-                                                                    <th>K1</th>
-                                                                    <th>K2</th>
-                                                                    <th>K3</th>
+                                                                    <th>Nilai Kinerja</th>
+                                                                    <th>Nilai Kerjasama</th>
+                                                                    <th>Nilai Kualitas Data</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -406,9 +406,9 @@
                                                                 <tr>
                                                                     <th>No</th>
                                                                     <th>Nama Mitra</th>
-                                                                    <th>K1</th>
-                                                                    <th>K2</th>
-                                                                    <th>K3</th>
+                                                                    <th>Nilai Kinerja</th>
+                                                                    <th>Nilai Kerja Sama</th>
+                                                                    <th>Nilai Kualitas Data</th>
                                                                     <th>Total</th>
                                                                 </tr>
                                                             </thead>

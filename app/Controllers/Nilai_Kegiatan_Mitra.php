@@ -193,318 +193,292 @@ class Nilai_Kegiatan_Mitra extends BaseController
     public function cetak_nilai_mitra_lapangan($id)
     {
         $model = new KegiatanMitraModel();
-
-
         $lapangan = $model->getKegitanMitra('lapangan', $id);
-
         $pengolahan = $model->getKegitanMitra('pengolahan', $id);
-        $model = new KegiatanModel();
-        $nama_kegiatan = $model->find($id);
-        $model = new NilaiKegiatanMitraModel();
-        // data MITRA LAPANGAN per kegiatan 
-        $resultMitraLapangan = [];
-        $normalisasiMitraLapangan = [];
+
+        $modelKegiatan = new KegiatanModel();
+        $nama_kegiatan = $modelKegiatan->find($id);
+
+        $modelNilai = new NilaiKegiatanMitraModel();
         $hasilMitraLapangan = [];
 
         $total = 0;
         $maxValues = [];
         $sumValues = [];
         $rankingLapangan = [];
-        // menentukan nilai teertinggii per kolom LAPANGAN:NILAI TERTINGGI
-        foreach ($model->getNilaiMitra('lapangan', $id)->getResultArray() as $data) {
+
+        // menentukan nilai tertinggi per kolom LAPANGAN:NILAI TERTINGGI
+        foreach ($modelNilai->getNilaiMitra('lapangan', $id)->getResultArray() as $data) {
             $kode = $data['kode'];
             $nilai = $data['bobot'];
 
-            // Jika kode belum ada dalam array $maxValues atau nilai lebih tinggi, update nilai tertinggi
             if (!isset($maxValues[$kode]) || $nilai > $maxValues[$kode]['bobot']) {
                 $maxValues[$kode] = ['kode' => $kode, 'bobot' => $nilai];
             }
         }
 
-        foreach ($model->getNilaiMitra('lapangan', $id)->getResult() as $row) {
-            // menentukan ranking nilai mitra lapangan
+        foreach ($modelNilai->getNilaiMitra('lapangan', $id)->getResult() as $row) {
             $namaMitra = $row->nama_mitra;
             $nilai_Teringgi = $maxValues[$row->kode];
             $nilai = ($row->bobot / $nilai_Teringgi['bobot']) * $row->bobot_kriteria;
 
-            // Jika id_kegiatan_mitra belum ada dalam array $sumValues, inisialisasi dengan nilai
             if (!isset($sumValues[$namaMitra])) {
                 $sumValues[$namaMitra] = $nilai;
             } else {
-                // Jika sudah ada, akumulasikan nilai
                 $sumValues[$namaMitra] += $nilai;
             }
+
             uasort($sumValues, function ($a, $b) {
                 return $b - $a;
             });
+
             $rankingLapangan = $sumValues;
 
-            // lapangan:hasil fuzzy
             $nilai = number_format(($row->bobot / $nilai_Teringgi['bobot']) * $row->bobot_kriteria, 2, '.', '');
             $hasilMitraLapangan[$row->nama_mitra][] = [
                 'kode' => $row->kode,
                 'keterangan' => $nilai,
-                'total' => $sumValues[$row->nama_mitra]
+                'total' => $sumValues[$row->nama_mitra],
             ];
         }
 
-
-        $nilaikegiatanmitraModel = new \App\Models\NilaiKegiatanMitraModel();
+        $modelNilai = new \App\Models\NilaiKegiatanMitraModel();
         $data['hasil_penilaian_lapangan'] = $hasilMitraLapangan;
+        $data['kegiatan'] = $nama_kegiatan;
 
-        $data = [
-            'hasil_penilaian_lapangan' => $hasilMitraLapangan,
-            'kegiatan' => $nama_kegiatan
-        ];
+        $mpdf = new \Mpdf\Mpdf();
 
-        $dompdf = new \Dompdf\Dompdf();
-        $options = new \Dompdf\Options();
-        $options->setIsRemoteEnabled(true);
+        $mpdf->SetTitle('Laporan Nilai Mitra Lapangan');
+        $mpdf->SetAuthor('Your Author Name');
 
+        $mpdf->AddPage('P', 'A4');
 
-        // $dompdf->output();
-        $dompdf->loadHtml(view('/master/nilai_kegiatan_mitra/cetak_nilai_mitra_lapangan', $data));
-        $dompdf->setPaper('A4', 'portrait');
-        // Render PDF
-        $dompdf->render();
-        // Output the PDF content
-        $dompdf->stream('Laporan Nilai Mitra Lapangan.pdf', array("Attachment" => false));
+        $html = view('/master/nilai_kegiatan_mitra/cetak_nilai_mitra_lapangan', $data);
+
+        $mpdf->WriteHTML($html);
+
+        $mpdf->Output('Laporan_Nilai_Mitra_Lapangan.pdf', 'I'); // I: Display in browser, D: Download
+
+        exit();
     }
+
 
     public function cetak_nilai_mitra_pengolahan($id)
     {
         $model = new KegiatanMitraModel();
-
         $pengolahan = $model->getKegitanMitra('pengolahan', $id);
-        $model = new KegiatanModel();
-        $nama_kegiatan = $model->find($id);
-        $model = new NilaiKegiatanMitraModel();
-        // data MITRA LAPANGAN per kegiatan 
-        $resultMitraLapangan = [];
-        $normalisasiMitraLapangan = [];
-        $hasilMitraLapangan = [];
 
-        $total = 0;
-        $maxValues = [];
-        $sumValues = [];
-        $rankingLapangan = [];
-        // menentukan nilai teertinggii per kolom LAPANGAN:NILAI TERTINGGI
-        foreach ($model->getNilaiMitra('pengolahan', $id)->getResultArray() as $data) {
-            $kode = $data['kode'];
-            $nilai = $data['bobot'];
+        $modelKegiatan = new KegiatanModel();
+        $nama_kegiatan = $modelKegiatan->find($id);
 
-            // Jika kode belum ada dalam array $maxValues atau nilai lebih tinggi, update nilai tertinggi
-            if (!isset($maxValues[$kode]) || $nilai > $maxValues[$kode]['bobot']) {
-                $maxValues[$kode] = ['kode' => $kode, 'bobot' => $nilai];
-            }
-        }
+        $modelNilai = new NilaiKegiatanMitraModel();
+        $hasilMitraPengolahan = [];
 
-        foreach ($model->getNilaiMitra('pengolahan', $id)->getResult() as $row) {
-            // menentukan ranking nilai mitra lapangan
-            $namaMitra = $row->nama_mitra;
-            $nilai_Teringgi = $maxValues[$row->kode];
-            $nilai = ($row->bobot / $nilai_Teringgi['bobot']) * $row->bobot_kriteria;
-
-            // Jika id_kegiatan_mitra belum ada dalam array $sumValues, inisialisasi dengan nilai
-            if (!isset($sumValues[$namaMitra])) {
-                $sumValues[$namaMitra] = $nilai;
-            } else {
-                // Jika sudah ada, akumulasikan nilai
-                $sumValues[$namaMitra] += $nilai;
-            }
-            uasort($sumValues, function ($a, $b) {
-                return $b - $a;
-            });
-            $rankingLapangan = $sumValues;
-
-            // lapangan:hasil fuzzy
-            $nilai = number_format(($row->bobot / $nilai_Teringgi['bobot']) * $row->bobot_kriteria, 2, '.', '');
-            $hasilMitraPengolahan[$row->nama_mitra][] = [
-                'kode' => $row->kode,
-                'keterangan' => $nilai,
-                'total' => $sumValues[$row->nama_mitra]
-            ];
-        }
-
-
-        $nilaikegiatanmitraModel = new \App\Models\NilaiKegiatanMitraModel();
-
-
-        $data = [
-            'hasil_penilaian_pengolahan' => $hasilMitraPengolahan,
-            'kegiatan' => $nama_kegiatan
-        ];
-
-        $dompdf = new \Dompdf\Dompdf();
-        $options = new \Dompdf\Options();
-        $options->setIsRemoteEnabled(true);
-
-
-        // $dompdf->output();
-        $dompdf->loadHtml(view('/master/nilai_kegiatan_mitra/cetak_nilai_mitra_pengolahan', $data));
-        $dompdf->setPaper('A4', 'portrait');
-        // Render PDF
-        $dompdf->render();
-        // Output the PDF content
-        $dompdf->stream('Laporan Nilai Mitra Pengolahan.pdf', array("Attachment" => false));
-    }
-
-    public function cetak_rangking_lapangan($id)
-    {
-        $model = new KegiatanMitraModel();
-
-        $pengolahan = $model->getKegitanMitra('pengolahan', $id);
-        $model = new KegiatanModel();
-        $nama_kegiatan = $model->find($id);
-        $model = new NilaiKegiatanMitraModel();
-        // data MITRA LAPANGAN per kegiatan 
-        $resultMitraLapangan = [];
-        $normalisasiMitraLapangan = [];
-        $hasilMitraLapangan = [];
-        $total = 0;
-        $maxValues = [];
-        $sumValues = [];
-        $rankingLapangan = [];
-        // menentukan nilai teertinggii per kolom LAPANGAN:NILAI TERTINGGI
-        foreach ($model->getNilaiMitra('lapangan', $id)->getResultArray() as $data) {
-            $kode = $data['kode'];
-            $nilai = $data['bobot'];
-
-            // Jika kode belum ada dalam array $maxValues atau nilai lebih tinggi, update nilai tertinggi
-            if (!isset($maxValues[$kode]) || $nilai > $maxValues[$kode]['bobot']) {
-                $maxValues[$kode] = ['kode' => $kode, 'bobot' => $nilai];
-            }
-        }
-
-        foreach ($model->getNilaiMitra('lapangan', $id)->getResult() as $row) {
-            // menentukan ranking nilai mitra lapangan
-            $namaMitra = $row->nama_mitra;
-            $nilai_Teringgi = $maxValues[$row->kode];
-            $nilai = ($row->bobot / $nilai_Teringgi['bobot']) * $row->bobot_kriteria;
-
-            // Jika id_kegiatan_mitra belum ada dalam array $sumValues, inisialisasi dengan nilai
-            if (!isset($sumValues[$namaMitra])) {
-                $sumValues[$namaMitra] = $nilai;
-            } else {
-                // Jika sudah ada, akumulasikan nilai
-                $sumValues[$namaMitra] += $nilai;
-            }
-            uasort($sumValues, function ($a, $b) {
-                return $b - $a;
-            });
-            $rankingLapangan = $sumValues;
-
-
-            // lapangan:hasil fuzzy
-            $nilai = number_format(($row->bobot / $nilai_Teringgi['bobot']) * $row->bobot_kriteria, 2, '.', '');
-            $hasilMitraPengolahan[$row->nama_mitra][] = [
-                'kode' => $row->kode,
-                'keterangan' => $nilai,
-                'total' => $sumValues[$row->nama_mitra]
-            ];
-        }
-
-
-        // // $nilaikegiatanmitraModel = new \App\Models\NilaiKegiatanMitraModel();
-        // $data['ranking_lapangan'] = $rankingLapangan;
-        $data = [
-            'ranking_lapangan' => $rankingLapangan,
-            'kegiatan' => $nama_kegiatan
-        ];
-
-        $dompdf = new \Dompdf\Dompdf();
-        $options = new \Dompdf\Options();
-        $options->setIsRemoteEnabled(true);
-
-
-
-        // $dompdf->output();
-        $dompdf->loadHtml(view('/master/nilai_kegiatan_mitra/cetak_rangking_lapangan', $data));
-        $dompdf->setPaper('A4', 'portrait');
-        // Render PDF
-        $dompdf->render();
-        // Output the PDF content
-
-
-        return $dompdf->stream('Laporan Rangking Kinerja Mitra Lapangan.pdf', array("Attachment" => 0));
-    }
-
-    public function cetak_rangking_pengolahan($id)
-    {
-        $model = new KegiatanMitraModel();
-
-        $pengolahan = $model->getKegitanMitra('pengolahan', $id);
-        $model = new KegiatanModel();
-        $nama_kegiatan = $model->find($id);
-        $model = new NilaiKegiatanMitraModel();
-        // data MITRA LAPANGAN per kegiatan 
-        $resultMitraLapangan = [];
-        $normalisasiMitraLapangan = [];
-        $hasilMitraLapangan = [];
         $total = 0;
         $maxValues = [];
         $sumValues = [];
         $rankingPengolahan = [];
-        // menentukan nilai teertinggii per kolom LAPANGAN:NILAI TERTINGGI
-        foreach ($model->getNilaiMitra('pengolahan', $id)->getResultArray() as $data) {
+
+        // menentukan nilai tertinggi per kolom PENGOLAHAN:NILAI TERTINGGI
+        foreach ($modelNilai->getNilaiMitra('pengolahan', $id)->getResultArray() as $data) {
             $kode = $data['kode'];
             $nilai = $data['bobot'];
 
-            // Jika kode belum ada dalam array $maxValues atau nilai lebih tinggi, update nilai tertinggi
             if (!isset($maxValues[$kode]) || $nilai > $maxValues[$kode]['bobot']) {
                 $maxValues[$kode] = ['kode' => $kode, 'bobot' => $nilai];
             }
         }
 
-        foreach ($model->getNilaiMitra('pengolahan', $id)->getResult() as $row) {
+        foreach ($modelNilai->getNilaiMitra('pengolahan', $id)->getResult() as $row) {
+            $namaMitra = $row->nama_mitra;
+            $nilai_Teringgi = $maxValues[$row->kode];
+            $nilai = ($row->bobot / $nilai_Teringgi['bobot']) * $row->bobot_kriteria;
+
+            if (!isset($sumValues[$namaMitra])) {
+                $sumValues[$namaMitra] = $nilai;
+            } else {
+                $sumValues[$namaMitra] += $nilai;
+            }
+
+            uasort($sumValues, function ($a, $b) {
+                return $b - $a;
+            });
+
+            $rankingPengolahan = $sumValues;
+
+            $nilai = number_format(($row->bobot / $nilai_Teringgi['bobot']) * $row->bobot_kriteria, 2, '.', '');
+            $hasilMitraPengolahan[$row->nama_mitra][] = [
+                'kode' => $row->kode,
+                'keterangan' => $nilai,
+                'total' => $sumValues[$row->nama_mitra],
+            ];
+        }
+
+        $modelNilai = new \App\Models\NilaiKegiatanMitraModel();
+        $data['hasil_penilaian_pengolahan'] = $hasilMitraPengolahan;
+        $data['kegiatan'] = $nama_kegiatan;
+
+        $mpdf = new \Mpdf\Mpdf();
+
+        $mpdf->SetTitle('Laporan Nilai Mitra Pengolahan');
+        $mpdf->SetAuthor('Your Author Name');
+
+        $mpdf->AddPage('P', 'A4');
+
+        $html = view('/master/nilai_kegiatan_mitra/cetak_nilai_mitra_pengolahan', $data);
+
+        $mpdf->WriteHTML($html);
+
+        $mpdf->Output('Laporan_Nilai_Mitra_Pengolahan.pdf', 'I'); // I: Display in browser, D: Download
+
+        exit();
+    }
+
+
+    public function cetak_rangking_lapangan($id)
+    {
+        $model = new KegiatanMitraModel();
+        $pengolahan = $model->getKegitanMitra('pengolahan', $id);
+
+        $modelKegiatan = new KegiatanModel();
+        $nama_kegiatan = $modelKegiatan->find($id);
+
+        $modelNilai = new NilaiKegiatanMitraModel();
+        $hasilMitraPengolahan = [];
+
+        $total = 0;
+        $maxValues = [];
+        $sumValues = [];
+        $rankingLapangan = [];
+
+        // menentukan nilai tertinggi per kolom LAPANGAN:NILAI TERTINGGI
+        foreach ($modelNilai->getNilaiMitra('lapangan', $id)->getResultArray() as $data) {
+            $kode = $data['kode'];
+            $nilai = $data['bobot'];
+
+            if (!isset($maxValues[$kode]) || $nilai > $maxValues[$kode]['bobot']) {
+                $maxValues[$kode] = ['kode' => $kode, 'bobot' => $nilai];
+            }
+        }
+
+        foreach ($modelNilai->getNilaiMitra('lapangan', $id)->getResult() as $row) {
             // menentukan ranking nilai mitra lapangan
             $namaMitra = $row->nama_mitra;
             $nilai_Teringgi = $maxValues[$row->kode];
             $nilai = ($row->bobot / $nilai_Teringgi['bobot']) * $row->bobot_kriteria;
 
-            // Jika id_kegiatan_mitra belum ada dalam array $sumValues, inisialisasi dengan nilai
             if (!isset($sumValues[$namaMitra])) {
                 $sumValues[$namaMitra] = $nilai;
             } else {
-                // Jika sudah ada, akumulasikan nilai
                 $sumValues[$namaMitra] += $nilai;
             }
+
             uasort($sumValues, function ($a, $b) {
                 return $b - $a;
             });
-            $rankingPengolahan = $sumValues;
+
+            $rankingLapangan = $sumValues;
 
             // lapangan:hasil fuzzy
             $nilai = number_format(($row->bobot / $nilai_Teringgi['bobot']) * $row->bobot_kriteria, 2, '.', '');
             $hasilMitraPengolahan[$row->nama_mitra][] = [
                 'kode' => $row->kode,
                 'keterangan' => $nilai,
-                'total' => $sumValues[$row->nama_mitra]
+                'total' => $sumValues[$row->nama_mitra],
             ];
         }
 
+        $modelNilai = new \App\Models\NilaiKegiatanMitraModel();
+        $data['ranking_lapangan'] = $rankingLapangan;
+        $data['kegiatan'] = $nama_kegiatan;
 
-        // // $nilaikegiatanmitraModel = new \App\Models\NilaiKegiatanMitraModel();
-        // $data['ranking_lapangan'] = $rankingLapangan;
-        $data = [
-            'ranking_pengolahan' => $rankingPengolahan,
-            'kegiatan' => $nama_kegiatan
-        ];
+        $mpdf = new \Mpdf\Mpdf();
 
-        $dompdf = new \Dompdf\Dompdf();
-        $options = new \Dompdf\Options();
-        $options->setIsRemoteEnabled(true);
+        $mpdf->SetTitle('Laporan Rangking Kinerja Mitra Lapangan');
+        $mpdf->SetAuthor('Your Author Name');
 
+        $mpdf->AddPage('P', 'A4');
 
+        $html = view('/master/nilai_kegiatan_mitra/cetak_rangking_lapangan', $data);
 
-        // $dompdf->output();
-        $dompdf->loadHtml(view('/master/nilai_kegiatan_mitra/cetak_rangking_pengolahan', $data));
-        $dompdf->setPaper('A4', 'portrait');
-        // Render PDF
-        $dompdf->render();
-        // Output the PDF content
+        $mpdf->WriteHTML($html);
+
+        $mpdf->Output('Laporan_Rangking_Kinerja_Mitra_Lapangan.pdf', 'I'); // I: Display in browser, D: Download
+
+        exit();
+    }
 
 
-        return $dompdf->stream('Laporan Ranking Kinerja Mitra Pengolahan.pdf', array("Attachment" => 0));
+    public function cetak_rangking_pengolahan($id)
+    {
+        $model = new KegiatanMitraModel();
+        $pengolahan = $model->getKegitanMitra('pengolahan', $id);
+
+        $modelKegiatan = new KegiatanModel();
+        $nama_kegiatan = $modelKegiatan->find($id);
+
+        $modelNilai = new NilaiKegiatanMitraModel();
+        $hasilMitraPengolahan = [];
+
+        $total = 0;
+        $maxValues = [];
+        $sumValues = [];
+        $rankingPengolahan = [];
+
+        // menentukan nilai tertinggi per kolom PENGOLAHAN:NILAI TERTINGGI
+        foreach ($modelNilai->getNilaiMitra('pengolahan', $id)->getResultArray() as $data) {
+            $kode = $data['kode'];
+            $nilai = $data['bobot'];
+
+            if (!isset($maxValues[$kode]) || $nilai > $maxValues[$kode]['bobot']) {
+                $maxValues[$kode] = ['kode' => $kode, 'bobot' => $nilai];
+            }
+        }
+
+        foreach ($modelNilai->getNilaiMitra('pengolahan', $id)->getResult() as $row) {
+            // menentukan ranking nilai mitra pengolahan
+            $namaMitra = $row->nama_mitra;
+            $nilai_Teringgi = $maxValues[$row->kode];
+            $nilai = ($row->bobot / $nilai_Teringgi['bobot']) * $row->bobot_kriteria;
+
+            if (!isset($sumValues[$namaMitra])) {
+                $sumValues[$namaMitra] = $nilai;
+            } else {
+                $sumValues[$namaMitra] += $nilai;
+            }
+
+            uasort($sumValues, function ($a, $b) {
+                return $b - $a;
+            });
+
+            $rankingPengolahan = $sumValues;
+
+            // pengolahan:hasil fuzzy
+            $nilai = number_format(($row->bobot / $nilai_Teringgi['bobot']) * $row->bobot_kriteria, 2, '.', '');
+            $hasilMitraPengolahan[$row->nama_mitra][] = [
+                'kode' => $row->kode,
+                'keterangan' => $nilai,
+                'total' => $sumValues[$row->nama_mitra],
+            ];
+        }
+
+        $modelNilai = new \App\Models\NilaiKegiatanMitraModel();
+        $data['ranking_pengolahan'] = $rankingPengolahan;
+        $data['kegiatan'] = $nama_kegiatan;
+
+        $mpdf = new \Mpdf\Mpdf();
+
+        $mpdf->SetTitle('Laporan Ranking Kinerja Mitra Pengolahan');
+        $mpdf->SetAuthor('Your Author Name');
+
+        $mpdf->AddPage('P', 'A4');
+
+        $html = view('/master/nilai_kegiatan_mitra/cetak_rangking_pengolahan', $data);
+
+        $mpdf->WriteHTML($html);
+
+        $mpdf->Output('Laporan_Ranking_Kinerja_Mitra_Pengolahan.pdf', 'I'); // I: Display in browser, D: Download
+
+        exit();
     }
 }

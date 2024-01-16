@@ -50,16 +50,25 @@
             text-align: justify;
         }
 
+        img {
+            width: auto;
+            height: 90px;
+
+        }
+
         footer {
-            width: 100%;
+            width: auto;
             height: 50px;
             padding-left: 0px;
             position: absolute;
             line-height: 25px;
             bottom: 0px;
+            right: 0px;
+            left: 0px;
             color: gray;
             text-align: center;
         }
+
 
         /* Gaya cetak */
         @media print {
@@ -70,16 +79,13 @@
             table {
                 font-size: 10pt;
             }
-
-            header {
-                display: none;
-            }
         }
     </style>
 </head>
 
 <body>
     <header>
+        <img src="./img/logo_bps.png">
         <center>
             <i>
                 <h2>BADAN PUSAT STATISTIK</h2>
@@ -124,16 +130,16 @@
                 <?php  } ?>
         </tbody>
     </table>
-    <div style="text-align: center;">
-        <p style="text-align: right;">
-            Pekalongan,
-        </p>
+    <div style="text-align: center; margin-top:40px">
+        <div style="text-align: right;">
+            Pekalongan,<?= date('d-m-Y') ?>
+        </div>
         <p style="text-align: right;">Kepala Badan Pusat Statistik</p>
         <p style="text-align: right;">Kota Pekalongan</p>
         <br>
         <br>
-        <p style="text-align: right;">Drs. Rahyudin, M.Si</p>
-        <p style="text-align: right;">Nip. </p>
+        <p style="text-align: right;"><u>Drs. Rahyudin, M.Si</u></p>
+        <p style="text-align: right;">Nip. 196607271992121001 </p>
     </div>
     <footer class="main-footer">
         Alamat Kantor: Jl.Singosari, Podosugih, Kec. Pekalongan Barat, Kota Pekalongan, Jawa Tengah 51111

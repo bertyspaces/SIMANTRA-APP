@@ -144,22 +144,62 @@ class Penilaian extends BaseController
                 'keterangan' => $row->keterangan,
             ];
         }
-        // dd($resultArray);
+        // dd($data);
 
         // data kegiatan yang dinilai
         $model = new KegiatanModel();
         $getKegiatan = $model->find($id_kegiatan);
 
         $nilaiModel = new NilaiKegiatanMitraModel();
-        $data_nilai = $nilaiModel->where('id_kegiatan_mitra', $id_kegiatan_mitra)->findAll();
-
-
-
-
+        $data_nilai = $nilaiModel->join('rating_kriteria', 'rating_kriteria.id_rating_kriteria=nilai_kegiatan_mitra.id_rating_kriteria')->join('bobot_kriteria', 'bobot_kriteria.kode = rating_kriteria.kode')->where('id_kegiatan_mitra', $id_kegiatan_mitra)->findAll();
+        // dd($data_nilai);
         return view('user/penilaian_mitra/edit', [
             "penilaian" => $resultArray,
+            "data_nilai" => $data_nilai,
             "data_mitra" => $data,
             "kegiatan" => $getKegiatan
         ]);
+    }
+    public function update()
+    {
+
+        $postData = $this->request->getPost();
+        $nilaiModel = new NilaiKegiatanMitraModel();
+        $kegiatan_mitra = new KegiatanMitraModel();
+        // dd($postData);
+        $validation = \Config\Services::validation();
+        $rules = [
+            'id_kegiatan_mitra' => 'required',
+
+        ];
+
+        if ($this->validate($rules)) {
+            // $dataArray = $postData['nilai'];
+            $id_kegiatan_mitra = $this->request->getVar('id_kegiatan_mitra');
+            $kegiatan = $kegiatan_mitra->find($id_kegiatan_mitra);
+            $data_kegiatan_mitra = $kegiatan_mitra->update($id_kegiatan_mitra, ['status' => 'dinilai']);
+            $data_nilai = $nilaiModel->join('rating_kriteria', 'rating_kriteria.id_rating_kriteria=nilai_kegiatan_mitra.id_rating_kriteria')->join('bobot_kriteria', 'bobot_kriteria.kode = rating_kriteria.kode')->where('id_kegiatan_mitra', $id_kegiatan_mitra)->findAll();
+            foreach ($data_nilai as $nilai) {
+                // 
+                $id = $nilai['id_nilai_kegiatan_mitra'];
+                $data = [
+                    "id_kegiatan_mitra" => $id_kegiatan_mitra,
+                    "id_rating_kriteria" =>  $postData[$id]
+                ];
+                $nilaiModel->update($id, $data);
+            }
+            // foreach ($dataArray as $ratingId => $value) {
+            //     $data = [
+            //         "id_kegiatan_mitra" => $id_kegiatan_mitra,
+            //         "id_rating_kriteria" => $value
+            //     ];
+            //     $nilaiModel->update($data);
+            // }
+            session()->setFlashdata('pesan_edit', 'Penilaian Mitra Berhasil Diubah');
+            return redirect()->to('penilaian/kegiatan/' .  $kegiatan['id_kegiatan']);
+        } else {
+
+            return redirect()->back()->withInput()->with('errors', 'penilaian gagal');
+        }
     }
 }

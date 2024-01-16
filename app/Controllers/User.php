@@ -22,22 +22,36 @@ class User extends BaseController
             ->groupBy('kegiatan.id_kegiatan')
             ->get()
             ->getResult();
-         
+
         $modelPenilaian = new KegiatanMitraModel();
-        $dinilai = count($modelPenilaian->where('status','dinilai')->where('id_user',user()->id)->get()->getResult());
-        $belum = count($modelPenilaian->where('status','belum dinilai')->where('id_user',user()->id)->get()->getResult());
+        $dinilai = count($modelPenilaian->where('status', 'dinilai')->where('id_user', user()->id)->get()->getResult());
+        $belum = count($modelPenilaian->where('status', 'belum dinilai')->where('id_user', user()->id)->get()->getResult());
         // dd($dinilai);
         // dd(user()->id);
         return view('user/index', [
             'kegiatan_mitra' => $result,
-            'dinilai'=>$dinilai,
-            'belum'=>$belum
+            'dinilai' => $dinilai,
+            'belum' => $belum
         ]);
     }
     public function penilaian_mitra()
     {
 
+        // $model = new KegiatanMitraModel();
 
+        // $roles = user()->getRoles();
+        // foreach ($roles as $role) {
+        //     $role;
+        // }
+        // $idUser = user()->id;
+        // if ($role == 'pml') {
+        //     $mitra = $model->getKegitanMitraByUser('lapangan', $idUser);
+        //     $keterangan = "Mitra Lapangan";
+        // } else {
+        //     $mitra = $model->getKegitanMitraByUser('pengolahan', $idUser);
+        //     $keterangan = "Mitra Pengolahan";
+        // }
+        // dd(count($mitra));
         return view('user/penilaian_mitra/index');
     }
 

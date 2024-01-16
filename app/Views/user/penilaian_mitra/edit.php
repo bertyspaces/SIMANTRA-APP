@@ -16,11 +16,9 @@
             <!-- form start -->
 
             <?php $validation = \Config\Services::validation(); ?>
-            <form action="<?= base_url() ?>penilaian/simpan" method="post">
+            <form action="<?= base_url() ?>penilaian/update" method="post">
                 <div class="card-body">
-                    <?php if (isset($data)) {
-                        dd($data);
-                    }; ?>
+
                     <?php if (session()->has('errors')) : ?>
 
                         <div class="alert alert-danger alert-dismissible">
@@ -48,21 +46,25 @@
 
                         </tbody>
                     </table>
-                    <div class="form-group">
-                        <?php foreach ($penilaian as $p => $value) { ?>
+                    <div class="form-group"> <?php foreach ($data_nilai as $nilai) { ?>
+                            <?php foreach ($penilaian as $p => $value) { ?>
+                                <?php if ($nilai['kriteria'] == $p) { ?>
+                                    <div class="form-group">
+                                        <label><?= $p ?></label>
+                                        <select class="form-control" name="<?= $nilai['id_nilai_kegiatan_mitra'] ?>">
+                                            <option disabled selected>--Pilih Nilai--</option>
 
-                            <div class="form-group">
-                                <label><?= $p ?></label>
-                                <select class="form-control" name="nilai[]">
-                                    <option disabled selected>--Pilih Nilai--</option>
-                                    <?php foreach ($value as $list => $kriteria) { ?>
-                                        <option value="<?= $kriteria['id_rating_kriteria'] ?>"><?= $kriteria['bobot'] ?> - <?= $kriteria['keterangan'] ?></option>
+                                            <?php foreach ($value as $list => $kriteria) { ?>
 
-                                    <?php } ?>
-                                </select>
-                            </div>
+                                                <option value="<?= $kriteria['id_rating_kriteria'] ?>" <?= $kriteria['id_rating_kriteria'] == $nilai['id_rating_kriteria'] ? 'selected' : '' ?>><?= $kriteria['bobot'] ?> - <?= $kriteria['keterangan'] ?></option>
 
 
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                <?php } ?>
+
+                            <?php } ?>
                         <?php } ?>
                     </div>
                     <!-- /.card-body -->
