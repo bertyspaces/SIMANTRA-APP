@@ -66,7 +66,8 @@
                                                                             <th>Nilai Kinerja</th>
                                                                             <th>Nilai Kerjasama</th>
                                                                             <th>Nilai Kualitas Data</th>
-                                                                            <th>total</th>
+                                                                            <th>Total</th>
+                                                                            <th>Penilai</th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -86,6 +87,7 @@
                                                                                     <?php $total += $n['keterangan'] ?>
                                                                                 <?php  } ?>
                                                                                 <td><?= $total ?></td>
+                                                                                <td>Nama Penilai</td>
                                                                             <?php  } ?>
                                                                             </tr>
                                                                     </tbody>
@@ -124,6 +126,7 @@
                                                                             <th>Peringkat</th>
                                                                             <th>Nama Mitra</th>
                                                                             <th>Nilai</th>
+                                                                            <th>Penilai</th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -139,6 +142,7 @@
                                                                                 <td><?= $i++ ?></td>
                                                                                 <td><?= $nama ?></td>
                                                                                 <td><?= $score ?></td>
+                                                                                <td>Nama Penilai</td>
                                                                             <?php  } ?>
                                                                             </tr>
                                                                     </tbody>
@@ -183,6 +187,7 @@
                                                                             <th>Nilai Kerjasama</th>
                                                                             <th>Nilai Kualitas Data</th>
                                                                             <th>Total</th>
+                                                                            <th>Penilai</th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -203,6 +208,7 @@
                                                                                 <?php  } ?>
 
                                                                                 <td><?= $total ?></td>
+                                                                                <td>Nama Penilai</td>
                                                                             <?php  } ?>
                                                                             </tr>
                                                                     </tbody>
@@ -242,6 +248,7 @@
                                                                             <th>Peringkat</th>
                                                                             <th>Nama Mitra</th>
                                                                             <th>Nilai</th>
+                                                                            <th>Penilai</th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -258,6 +265,7 @@
                                                                                 <td><?= $i++ ?></td>
                                                                                 <td><?= $nama ?></td>
                                                                                 <td><?= $score ?></td>
+                                                                                <td>Nama Penilai</td>
                                                                             <?php  } ?>
                                                                             </tr>
                                                                     </tbody>

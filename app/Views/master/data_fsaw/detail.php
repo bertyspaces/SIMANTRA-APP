@@ -65,6 +65,7 @@
                                                                     <th>Nilai Kinerja</th>
                                                                     <th>Nilai Kerja Sama</th>
                                                                     <th>Nilai Kualitas Data</th>
+                                                                    <th>Penilai</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -81,15 +82,21 @@
                                                                         <?php foreach ($value as $nilai => $n) { ?>
                                                                             <td><?= $n['keterangan'] ?></td>
                                                                         <?php  } ?>
+                                                                        <td>Nama Penilai</td>
                                                                     </tr>
                                                                 <?php  } ?>
                                                             </tbody>
+                                                            <i>
+                                                                <p>Keterangan : Tabel ini merupakan hasil dari input nilai Mitra Lapangan</p>
+                                                            </i>
                                                         </table>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
+
                                 </section>
 
                                 <!-- Hasil Normalisasi Nilai MITRA LAPANGAN -->
@@ -116,6 +123,7 @@
                                                                     <th>Nilai Kinerja</th>
                                                                     <th>Nilai Kerja Sama</th>
                                                                     <th>Nilai Kualitas Data</th>
+                                                                    <th>Penilai</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -132,9 +140,16 @@
                                                                         <?php foreach ($value as $nilai => $n) { ?>
                                                                             <td><?= $n['keterangan']  ?></td>
                                                                         <?php  } ?>
+                                                                        <td>Nama Penilai</td>
                                                                     </tr>
                                                                 <?php  } ?>
                                                             </tbody>
+                                                            <i>
+                                                                <p>Keterangan : Tabel ini merupakan hasil normalisasi nilai Mitra Lapangan</p>
+                                                            </i>
+                                                            <i>
+                                                                <p>Cara hitung : nilai 1 kolom / nilai tertinggi dari kolom</p>
+                                                            </i>
                                                         </table>
                                                     </div>
                                                 </div>
@@ -169,6 +184,7 @@
                                                                     <th>Nilai Kerja Sama</th>
                                                                     <th>Nilai Kualitas Data</th>
                                                                     <th>Total</th>
+                                                                    <th>Penilai</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -189,8 +205,18 @@
                                                                         <?php  } ?>
                                                                         <td><?= $total ?></td>
                                                                     <?php  } ?>
+                                                                    <td>Nama Penilai</td>
                                                                     </tr>
                                                             </tbody>
+                                                            <i>
+                                                                <p>Keterangan : Tabel ini merupakan hasil perhitungan nilai kinerja Mitra Lapangan setelah di normalisasikan</p>
+                                                            </i>
+                                                            <i>
+                                                                <p>Cara hitung : hasil nilai normalisasi*bobot nilai</p>
+                                                            </i>
+                                                            <i>
+                                                                <p>Bobot Nilai : K1 = 30, K2 = 30, K4 = 40</p>
+                                                            </i>
                                                         </table>
                                                     </div>
                                                 </div>
@@ -221,8 +247,8 @@
                                                                 <tr>
                                                                     <th>No</th>
                                                                     <th>Nama Mitra</th>
-
-                                                                    <th>score</th>
+                                                                    <th>Score</th>
+                                                                    <th>Penilai</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -242,9 +268,12 @@
                                                                         <td><?= $nama ?></td>
                                                                         <td><?= $score ?></td>
                                                                     <?php  } ?>
-
+                                                                    <td>Nama Penilai</td>
                                                                     </tr>
                                                             </tbody>
+                                                            <i>
+                                                                <p>Keterangan : Tabel ini merupakan Rangking Kinerja Mitra Lapangan, Jika terdapat nilai yang sama, maka peringkat akan ditentukan dengan besar nilai di kriteria ke 3 atau K3 yaitu Nilai Kualitas Data</p>
+                                                            </i>
                                                         </table>
                                                     </div>
                                                 </div>
@@ -290,6 +319,7 @@
                                                                     <th>Nilai Kinerja</th>
                                                                     <th>Nilai Kerjasama</th>
                                                                     <th>Nilai Kualitas Data</th>
+                                                                    <th>Penilai</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -308,13 +338,16 @@
                                                                         <?php foreach ($value as $nilai => $n) { ?>
                                                                             <td><?= $n['keterangan'] ?></td>
                                                                         <?php  } ?>
-
+                                                                        <td>Nama Penilai</td>
 
                                                                     </tr>
                                                                 <?php  } ?>
 
 
                                                             </tbody>
+                                                            <i>
+                                                                <p>Keterangan : Tabel ini merupakan hasil dari input nilai Mitra Pengolahan</p>
+                                                            </i>
                                                         </table>
                                                     </div>
                                                 </div>
@@ -350,6 +383,7 @@
                                                                     <th>Nilai Kinerja</th>
                                                                     <th>Nilai Kerjasama</th>
                                                                     <th>Nilai Kualitas Data</th>
+                                                                    <th>Penilai</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -368,13 +402,19 @@
                                                                         <?php foreach ($value as $nilai => $n) { ?>
                                                                             <td><?= $n['keterangan'] ?></td>
                                                                         <?php  } ?>
-
+                                                                        <td>Nama Penilai</td>
 
                                                                     </tr>
                                                                 <?php  } ?>
 
 
                                                             </tbody>
+                                                            <i>
+                                                                <p>Keterangan : Tabel ini merupakan hasil normalisasi nilai Mitra Pengolahan</p>
+                                                            </i>
+                                                            <i>
+                                                                <p>Cara hitung : nilai 1 kolom / nilai tertinggi dari kolom</p>
+                                                            </i>
                                                         </table>
                                                     </div>
                                                 </div>
@@ -410,6 +450,7 @@
                                                                     <th>Nilai Kerja Sama</th>
                                                                     <th>Nilai Kualitas Data</th>
                                                                     <th>Total</th>
+                                                                    <th>Penilai</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -432,9 +473,7 @@
                                                                         <?php  } ?>
 
                                                                         <td><?= $total ?></td>
-
-
-
+                                                                        <td>Nama Penilai</td>
                                                                     <?php  } ?>
 
                                                                     </tr>
@@ -471,6 +510,7 @@
                                                                     <th>No</th>
                                                                     <th>Nama Mitra</th>
                                                                     <th>score</th>
+                                                                    <th>Penilai</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -487,9 +527,13 @@
                                                                         <td><?= $i++ ?></td>
                                                                         <td><?= $nama ?></td>
                                                                         <td><?= $score ?></td>
+                                                                        <td>Nama Penilai</td>
                                                                     <?php  } ?>
                                                                     </tr>
                                                             </tbody>
+                                                            <i>
+                                                                <p>Keterangan : Tabel ini merupakan Rangking Kinerja Mitra Pengolahan, Jika terdapat nilai yang sama, maka peringkat akan ditentukan dengan besar nilai di kriteria ke 3 atau K3 yaitu Nilai Kualitas Data</p>
+                                                            </i>
                                                         </table>
                                                     </div>
                                                 </div>

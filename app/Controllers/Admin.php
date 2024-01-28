@@ -77,7 +77,6 @@ class Admin extends BaseController
         $password_baru = $this->request->getVar('password_baru');
         $userModel = new ModelsUserModel();
         $user = $userModel->find($userId);
-        // $dataUser->update($userId, ['password_hash' => password_hash($password_baru, PASSWORD_DEFAULT)]);
         $userEntity = new User($user);
         $userEntity->password = $password_baru;
         $userModel->save($userEntity);

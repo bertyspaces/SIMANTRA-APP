@@ -17,9 +17,9 @@ class Penilaian extends BaseController
 
         $data = $kegiatanMitra->where('id_user', user()->id)->get()->getResultArray();
         $id_kegiatan = array_column($data, 'id_kegiatan');
-        // dd($id_kegiatan);
+
         $kegiatan_mitra = $model->whereIn('id_kegiatan', $id_kegiatan)->get()->getResultArray();
-        // dd($kegiatan_mitra);
+
 
 
         return view(
@@ -29,6 +29,7 @@ class Penilaian extends BaseController
             ]
         );
     }
+    // menampilkan data mitra dalam kegiatan
     public function kegiatan($id)
     {
         $model = new KegiatanMitraModel();
@@ -56,6 +57,7 @@ class Penilaian extends BaseController
             'keterangan' => $keterangan
         ]);
     }
+    // form penilaian kinerja mitra
     public function mitra($id_kegiatan_mitra, $id_kegiatan)
     {
         $bk = new BKModel();
@@ -63,8 +65,7 @@ class Penilaian extends BaseController
         $kegiatanMitraModel = new KegiatanMitraModel();
 
         $data = $kegiatanMitraModel->select('mitra.nama_mitra , kegiatan_mitra.*,kegiatan.nama_kegiatan')->join('mitra', 'mitra.nik = kegiatan_mitra.nik')->join('kegiatan', 'kegiatan.id_kegiatan = kegiatan_mitra.id_kegiatan')->where('kegiatan_mitra.id_kegiatan_mitra', $id_kegiatan_mitra)->get()->getRow();
-        // dd($data);
-        // dd($data);
+
         $query = $rk->select('bobot_kriteria.kriteria , rating_kriteria.*')->join('bobot_kriteria', 'bobot_kriteria.kode = rating_kriteria.kode')->orderBy('rating_kriteria.bobot', 'desc')->get();
 
         $resultArray = [];
@@ -76,7 +77,6 @@ class Penilaian extends BaseController
                 'keterangan' => $row->keterangan,
             ];
         }
-        // dd($resultArray);
 
         // data kegiatan yang dinilai
         $model = new KegiatanModel();
@@ -97,7 +97,6 @@ class Penilaian extends BaseController
         $postData = $this->request->getPost();
         $nilaiModel = new NilaiKegiatanMitraModel();
         $kegiatan_mitra = new KegiatanMitraModel();
-        // dd($dataArray = $postData['nilai']);
         $validation = \Config\Services::validation();
         $rules = [
             'id_kegiatan_mitra' => 'required',
@@ -131,8 +130,7 @@ class Penilaian extends BaseController
         $kegiatanMitraModel = new KegiatanMitraModel();
 
         $data = $kegiatanMitraModel->select('mitra.nama_mitra , kegiatan_mitra.*,kegiatan.nama_kegiatan')->join('mitra', 'mitra.nik = kegiatan_mitra.nik')->join('kegiatan', 'kegiatan.id_kegiatan = kegiatan_mitra.id_kegiatan')->where('kegiatan_mitra.id_kegiatan_mitra', $id_kegiatan_mitra)->get()->getRow();
-        // dd($data);
-        // dd($data);
+
         $query = $rk->select('bobot_kriteria.kriteria , rating_kriteria.*')->join('bobot_kriteria', 'bobot_kriteria.kode = rating_kriteria.kode')->orderBy('rating_kriteria.bobot', 'desc')->get();
 
         $resultArray = [];
@@ -144,7 +142,7 @@ class Penilaian extends BaseController
                 'keterangan' => $row->keterangan,
             ];
         }
-        // dd($data);
+
 
         // data kegiatan yang dinilai
         $model = new KegiatanModel();
@@ -152,7 +150,7 @@ class Penilaian extends BaseController
 
         $nilaiModel = new NilaiKegiatanMitraModel();
         $data_nilai = $nilaiModel->join('rating_kriteria', 'rating_kriteria.id_rating_kriteria=nilai_kegiatan_mitra.id_rating_kriteria')->join('bobot_kriteria', 'bobot_kriteria.kode = rating_kriteria.kode')->where('id_kegiatan_mitra', $id_kegiatan_mitra)->findAll();
-        // dd($data_nilai);
+
         return view('user/penilaian_mitra/edit', [
             "penilaian" => $resultArray,
             "data_nilai" => $data_nilai,
@@ -166,7 +164,6 @@ class Penilaian extends BaseController
         $postData = $this->request->getPost();
         $nilaiModel = new NilaiKegiatanMitraModel();
         $kegiatan_mitra = new KegiatanMitraModel();
-        // dd($postData);
         $validation = \Config\Services::validation();
         $rules = [
             'id_kegiatan_mitra' => 'required',
@@ -174,7 +171,6 @@ class Penilaian extends BaseController
         ];
 
         if ($this->validate($rules)) {
-            // $dataArray = $postData['nilai'];
             $id_kegiatan_mitra = $this->request->getVar('id_kegiatan_mitra');
             $kegiatan = $kegiatan_mitra->find($id_kegiatan_mitra);
             $data_kegiatan_mitra = $kegiatan_mitra->update($id_kegiatan_mitra, ['status' => 'dinilai']);
@@ -188,13 +184,6 @@ class Penilaian extends BaseController
                 ];
                 $nilaiModel->update($id, $data);
             }
-            // foreach ($dataArray as $ratingId => $value) {
-            //     $data = [
-            //         "id_kegiatan_mitra" => $id_kegiatan_mitra,
-            //         "id_rating_kriteria" => $value
-            //     ];
-            //     $nilaiModel->update($data);
-            // }
             session()->setFlashdata('pesan_edit', 'Penilaian Mitra Berhasil Diubah');
             return redirect()->to('penilaian/kegiatan/' .  $kegiatan['id_kegiatan']);
         } else {

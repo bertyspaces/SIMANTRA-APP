@@ -49,41 +49,12 @@ class Data_FSAW extends BaseController
                 $maxValues[$kode] = ['kode' => $kode, 'bobot' => $nilai];
             }
         }
-
-
-        // menentukan LAPANGAN:RANKING
-        // foreach ($model->getNilaiMitra('lapangan', $id)->getResultArray() as $data) {
-        //     $namaMitra = $data['nama_mitra'];
-        //     $nilai_Teringgi = $maxValues[$data['kode']];
-        //     $nilai = ($data['bobot'] / $nilai_Teringgi['bobot']) * $data['bobot_kriteria'];
-
-        //     // Jika id_kegiatan_mitra belum ada dalam array $sumValues, inisialisasi dengan nilai
-        //     if (!isset($sumValues[$namaMitra])) {
-        //         $sumValues[$namaMitra] = $nilai;
-        //     } else {
-        //         // Jika sudah ada, akumulasikan nilai
-        //         $sumValues[$namaMitra] += $nilai;
-        //     }
-        // }
-        // uasort($sumValues, function ($a, $b) {
-        //     return $b - $a;
-        // });
-
         foreach ($model->getNilaiMitra('lapangan', $id)->getResult() as $row) {
-
-
-
-            // menentukan nilai tertinggii per kolom LAPANGAN:NILAI TERTINGGI
-            // $kode = $row->kode;
-            // $nilai = $row->bobot;
-            // // Jika kode belum ada dalam array $maxValues atau nilai lebih tinggi, update nilai tertinggi
-            // if (!isset($maxValues[$kode]) || $nilai > $maxValues[$kode]['bobot']) {
-            //     $maxValues[$kode] = ['kode' => $kode, 'bobot' => $nilai];
-            // }
 
             // menentukan ranking nilai mitra lapangan
             $namaMitra = $row->nama_mitra;
             $nilai_Teringgi = $maxValues[$row->kode];
+            // rumus fuzzy
             $nilai = ($row->bobot / $nilai_Teringgi['bobot']) * $row->bobot_kriteria;
 
             // Jika id_kegiatan_mitra belum ada dalam array $sumValues, inisialisasi dengan nilai
@@ -93,10 +64,10 @@ class Data_FSAW extends BaseController
                 // Jika sudah ada, akumulasikan nilai
                 $sumValues[$namaMitra] += $nilai;
             }
+            //mengurutkan data nilai dari yang terbesar ke terkecil
             uasort($sumValues, function ($a, $b) {
                 return $b - $a;
             });
-
             $rankingLapangan = $sumValues;
 
             //menampilkan data nilai mitra
@@ -104,9 +75,6 @@ class Data_FSAW extends BaseController
                 'kode' => $row->kode,
                 'keterangan' => $row->bobot,
             ];
-
-
-
 
             // lapangan : normalisasi
             $nilai_Teringgi = $maxValues[$row->kode];
@@ -123,10 +91,6 @@ class Data_FSAW extends BaseController
                 'total' => $sumValues[$row->nama_mitra]
             ];
         }
-        // usort($data, function ($a, $b) {
-        //     return $a['total'] - $b['total'];
-        // });
-
 
         // mitra pengolahan
         $resultMitraPengolahan = [];
@@ -182,7 +146,6 @@ class Data_FSAW extends BaseController
                 'total' => $total
             ];
         };
-        // dd($resultMitraLapangan);
 
         return view('/master/data_fsaw/detail', [
             'lapangan' => $resultMitraLapangan,

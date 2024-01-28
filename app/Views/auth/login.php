@@ -6,6 +6,16 @@
     <!-- /.login-logo -->
     <div class="card " style="color: aqua;">
         <center><img src="/img/logo2.png" width="70%" style="padding-top: 10%;"></center>
+        <br>
+        <center>
+            <h7 style="color: black;">SISTEM MANAJEMEN PENILAIAN KINERJA MITRA</h7>
+            <br>
+            <b><i>
+                    <h7 style="color: black;">BPS KOTA PEKALONGAN</h7>
+                </i>
+
+            </b>
+        </center>
         <div class="card-body login-card-body">
 
             <?= view('Myth\Auth\Views\_message_block') ?>

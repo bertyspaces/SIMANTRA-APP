@@ -96,7 +96,6 @@ class Data_Mitra extends BaseController
     public function upload()
     {
         $file = $this->request->getFile('excel_file');
-        // dd($file);
         if ($file->isValid() && $file->getExtension() == 'xlsx') {
             // Menggunakan library PhpSpreadsheet untuk membaca file Excel
             $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($file->getPathname());
@@ -104,7 +103,6 @@ class Data_Mitra extends BaseController
 
             // Menggunakan DataMitraModel untuk menyimpan data ke database
             $dataMitraModel = new DataMitraModel();
-            // dd($sheetData);
             foreach ($sheetData as $row) {
                 $data = [
                     'nik' => $row['A'], // Kolom A
@@ -115,7 +113,6 @@ class Data_Mitra extends BaseController
                     'pendidikan' => $row['F'], // Kolom F
                     'email' => $row['G'], // Kolom G
                 ];
-                // dd($data);
                 $dataMitraModel->insert($data);
             }
             return "File uploaded and data saved successfully!";

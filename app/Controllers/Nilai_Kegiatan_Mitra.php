@@ -22,40 +22,6 @@ class Nilai_Kegiatan_Mitra extends BaseController
     }
     public function detail($id)
     {
-        // $model = new KegiatanMitraModel();
-
-
-        // $lapangan = $model->getKegitanMitra('lapangan', $id);
-
-        // $pengolahan = $model->getKegitanMitra('pengolahan', $id);
-        // $model = new KegiatanModel();
-        // $nama_kegiatan = $model->find($id); 
-        // $model = new NilaiKegiatanMitraModel();
-        // $resultMitraLapangan = [];
-        // foreach ($model->getNilaiMitra('lapangan',$id)->getResult() as $row) {
-        //     $resultMitraLapangan[
-        //         $row->nama_mitra
-        //         ][] = [
-
-        //         'kriteria' => $row->kriteria,
-        //         'keterangan' => $row->keterangan,
-
-        //     ];
-        // }
-        // $resultMitraPengolahan = [];
-        // foreach ($model->getNilaiMitra('pengolahan',$id)->getResult() as $row) {
-        //     $resultMitraPengolahan[
-        //         $row->nama_mitra
-        //         ][] = [
-
-        //         'kriteria' => $row->kriteria,
-        //         'keterangan' => $row->keterangan,
-
-        //     ];
-        // }
-
-
-        // dd($resultArray);
         //memilih kegiatan
         $model = new KegiatanMitraModel();
 
@@ -66,6 +32,7 @@ class Nilai_Kegiatan_Mitra extends BaseController
         $model = new KegiatanModel();
         $nama_kegiatan = $model->find($id);
         $model = new NilaiKegiatanMitraModel();
+
         // data MITRA LAPANGAN per kegiatan 
         $resultMitraLapangan = [];
         $normalisasiMitraLapangan = [];
@@ -75,6 +42,7 @@ class Nilai_Kegiatan_Mitra extends BaseController
         $maxValues = [];
         $sumValues = [];
         $rankingLapangan = [];
+
         // menentukan nilai teertinggii per kolom LAPANGAN:NILAI TERTINGGI
         foreach ($model->getNilaiMitra('lapangan', $id)->getResultArray() as $data) {
             $kode = $data['kode'];
@@ -257,7 +225,7 @@ class Nilai_Kegiatan_Mitra extends BaseController
 
         $mpdf->WriteHTML($html);
 
-        $mpdf->Output('Laporan_Nilai_Mitra_Lapangan.pdf', 'I'); // I: Display in browser, D: Download
+        $mpdf->Output('Laporan_Nilai_Mitra_Lapangan.pdf', 'I');
 
         exit();
     }
@@ -329,7 +297,7 @@ class Nilai_Kegiatan_Mitra extends BaseController
 
         $mpdf->WriteHTML($html);
 
-        $mpdf->Output('Laporan_Nilai_Mitra_Pengolahan.pdf', 'I'); // I: Display in browser, D: Download
+        $mpdf->Output('Laporan_Nilai_Mitra_Pengolahan.pdf', 'I');
 
         exit();
     }
@@ -403,7 +371,7 @@ class Nilai_Kegiatan_Mitra extends BaseController
 
         $mpdf->WriteHTML($html);
 
-        $mpdf->Output('Laporan_Rangking_Kinerja_Mitra_Lapangan.pdf', 'I'); // I: Display in browser, D: Download
+        $mpdf->Output('Laporan_Rangking_Kinerja_Mitra_Lapangan.pdf', 'I');
 
         exit();
     }
@@ -477,7 +445,7 @@ class Nilai_Kegiatan_Mitra extends BaseController
 
         $mpdf->WriteHTML($html);
 
-        $mpdf->Output('Laporan_Ranking_Kinerja_Mitra_Pengolahan.pdf', 'I'); // I: Display in browser, D: Download
+        $mpdf->Output('Laporan_Ranking_Kinerja_Mitra_Pengolahan.pdf', 'I');
 
         exit();
     }

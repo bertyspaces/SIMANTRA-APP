@@ -55,8 +55,8 @@
                                     <th>No</th>
                                     <th>Nik</th>
                                     <th>Nama</th>
-
                                     <th>Aksi</th>
+                                    <th>Batas Waktu Edit</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -74,6 +74,7 @@
                                             <?php } ?>
 
                                             </td>
+                                            <td>Batas Waktu Edit</td>
 
                                     </tr>
                                 <?php  } ?>

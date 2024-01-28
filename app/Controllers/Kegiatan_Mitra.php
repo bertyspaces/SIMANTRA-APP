@@ -54,7 +54,6 @@ class Kegiatan_Mitra extends BaseController
                     'id_kegiatan' => $id,
                     'id_user' => $this->request->getVar('pj'),
                 ];
-                //    dd($data);
                 $model->insert($data);
                 session()->setFlashdata('pesan_tambah', 'Data Mitra berhasil ditambah');
                 return redirect()->to('kegiatan_mitra/detail/' . $id);
@@ -94,26 +93,19 @@ class Kegiatan_Mitra extends BaseController
             'kegiatan' => $nama_kegiatan
         ];
 
-        // Create mPDF object
         $mpdf = new \Mpdf\Mpdf();
 
-        // Set mPDF properties
         $mpdf->SetTitle('Laporan Data Mitra Kegiatan Lapangan');
         $mpdf->SetAuthor('Your Author Name');
 
-        // Add a page with A4 size
         $mpdf->AddPage('P', 'A4');
 
-        // Load HTML content from Blade view
+
         $html = view('/master/kegiatan_mitra/cetak_mitra_lapangan', $data);
 
-        // Write the HTML content to the page
         $mpdf->WriteHTML($html);
 
-        // Output the PDF
-        $mpdf->Output('laporan_data_mitra_kegiatan_lapangan.pdf', 'I'); // I: Display in browser, D: Download
-
-        exit();
+        $mpdf->Output('laporan_data_mitra_kegiatan_lapangan.pdf', 'I');
     }
 
 
@@ -128,25 +120,17 @@ class Kegiatan_Mitra extends BaseController
             'kegiatan' => $nama_kegiatan
         ];
 
-        // Create mPDF object
         $mpdf = new \Mpdf\Mpdf();
-
-        // Load HTML content from Blade view
         $html = view('/master/kegiatan_mitra/cetak_mitra_pengolahan', $data);
-
-        // Set mPDF properties
         $mpdf->SetTitle('Laporan Data Mitra Kegiatan Pengolahan');
         $mpdf->SetAuthor('Your Author Name');
 
-        // Add a page with A4 size
+
         $mpdf->AddPage('P', 'A4');
 
-        // Write the HTML content to the page
         $mpdf->WriteHTML($html);
 
-        // Output the PDF
-        $mpdf->Output('laporan_data_mitra_kegiatan_pengolahan.pdf', 'I'); // I: Display in browser, D: Download
-
+        $mpdf->Output('laporan_data_mitra_kegiatan_pengolahan.pdf', 'I');
         exit();
     }
 }

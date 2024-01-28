@@ -26,8 +26,6 @@ class User extends BaseController
         $modelPenilaian = new KegiatanMitraModel();
         $dinilai = count($modelPenilaian->where('status', 'dinilai')->where('id_user', user()->id)->get()->getResult());
         $belum = count($modelPenilaian->where('status', 'belum dinilai')->where('id_user', user()->id)->get()->getResult());
-        // dd($dinilai);
-        // dd(user()->id);
         return view('user/index', [
             'kegiatan_mitra' => $result,
             'dinilai' => $dinilai,
@@ -37,34 +35,6 @@ class User extends BaseController
     public function penilaian_mitra()
     {
 
-        // $model = new KegiatanMitraModel();
-
-        // $roles = user()->getRoles();
-        // foreach ($roles as $role) {
-        //     $role;
-        // }
-        // $idUser = user()->id;
-        // if ($role == 'pml') {
-        //     $mitra = $model->getKegitanMitraByUser('lapangan', $idUser);
-        //     $keterangan = "Mitra Lapangan";
-        // } else {
-        //     $mitra = $model->getKegitanMitraByUser('pengolahan', $idUser);
-        //     $keterangan = "Mitra Pengolahan";
-        // }
-        // dd(count($mitra));
         return view('user/penilaian_mitra/index');
     }
-
-    // public function changeGroup()
-    // {
-    //     $userId = $this->request->getVar('id');
-    //     $groupId = $this->request->getVar('group');
-
-    //     $groupModel = new GroupModel();
-    //     $groupModel->removeUserFromAllGroups(intval($userId));
-
-    //     $groupModel->addUserToGroup(intval($userId), intval($groupId));
-
-    //     return redirect()->to(base_url('admin/index'));
-    // }
 }
