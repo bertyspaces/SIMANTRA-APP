@@ -71,7 +71,7 @@ class Nilai_Kegiatan_Mitra extends BaseController
                 return $b - $a;
             });
             $rankingLapangan = $sumValues;
-
+            
             //menampilkan data nilai mitra
             $resultMitraLapangan[$row->nama_mitra][] = [
                 'kode' => $row->kode,
@@ -88,10 +88,13 @@ class Nilai_Kegiatan_Mitra extends BaseController
 
             // lapangan:hasil fuzzy
             $nilai = number_format(($row->bobot / $nilai_Teringgi['bobot']) * $row->bobot_kriteria, 2, '.', '');
+           
             $hasilMitraLapangan[$row->nama_mitra][] = [
                 'kode' => $row->kode,
                 'keterangan' => $nilai,
-                'total' => $sumValues[$row->nama_mitra]
+                'total' => $sumValues[$row->nama_mitra],
+                'penilai'=>$row->username
+                
             ];
         }
         //---------------------------------------------
@@ -146,7 +149,8 @@ class Nilai_Kegiatan_Mitra extends BaseController
             $hasilMitraPengolahan[$row->nama_mitra][] = [
                 'kode' => $row->kode,
                 'keterangan' => $nilai,
-                'total' => $total
+                'total' => $total,
+                'penilai'=>$row->username
             ];
         };
 

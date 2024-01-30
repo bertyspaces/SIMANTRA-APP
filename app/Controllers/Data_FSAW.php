@@ -74,6 +74,7 @@ class Data_FSAW extends BaseController
             $resultMitraLapangan[$row->nama_mitra][] = [
                 'kode' => $row->kode,
                 'keterangan' => $row->bobot,
+                'penilai'=>$row->username
             ];
 
             // lapangan : normalisasi
@@ -81,6 +82,7 @@ class Data_FSAW extends BaseController
             $normalisasiMitraLapangan[$row->nama_mitra][] = [
                 'kode' => $row->kode,
                 'keterangan' => number_format($row->bobot / $nilai_Teringgi['bobot'], 2, '.', ''),
+                'penilai'=>$row->username
             ];
 
             // lapangan:hasil fuzzy
@@ -88,7 +90,8 @@ class Data_FSAW extends BaseController
             $hasilMitraLapangan[$row->nama_mitra][] = [
                 'kode' => $row->kode,
                 'keterangan' => $nilai,
-                'total' => $sumValues[$row->nama_mitra]
+                'total' => $sumValues[$row->nama_mitra],
+                'penilai'=>$row->username
             ];
         }
 
@@ -130,12 +133,14 @@ class Data_FSAW extends BaseController
             $resultMitraPengolahan[$row->nama_mitra][] = [
                 'kode' => $row->kode,
                 'keterangan' => $row->bobot,
+                'penilai'=>$row->username
             ];
             // pengolahan : normalisasi
             $nilai_Teringgi = $maxValues[$row->kode];
             $normalisasiMitraPengolahan[$row->nama_mitra][] = [
                 'kode' => $row->kode,
                 'keterangan' => number_format($row->bobot / $nilai_Teringgi['bobot'], 2, '.', ''),
+                'penilai'=>$row->username
             ];
             // pengolahan:hasil fuzzy
             $nilai = number_format(($row->bobot / $nilai_Teringgi['bobot']) * $row->bobot_kriteria, 2, '.', '');
@@ -143,7 +148,8 @@ class Data_FSAW extends BaseController
             $hasilMitraPengolahan[$row->nama_mitra][] = [
                 'kode' => $row->kode,
                 'keterangan' => $nilai,
-                'total' => $total
+                'total' => $total,
+                'penilai'=>$row->username
             ];
         };
 

@@ -9,11 +9,11 @@ class KegiatanModel extends Model
     protected $table            = 'kegiatan';
     protected $primaryKey       = 'id_kegiatan';
     protected $useAutoIncrement = true;
-    protected $allowedFields    = ['nama_kegiatan', 'divisi', 'periode'];
+    protected $allowedFields    = ['nama_kegiatan', 'divisi', 'periode','status'];
 
     protected $useTimestamps = false;
     protected $createdField  = 'id_kegiatan';
-    protected $updatedField  = ['nama_kegiatan', 'divisi', 'periode'];
+    protected $updatedField  = ['nama_kegiatan', 'divisi', 'periode','status'];
 
     public function getAllKegiatan()
     {

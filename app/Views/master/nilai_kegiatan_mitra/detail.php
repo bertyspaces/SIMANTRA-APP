@@ -16,7 +16,7 @@
             </div>
         </div>
     </div>
-    < </section>
+     </section>
 
         <!-- Main content -->
         <section class="content">
@@ -85,9 +85,15 @@
                                                                                 <?php foreach ($value as $nilai => $n) { ?>
                                                                                     <td><?= $n['keterangan'] ?></td>
                                                                                     <?php $total += $n['keterangan'] ?>
+                                                                                    <?php $penilai=$n['penilai'] ?>
+                                                                                
                                                                                 <?php  } ?>
                                                                                 <td><?= $total ?></td>
-                                                                                <td>Nama Penilai</td>
+                                                                                <td><?= $penilai ?></td>
+                                                                                
+                                                                               
+                                                                                
+                                                                             
                                                                             <?php  } ?>
                                                                             </tr>
                                                                     </tbody>
@@ -126,7 +132,7 @@
                                                                             <th>Peringkat</th>
                                                                             <th>Nama Mitra</th>
                                                                             <th>Nilai</th>
-                                                                            <th>Penilai</th>
+                                                                           
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -142,7 +148,7 @@
                                                                                 <td><?= $i++ ?></td>
                                                                                 <td><?= $nama ?></td>
                                                                                 <td><?= $score ?></td>
-                                                                                <td>Nama Penilai</td>
+                                                                               
                                                                             <?php  } ?>
                                                                             </tr>
                                                                     </tbody>
@@ -205,10 +211,12 @@
                                                                                 <?php foreach ($value as $nilai => $n) { ?>
                                                                                     <td><?= $n['keterangan'] ?></td>
                                                                                     <?php $total += $n['keterangan'] ?>
+                                                                                    <?php $penilai=$n['penilai'] ?>
                                                                                 <?php  } ?>
 
                                                                                 <td><?= $total ?></td>
-                                                                                <td>Nama Penilai</td>
+                                                                                <td><?= $penilai ?></td>
+                                                                                
                                                                             <?php  } ?>
                                                                             </tr>
                                                                     </tbody>
@@ -248,7 +256,7 @@
                                                                             <th>Peringkat</th>
                                                                             <th>Nama Mitra</th>
                                                                             <th>Nilai</th>
-                                                                            <th>Penilai</th>
+                                                                          
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -265,7 +273,7 @@
                                                                                 <td><?= $i++ ?></td>
                                                                                 <td><?= $nama ?></td>
                                                                                 <td><?= $score ?></td>
-                                                                                <td>Nama Penilai</td>
+                                                                           
                                                                             <?php  } ?>
                                                                             </tr>
                                                                     </tbody>

@@ -58,6 +58,7 @@
                                     <th>Kegiatan</th>
                                     <th>Divisi</th>
                                     <th>Periode</th>
+                                    <th>status</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -70,10 +71,13 @@
                                         </td>
                                         <td><?= $k['divisi'] ?></td>
                                         <td> <?= $k['periode'] ?></td>
+                                        <td> <?= $k['status'] ?></td>
                                         <td>
 
                                             <a href="<?= base_url() ?>kegiatan/edit/<?= $k['id_kegiatan'] ?>" class="btn btn-warning">
                                                 <i class="fas fa-edit"></i> Edit</a>
+                                            <a href="<?= base_url() ?>kegiatan/edit/<?= $k['id_kegiatan'] ?>" class="btn btn-warning">
+                                                <i class="fas fa-edit"></i></a>
                                             <a href="<?= base_url() ?>kegiatan/delete/<?= $k['id_kegiatan'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus kegiatan ini?')"><i class="fas fa-trash"></i> Hapus</a>
                                         </td>
                                     </tr>
