@@ -55,8 +55,10 @@
                                     <th>No</th>
                                     <th>Nik</th>
                                     <th>Nama</th>
+                                    <?php if($kegiatan['status']=='proses'):?>
                                     <th>Aksi</th>
-                                    <th>Batas Waktu Edit</th>
+                                    <?php endif?>
+                                 
                                 </tr>
                             </thead>
                             <tbody>
@@ -66,15 +68,15 @@
                                         <td><?= $i++ ?></td>
                                         <td><?= $l['nik'] ?></td>
                                         <td><?= $l['nama_mitra'] ?></td>
-
-                                        <?php if ($l['status'] == 'belum dinilai') { ?>
+                                        <?php if($kegiatan['status']=='proses'):?>
+                                        <?php if ($l['status'] == 'belum dinilai' ) { ?>
                                             <td><a href="<?= base_url() ?>penilaian/mitra/<?= $l['id_kegiatan_mitra'] ?>/<?= $kegiatan['id_kegiatan'] ?>" class="btn btn-danger">Input Nilai</a>
                                             <?php } else { ?>
                                             <td><a href="<?= base_url() ?>penilaian/edit/<?= $l['id_kegiatan_mitra'] ?>/<?= $kegiatan['id_kegiatan'] ?>" class="btn btn-warning">Edit Nilai</a>
                                             <?php } ?>
-
+                                        <?php endif?>
                                             </td>
-                                            <td>Batas Waktu Edit</td>
+                                         
 
                                     </tr>
                                 <?php  } ?>

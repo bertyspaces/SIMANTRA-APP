@@ -74,6 +74,16 @@ class Kegiatan extends BaseController
             return redirect()->to('/kegiatan');
         }
     }
+    public function kunci ($id_kegiatan){
+
+        $kegiatan = new KegiatanModel();
+        $data=[
+            'status'=>'selesai'
+        ];
+        $kegiatan->update($id_kegiatan,$data);
+        session()->setFlashdata('pesan_selesai', 'Penilaian Kegiatan berhasil dikunci');
+        return redirect()->back();
+    }
     public function delete($id_kegiatan)
     {
         // Proses penghapusan data kegiatan berdasarkan ID

@@ -76,8 +76,13 @@
 
                                             <a href="<?= base_url() ?>kegiatan/edit/<?= $k['id_kegiatan'] ?>" class="btn btn-warning">
                                                 <i class="fas fa-edit"></i> Edit</a>
-                                            <a href="<?= base_url() ?>kegiatan/edit/<?= $k['id_kegiatan'] ?>" class="btn btn-warning">
-                                                <i class="fas fa-edit"></i></a>
+                                            <?php if ($k['status'] == 'proses') : ?>
+                                                <a href="<?= base_url() ?>kegiatan/kunci/<?= $k['id_kegiatan'] ?>" class="btn btn-success">
+                                                    <i class="fas fa-lock"></i> Kunci Penilaian </a>
+                                            <?php else:?>
+                                                <button  class="btn btn-secondary" disabled>
+                                                    <i class="fas fa-lock"></i> Kunci Penilaian </button>
+                                            <?php endif ?>
                                             <a href="<?= base_url() ?>kegiatan/delete/<?= $k['id_kegiatan'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus kegiatan ini?')"><i class="fas fa-trash"></i> Hapus</a>
                                         </td>
                                     </tr>
